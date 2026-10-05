@@ -1,0 +1,21 @@
+# 2026-10-04: targets now the real subdomains (atlas./weather./theme./translator./map.nomansskyhub.app).
+# Short/memorable paths through nomansskyhub.app, tunnelling to each
+# sister project's real Netlify address. Added 2026-08-18 per Tony's ask —
+# "easier to type and remember than the long netlify ones." Plain 301
+# redirects: Netlify serves these with zero extra setup on a drag-and-drop
+# deploy, no signup needed. NOTE: a plain redirect leaves no visit log
+# anywhere Tony can see — Netlify's own Analytics is a paid add-on (not
+# free/automatic), confirmed via live research 2026-08-18. If real click
+# tracking is wanted later, that's a separate follow-up (e.g. a free GA4
+# snippet or a Cloudflare Web Analytics tag added to each redirect target,
+# or a tiny Netlify Function counter once Hub is GitHub-connected).
+
+/atlas       https://atlas.nomansskyhub.app          301
+/weather     https://weather.nomansskyhub.app               301
+/theme       https://theme.nomansskyhub.app                 301
+/translator  https://translator.nomansskyhub.app    301
+/map         https://map.nomansskyhub.app                   301
+
+# Same-origin proxy for the Galactic Atlas API (it sends no CORS header, so the browser
+# blocks a direct fetch). 200 = rewrite, not redirect. Same trick as ATLAS. Added 2026-10-02.
+/nms-api/*  https://galacticatlas-api.nomanssky.com/api/:splat  200

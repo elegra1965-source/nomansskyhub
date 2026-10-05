@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>No Signal — No Man's Sky Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--c:#00e5ff;--o:#ff8c00;--r:#cc1a1a;--bg:#000a16;--border:rgba(0,229,255,0.18);}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;color:var(--c);font-family:'Orbitron',sans-serif;overflow:hidden}
+.wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;gap:14px;background:radial-gradient(ellipse at 50% 40%,rgba(0,229,255,0.05),transparent 60%),var(--bg)}
+
+.hdr-eye{font-size:9px;letter-spacing:6px;color:rgba(0,229,255,0.38);font-family:'Share Tech Mono',monospace;margin-bottom:6px}
+
+.hdr-title{font-size:clamp(24px,6vw,52px);font-weight:900;letter-spacing:8px;color:var(--c);text-shadow:0 0 30px rgba(0,229,255,0.55),0 0 80px rgba(0,229,255,0.18);white-space:nowrap;position:relative;display:inline-block}
+.hdr-sub-label{font-size:clamp(11px,2.2vw,16px);font-weight:500;letter-spacing:9px;opacity:.4;margin-top:2px}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%}
+.glitch::before{color:#ff003c;clip-path:polygon(0 22%,100% 22%,100% 44%,0 44%);opacity:0}
+.glitch::after{color:#00fff9;clip-path:polygon(0 58%,100% 58%,100% 78%,0 78%);opacity:0}
+@keyframes gburst{0%,100%{transform:translate(0,0)}15%{transform:translate(-3px,1px)}30%{transform:translate(3px,-2px)}45%{transform:translate(-2px,1px)}60%{transform:translate(2px,2px)}80%{transform:translate(-1px,-1px)}}
+.glitch.glitch-go{animation:gburst .22s steps(2) infinite!important}
+.glitch.glitch-go::before,.glitch.glitch-go::after{opacity:.9!important;animation-duration:.22s!important}
+.glitch.glitch-sm{font-size:clamp(14px,3.4vw,34px);letter-spacing:4px;white-space:nowrap}
+
+.hdr-status{font-size:10px;letter-spacing:4px;color:rgba(0,229,255,0.35);font-family:'Share Tech Mono',monospace;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:10px}
+.sigbar{display:inline-flex;gap:3px;align-items:flex-end;height:14px}
+.sigbar span{width:3px;background:var(--r);display:block}
+.sigbar span:nth-child(1){height:4px}
+.sigbar span:nth-child(2){height:7px}
+.sigbar span:nth-child(3){height:11px}
+.sigbar span:nth-child(4){height:14px}
+.sig-lost{font-size:9px;letter-spacing:3px;color:var(--r);font-family:'Share Tech Mono',monospace;animation:sigpulse 1.4s ease-in-out infinite}
+@keyframes sigpulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+.cta{font-size:11px;letter-spacing:3px;color:rgba(255,140,0,0.85);font-family:'Share Tech Mono',monospace;margin-top:10px}
+.path{font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(0,229,255,0.42);word-break:break-all;min-height:14px}
+
+.grid{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:480px;margin-top:2px}
+.node{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:1.5px;text-decoration:none;color:var(--c);background:rgba(0,229,255,0.05);border:1px solid var(--border);border-radius:6px;padding:9px 14px;transition:background .2s,border-color .2s}
+.node:hover{background:rgba(0,229,255,0.1);border-color:var(--c)}
+.btn{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:#000;background:var(--o);border:1px solid var(--o);border-radius:6px;padding:12px 26px;transition:opacity .2s;margin-top:6px}
+.btn:hover{opacity:.85}
+.foot{position:fixed;bottom:12px;left:0;right:0;text-align:center;font-size:9px;letter-spacing:3px;color:rgba(0,229,255,0.3);font-family:'Share Tech Mono',monospace}
+
+@media(max-width:640px){.hdr-title{white-space:normal;letter-spacing:4px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr-eye">&#9670; ATLAS NETWORK &#8212; COMMAND GATEWAY &#183; GALAXY: EUCLID &#9670;</div>
+
+  <div class="hdr-title"><span class="glitch" id="heroGlitch" data-text="ATLAS CORE UPLINK">ATLAS CORE UPLINK</span></div>
+  <div class="hdr-sub-label">NO MAN'S SKY HUB</div>
+
+  <div class="hdr-status">
+    ELEGRA1965 SYSTEMS &#8212; NODE UNREACHABLE
+    <span class="sigbar"><span></span><span></span><span></span><span></span></span>
+    <span class="sig-lost">NO SIGNAL</span>
+  </div>
+
+  <div class="cta">CLICK BELOW TO RE-ESTABLISH SIGNAL</div>
+  <p class="path" id="path"></p>
+
+  <div class="grid">
+    <a class="node" href="/map">/map &#8212; Galactic Map</a>
+    <a class="node" href="/weather">/weather &#8212; Atlas Weather</a>
+    <a class="node" href="/atlas">/atlas &#8212; ATLAS AI</a>
+    <a class="node" href="/theme">/theme &#8212; Theme Pack</a>
+    <a class="node" href="/translator">/translator &#8212; Alphabet</a>
+  </div>
+
+  <a class="btn" href="/">Return to Command</a>
+</div>
+<div class="foot">NO MAN'S SKY HUB &#8212; BUILT BY ELEGRA1965</div>
+<script>
+  // Show the broken path only when actually served over http(s) --
+  // opening this file directly (file://) would otherwise print the
+  // full local disk path, which looks broken during preview.
+  if (location.protocol === 'http:' || location.protocol === 'https:') {
+    document.getElementById('path').textContent = location.pathname || '/';
+  }
+
+  // Same hero-glitch rotation as the main site, minus the
+  // "SIGNAL ESTABLISHED" step (doesn't fit an error page).
+  (function(){
+    var el = document.getElementById('heroGlitch'); if (!el) return;
+    var STEADY = 'ATLAS CORE UPLINK';
+    function setT(t, sm){ el.textContent = t; el.setAttribute('data-text', t); el.classList.toggle('glitch-sm', !!sm); }
+    function go(on){ el.classList.toggle('glitch-go', on); }
+    function seq(){
+      go(true);
+      setTimeout(function(){ setT('SIXTEEN \u2225 SIXTEEN \u2225 SIXTEEN', true); }, 260);
+      setTimeout(function(){ go(false); }, 560);
+      setTimeout(function(){ go(true); }, 1500);
+      setTimeout(function(){ setT(STEADY, false); }, 1760);
+      setTimeout(function(){ go(false); }, 2060);
+    }
+    setInterval(seq, 12000);
+  })();
+</script>
+</body>
+</html>
