@@ -4,6 +4,8 @@
 
 The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic page that links every tool, dials portal addresses, and tracks the live expedition. No account, no ads, and it installs as an app.
 
+![No Man's Sky Hub: cinematic hero with the title in the NMS alphabet](screenshots/01-hero.jpg)
+
 ## What it does
 
 - **Anomaly intro and cinematic hero** with a live clock and a status bar showing the current expedition, read live from the official Galactic Atlas feed.
@@ -12,6 +14,10 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 - **Speak like the Atlas.** A built-in alien-alphabet translator.
 - **Galactic Alliances.** A guide to alliances from the Cosmos update: founding one, joining one, the three-alliance limit, alliance teleporters and how the rankings work.
 - **Short links.** `nomansskyhub.app/atlas`, `/weather`, `/theme`, `/translator` and `/map` jump to each tool.
+
+![Six nodes, one network: image cards for every tool](screenshots/02-nodes.jpg)
+
+![Galactic Alliances guide from the Cosmos update](screenshots/03-alliances.jpg)
 
 ## The family
 
