@@ -19,3 +19,6 @@
 # Same-origin proxy for the Galactic Atlas API (it sends no CORS header, so the browser
 # blocks a direct fetch). 200 = rewrite, not redirect. Same trick as ATLAS. Added 2026-10-02.
 /nms-api/*  https://galacticatlas-api.nomanssky.com/api/:splat  200
+
+# Voyager's Haven alliance leaderboard (havenmap.online, by u/IAmThe-Ekimo-1920). No CORS header, so proxied. Added 2026-10-09.
+/haven-api/alliances  https://havenmap.online/api/public/alliances?sort=score&limit=50  200

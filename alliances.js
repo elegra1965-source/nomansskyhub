@@ -16,6 +16,29 @@
   }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
+  /* Live top 5 from Voyager's Haven (havenmap.online, by u/IAmThe-Ekimo-1920), proxied via
+     /haven-api/alliances in _redirects. Stays hidden if the feed is unreachable. */
+  function fmt(n) { return typeof n === 'number' ? Math.round(n).toLocaleString('en-GB') : '—'; }
+  function tr(n) { return typeof n === 'number' && n ? '<span class="al-tr ' + (n > 0 ? 'up' : 'dn') + '">' + (n > 0 ? '▲' : '▼') + fmt(Math.abs(n)) + '</span>' : ''; }
+  function loadLive(box) {
+    if (!box || !window.fetch) return;
+    fetch('/haven-api/alliances', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+      var list = (j && j.alliances || []).filter(function (a) { return a && a.latest; })
+        .sort(function (a, b) { return (a.latest.activity_rank || 1e9) - (b.latest.activity_rank || 1e9); }).slice(0, 5);
+      if (!list.length) return;
+      var total = j.status && j.status.hg_total_alliances;
+      box.innerHTML = '<div class="al-live-h"><span class="al-dot"></span>LIVE TOP 5' + (total ? ' <span class="al-of">OF ' + fmt(total) + ' ALLIANCES</span>' : '') + '</div>' +
+        list.map(function (a) {
+          var L = a.latest, t = a.trend_24h || {};
+          return '<div class="al-row al-lrow"><span class="pos">' + (L.activity_rank || '?') + '</span>' +
+            '<span class="al-lname"><b>[' + esc(a.tag || '') + ']</b> ' + esc(a.name || '') + '</span>' +
+            '<span class="al-lstat">' + fmt(L.member_count) + ' members ' + tr(t.member_count) + '<br>' + fmt(L.station_count) + ' stations ' + tr(t.station_count) + '</span></div>';
+        }).join('') +
+        '<div class="al-live-src">Leaderboard courtesy of <a href="https://havenmap.online" target="_blank" rel="noopener">Voyager’s Haven</a> by <a href="https://www.reddit.com/user/IAmThe-Ekimo-1920/" target="_blank" rel="noopener">u/IAmThe-Ekimo-1920</a> · <a href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener">Top 10 on ATLAS</a></div>';
+      box.hidden = false;
+    }).catch(function () {});
+  }
+
   function run() {
     if (document.getElementById('alliances')) return;
     var s = document.createElement('section');
@@ -25,6 +48,7 @@
       '<div class="al-head"><div class="al-kicker">◆ Cosmos update · Galactic Alliances</div>' +
       '<h2 class="al-title">Band together across the stars</h2>' +
       '<p class="al-sub">Alliances let Travellers claim space stations under one banner, share fast travel between their systems and climb the galactic rankings together.</p></div>' +
+      '<div class="al-live" id="al-live" hidden></div>' +
       '<button type="button" class="al-more" aria-expanded="false" aria-controls="al-body"><span class="al-more-t">How alliances work</span><span class="al-chev" aria-hidden="true">▾</span></button>' +
       '<div class="al-body" id="al-body" hidden>' +
       '<div class="al-grid">' +
@@ -49,7 +73,7 @@
           '<a class="al-cta" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener">◈ Open ATLAS</a></div>' +
       '</div>' +
       '</div>' +
-      '<div class="al-src">Source: <a href="https://www.nomanssky.com/cosmos-update/" target="_blank" rel="noopener">Hello Games — Cosmos update</a> · Live top 10 on the <a href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener">ATLAS alliance ticker</a>, leaderboard courtesy of <a href="https://havenmap.online" target="_blank" rel="noopener">Voyager\'s Haven</a> by <a href="https://www.reddit.com/user/IAmThe-Ekimo-1920/" target="_blank" rel="noopener">u/IAmThe-Ekimo-1920</a>.</div>';
+      '<div class="al-src">Source: <a href="https://www.nomanssky.com/cosmos-update/" target="_blank" rel="noopener">Hello Games — Cosmos update</a></div>';
     var btn = s.querySelector('.al-more'), body = s.querySelector('.al-body');
     btn.addEventListener('click', function () {
       var open = btn.getAttribute('aria-expanded') !== 'true';
@@ -57,6 +81,7 @@
       body.hidden = !open;
       btn.querySelector('.al-more-t').textContent = open ? 'Hide details' : 'How alliances work';
     });
+    loadLive(s.querySelector('#al-live'));
     var footer = document.querySelector('footer');
     if (footer) footer.parentNode.insertBefore(s, footer); else document.body.appendChild(s);
   }

@@ -12,7 +12,7 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 - **Six nodes, one network.** Image cards for every tool in the family (see below).
 - **Portal dialer.** Enter or tap a 12-glyph portal address, pick any of the 256 galaxies, and jump straight to that system on the Galactic Map.
 - **Speak like the Atlas.** A built-in alien-alphabet translator.
-- **Galactic Alliances.** A short guide to alliances from the Cosmos update, with the details (founding one, joining one, the three-alliance limit, alliance teleporters and how the rankings work) behind a **How alliances work** button. The live top 10 runs on the ATLAS alliance ticker.
+- **Galactic Alliances.** A short guide to alliances from the Cosmos update, with the details (founding one, joining one, the three-alliance limit, alliance teleporters and how the rankings work) behind a **How alliances work** button. A **live top 5** leaderboard (in-game rank, members, stations and 24-hour changes) sits above it, courtesy of [Voyager's Haven](https://havenmap.online) by [u/IAmThe-Ekimo-1920](https://www.reddit.com/user/IAmThe-Ekimo-1920/); the full top 10 runs on the ATLAS alliance ticker.
 - **Short links.** `nomansskyhub.app/atlas`, `/weather`, `/theme`, `/translator` and `/map` jump to each tool.
 
 ![Six nodes, one network: image cards for every tool](screenshots/02-nodes.jpg)
@@ -36,9 +36,9 @@ Plain HTML, CSS and JavaScript with no build step and no framework. Deployed on 
 | File | What it is |
 |---|---|
 | `index.html` | The whole page: layout, styles and logic |
-| `alliances.css`, `alliances.js` | The Galactic Alliances section |
+| `alliances.css`, `alliances.js` | The Galactic Alliances section, including the live top 5 |
+| `_redirects` | Short links, plus same-origin proxies for the Galactic Atlas API (`/nms-api/`) and the Voyager's Haven alliance leaderboard (`/haven-api/alliances`) |
 | `sw.js` | Service worker for install and offline use |
-| `_redirects` | Short links, plus a same-origin proxy for the Galactic Atlas API (`/nms-api/*`) |
 | `manifest.webmanifest` | App install details |
 | `assets/` | Backgrounds, intro video, glyph masks, icons and the NMS alphabet font |
 

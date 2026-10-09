@@ -47,3 +47,18 @@
 .al-src a{color:var(--cyan);text-decoration:none}
 @media (max-width:760px){.al-rank{grid-template-columns:1fr}.al-sec{padding:56px 16px 48px}}
 @media (prefers-reduced-motion:reduce){.al-card{transition:none}.al-card:hover{transform:none}}
+
+/* live top 5 (Voyager's Haven) */
+.al-live{max-width:720px;margin:0 auto 18px;padding:16px 16px 12px;border-radius:16px;border:1px solid rgba(240,165,0,.25);background:linear-gradient(180deg,rgba(15,22,32,.92),rgba(8,13,20,.92))}
+.al-live-h{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-bottom:10px}
+.al-of{color:var(--text-dim);font-weight:600}
+.al-dot{width:8px;height:8px;border-radius:50%;background:#00ff88;box-shadow:0 0 8px #00ff88;animation:alPulse 1.6s ease-in-out infinite}
+@keyframes alPulse{50%{opacity:.35}}
+.al-lrow{margin-bottom:6px;align-items:center}
+.al-lname{flex:1;min-width:0;color:var(--text);line-height:1.3;overflow-wrap:anywhere}
+.al-lname b{color:var(--cyan);font-weight:600}
+.al-lstat{text-align:right;font-size:12px;line-height:1.35;white-space:nowrap}
+.al-tr.up{color:#00ff88}.al-tr.dn{color:#ff8c00}
+.al-live-src{margin-top:8px;font-family:var(--f-mono);font-size:11px;color:var(--text-dim);text-align:center}
+.al-live-src a{color:var(--cyan);text-decoration:none}
+@media (prefers-reduced-motion:reduce){.al-dot{animation:none}}
