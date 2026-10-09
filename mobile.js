@@ -93,8 +93,18 @@
     var tr = $('#translator'), inp = $('#trIn'); if (!tr || !inp) return;
     var hint = document.createElement('span'); hint.className = 'tr-hint'; hint.textContent = '▸ TAP TO SEE IT IN NMS TEXT';
     inp.parentNode.insertBefore(hint, inp.nextSibling);
+    var start = inp.value;
     var open = function () { tr.classList.add('tr-on'); };
     inp.addEventListener('focus', open); inp.addEventListener('input', open);
+    // tapped in by accident? when you leave the box without changing the text (or after clearing it),
+    // it folds away again. Taps on Copy/Download inside the panel don't count as leaving.
+    inp.addEventListener('blur', function () {
+      setTimeout(function () {
+        if (tr.contains(document.activeElement)) return;
+        var v = inp.value.trim();
+        if (!v || v === start) tr.classList.remove('tr-on');
+      }, 250);
+    });
   }
 
   function run() { jumpbar(); nodeDots(); dialerFolds(); translatorFold(); toTop(); }
