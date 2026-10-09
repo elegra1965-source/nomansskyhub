@@ -87,6 +87,7 @@
     });
     loadLive(s.querySelector('#al-live'));
     setInterval(function () { loadLive(s.querySelector('#al-live')); }, 15 * 60000); // re-check every 15 min while the page is open
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') loadLive(s.querySelector('#al-live')); });
     var footer = document.querySelector('footer');
     if (footer) footer.parentNode.insertBefore(s, footer); else document.body.appendChild(s);
   }

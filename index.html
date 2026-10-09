@@ -664,6 +664,7 @@ HUB</h1>
       });
     }
     update();setInterval(update,5*60000);
+    document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')update();}); // fresh numbers when you come back to the tab
   })();
 
   /* ── NODE STATUS: real reachability check of each tool (no-cors fetch, 8s timeout, rechecked every 5 min) ── */
@@ -695,6 +696,7 @@ HUB</h1>
       });
     }
     check();setInterval(check,5*60000);
+    document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')check();});
   })();
 
   /* ── TRANSLATOR NODE CARD: static alphabet pattern ── */
