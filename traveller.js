@@ -37,7 +37,8 @@
       e.preventDefault();
       var name = n.value.replace(/[^\p{L}\p{N} ._'-]/gu, '').trim().slice(0, 24);
       if (!name) { st.textContent = 'Add a name first, Traveller.'; n.focus(); return; }
-      write({ n: name, p: PLAT.indexOf(p.value) >= 0 ? p.value : '', g: Math.max(0, Math.min(255, parseInt(g.value, 10) || 0)) });
+      var gi = Math.max(0, Math.min(255, parseInt(g.value, 10) || 0)), go = g.options[g.selectedIndex];
+      write({ n: name, p: PLAT.indexOf(p.value) >= 0 ? p.value : '', g: gi, gn: go ? go.textContent.replace(/^\d+\s*·\s*/, '') : '' });
       show();
     });
     sec.querySelector('.tid-clear').addEventListener('click', function () { write(null); n.value = ''; p.value = ''; g.value = '0'; st.textContent = 'Forgotten. Nothing about you is stored now.'; });
