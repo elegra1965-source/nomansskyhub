@@ -18,3 +18,15 @@
 .tid-status{margin-top:14px;font-family:var(--f-mono);font-size:.8rem;letter-spacing:2px;color:var(--green,#00ff88);min-height:1em}
 .tid-status b{color:var(--white)}
 @media (max-width:760px){.tid{padding:20px 16px 44px}.tid-card{padding:24px 18px}.tid-form{grid-template-columns:1fr}}
+
+/* saved: fold to a one-line summary, EDIT reopens the form */
+.tid-sum{display:none}
+.tid-card.tid-done .tid-sum{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-top:12px;padding:12px 14px;border-radius:8px;cursor:pointer;
+  border:1px solid rgba(0,229,255,.3);background:rgba(0,229,255,.04);color:var(--text);font-family:var(--f-mono);font-size:.8rem;letter-spacing:2px;text-align:left}
+.tid-sum b{color:var(--white)}
+.tid-sum-e{flex:none;color:var(--cyan);font-size:.7rem}
+.tid-sum .chev{display:inline-block;transition:transform .25s}
+.tid-card.tid-edit .tid-sum .chev{transform:rotate(180deg)}
+.tid-card.tid-done:not(.tid-edit) .tid-h,.tid-card.tid-done:not(.tid-edit) .tid-sub,.tid-card.tid-done:not(.tid-edit) .tid-form,.tid-card.tid-done .tid-status{display:none}
+.tid-card.tid-edit .tid-form{margin-top:16px}
+.tid-card.tid-done{padding-top:24px;padding-bottom:22px}

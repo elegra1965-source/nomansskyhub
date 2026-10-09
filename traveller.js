@@ -22,6 +22,7 @@
       '<div class="tid-card"><span class="tid-c a"></span><span class="tid-c b"></span>' +
       '<div class="kicker">TRAVELLER ID</div><h2 class="h2 tid-h">Tell the network who you are</h2>' +
       '<p class="tid-sub">Set it once. ATLAS greets you by name, the Galactic Map opens in your home galaxy and your Weather planet card carries your name. Kept on this device only.</p>' +
+      '<button type="button" class="tid-sum" aria-expanded="false"><span class="tid-sum-t"></span><span class="tid-sum-e">EDIT <span class="chev">▾</span></span></button>' +
       '<form class="tid-form" autocomplete="off">' +
       '<label><span>NAME</span><input id="tidName" maxlength="24" placeholder="Your in-game name"></label>' +
       '<label><span>PLATFORM</span><select id="tidPlat"><option value="">Choose…</option>' + PLAT.map(function (p) { return '<option>' + p + '</option>'; }).join('') + '</select></label>' +
@@ -31,7 +32,15 @@
     foot.parentNode.insertBefore(sec, foot);
     var n = sec.querySelector('#tidName'), p = sec.querySelector('#tidPlat'), g = sec.querySelector('#tidGal'), st = sec.querySelector('.tid-status');
     if (t.n) n.value = t.n; if (t.p) p.value = t.p; g.value = String(t.g >= 0 ? t.g : 0);
-    function show() { var o = read(); st.innerHTML = o.n ? '✓ WELCOME, TRAVELLER <b>' + esc(o.n.toUpperCase()) + '</b>' + (o.p ? ' · ' + esc(o.p.toUpperCase()) : '') : ''; }
+    var card = sec.querySelector('.tid-card'), sum = sec.querySelector('.tid-sum');
+    // once saved the card folds to one line; EDIT opens the form again
+    function show() {
+      var o = read();
+      st.innerHTML = o.n ? '✓ WELCOME, TRAVELLER <b>' + esc(o.n.toUpperCase()) + '</b>' + (o.p ? ' · ' + esc(o.p.toUpperCase()) : '') : '';
+      sec.querySelector('.tid-sum-t').innerHTML = o.n ? '◈ <b>' + esc(o.n.toUpperCase()) + '</b>' + [o.p, o.gn].filter(Boolean).map(function (x) { return ' · ' + esc(x.toUpperCase()); }).join('') : '';
+      card.classList.toggle('tid-done', !!o.n); card.classList.remove('tid-edit'); sum.setAttribute('aria-expanded', 'false');
+    }
+    sum.addEventListener('click', function () { var op = card.classList.toggle('tid-edit'); sum.setAttribute('aria-expanded', op ? 'true' : 'false'); if (op) n.focus(); });
     show();
     sec.querySelector('form').addEventListener('submit', function (e) {
       e.preventDefault();
@@ -41,7 +50,7 @@
       write({ n: name, p: PLAT.indexOf(p.value) >= 0 ? p.value : '', g: gi, gn: go ? go.textContent.replace(/^\d+\s*·\s*/, '') : '' });
       show();
     });
-    sec.querySelector('.tid-clear').addEventListener('click', function () { write(null); n.value = ''; p.value = ''; g.value = '0'; st.textContent = 'Forgotten. Nothing about you is stored now.'; });
+    sec.querySelector('.tid-clear').addEventListener('click', function () { write(null); n.value = ''; p.value = ''; g.value = '0'; card.classList.remove('tid-done', 'tid-edit'); st.textContent = 'Forgotten. Nothing about you is stored now.'; });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
