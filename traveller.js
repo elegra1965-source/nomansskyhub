@@ -37,7 +37,8 @@
     function show() {
       var o = read();
       st.innerHTML = o.n ? '✓ WELCOME, TRAVELLER <b>' + esc(o.n.toUpperCase()) + '</b>' + (o.p ? ' · ' + esc(o.p.toUpperCase()) : '') : '';
-      sec.querySelector('.tid-sum-t').innerHTML = o.n ? '◈ <b>' + esc(o.n.toUpperCase()) + '</b>' + [o.p, o.gn].filter(Boolean).map(function (x) { return ' · ' + esc(x.toUpperCase()); }).join('') : '';
+      // line 1: name · platform; line 2: home galaxy, centred under them
+      sec.querySelector('.tid-sum-t').innerHTML = o.n ? '<span class="tid-l1">◈ <b>' + esc(o.n.toUpperCase()) + '</b>' + (o.p ? ' · ' + esc(o.p.toUpperCase()) : '') + '</span>' + (o.gn ? '<span class="tid-l2">' + esc(o.gn.toUpperCase()) + '</span>' : '') : '';
       card.classList.toggle('tid-done', !!o.n); card.classList.remove('tid-edit'); sum.setAttribute('aria-expanded', 'false');
     }
     sum.addEventListener('click', function () { var op = card.classList.toggle('tid-edit'); sum.setAttribute('aria-expanded', op ? 'true' : 'false'); if (op) n.focus(); });
