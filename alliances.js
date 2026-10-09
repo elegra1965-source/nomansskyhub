@@ -25,6 +25,8 @@
       '<div class="al-head"><div class="al-kicker">◆ Cosmos update · Galactic Alliances</div>' +
       '<h2 class="al-title">Band together across the stars</h2>' +
       '<p class="al-sub">Alliances let Travellers claim space stations under one banner, share fast travel between their systems and climb the galactic rankings together.</p></div>' +
+      '<button type="button" class="al-more" aria-expanded="false" aria-controls="al-body"><span class="al-more-t">How alliances work</span><span class="al-chev" aria-hidden="true">▾</span></button>' +
+      '<div class="al-body" id="al-body" hidden>' +
       '<div class="al-grid">' +
         card('01', 'found', 'Found an alliance', 'Only a <b>space station director</b> can found one, from the <b>Station Core</b>. Choose a name, a <b>4-character tag</b>, an emblem and a banner colour.') +
         card('02', 'join', 'Join one', 'No station needed. Visit <b>any space station an alliance owns</b> and join from there. Its banner flies wherever it holds territory.') +
@@ -46,7 +48,15 @@
           (MY_ALLIANCE && MY_ALLIANCE.tag ? '<span class="al-mine-tag">[' + esc(MY_ALLIANCE.tag) + ']</span><br>' : '') +
           '<a class="al-cta" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener">◈ Open ATLAS</a></div>' +
       '</div>' +
+      '</div>' +
       '<div class="al-src">Source: <a href="https://www.nomanssky.com/cosmos-update/" target="_blank" rel="noopener">Hello Games — Cosmos update</a> · Rankings are shown in game only.</div>';
+    var btn = s.querySelector('.al-more'), body = s.querySelector('.al-body');
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      body.hidden = !open;
+      btn.querySelector('.al-more-t').textContent = open ? 'Hide details' : 'How alliances work';
+    });
     var footer = document.querySelector('footer');
     if (footer) footer.parentNode.insertBefore(s, footer); else document.body.appendChild(s);
   }
