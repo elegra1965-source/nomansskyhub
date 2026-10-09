@@ -49,7 +49,7 @@
           '<a class="al-cta" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener">◈ Open ATLAS</a></div>' +
       '</div>' +
       '</div>' +
-      '<div class="al-src">Source: <a href="https://www.nomanssky.com/cosmos-update/" target="_blank" rel="noopener">Hello Games — Cosmos update</a> · Rankings are shown in game only.</div>';
+      '<div class="al-src">Source: <a href="https://www.nomanssky.com/cosmos-update/" target="_blank" rel="noopener">Hello Games — Cosmos update</a> · Live top 10 on the <a href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener">ATLAS alliance ticker</a>, leaderboard courtesy of <a href="https://havenmap.online" target="_blank" rel="noopener">Voyager\'s Haven</a> by <a href="https://www.reddit.com/user/IAmThe-Ekimo-1920/" target="_blank" rel="noopener">u/IAmThe-Ekimo-1920</a>.</div>';
     var btn = s.querySelector('.al-more'), body = s.querySelector('.al-body');
     btn.addEventListener('click', function () {
       var open = btn.getAttribute('aria-expanded') !== 'true';
