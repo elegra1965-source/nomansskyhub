@@ -23,7 +23,11 @@
   function loadLive(box) {
     if (!box || !window.fetch) return;
     fetch('/haven-api/alliances', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
-      var list = (j && j.alliances || []).filter(function (a) { return a && a.latest; })
+      // only alliances from Haven's latest refresh ("missing" ones keep an old rank and showed as duplicate #2s)
+      var t = function (a) { return Date.parse(String(a.latest.observed_at || '').replace(' ', 'T') + 'Z') || 0; };
+      var live = (j && j.alliances || []).filter(function (a) { return a && a.latest && a.status !== 'missing'; });
+      var newest = live.reduce(function (m, a) { return Math.max(m, t(a)); }, 0);
+      var list = live.filter(function (a) { return newest - t(a) < 2 * 86400e3; })
         .sort(function (a, b) { return (a.latest.activity_rank || 1e9) - (b.latest.activity_rank || 1e9); }).slice(0, 5);
       if (!list.length) return;
       var total = j.status && j.status.hg_total_alliances;
