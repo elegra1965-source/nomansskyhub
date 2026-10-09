@@ -1,0 +1,56 @@
+/* No Man's Sky Hub — phone layout (2026-10-09, from REVIEW-2026-10-09.md).
+   Desktop is untouched: everything here is inside the 760px breakpoint, and the extra
+   elements mobile.js adds (jump bar, dots, toggles, back-to-top) are hidden above it. */
+.jumpbar,.node-dots,.dial-how,.saved-toggle,.to-top{display:none}
+
+@media (max-width:760px){
+  /* 1. sticky jump bar */
+  .jumpbar{display:flex;position:sticky;top:0;z-index:60;gap:6px;padding:8px 10px;
+    background:rgba(4,9,16,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(0,229,255,.18);overflow-x:auto;scrollbar-width:none}
+  .jumpbar::-webkit-scrollbar{display:none}
+  .jumpbar a{flex:1 0 auto;text-align:center;padding:9px 10px;border-radius:8px;border:1px solid rgba(0,229,255,.25);
+    font-family:var(--f-mono);font-size:.64rem;letter-spacing:2px;color:var(--cyan);text-decoration:none;white-space:nowrap;
+    transition:background .2s,border-color .2s,color .2s}
+  .jumpbar a.on{background:rgba(0,229,255,.14);border-color:var(--cyan);color:var(--white)}
+  #nodes,#dialer,#translator,#alliances{scroll-margin-top:58px}
+
+  /* 2. six nodes: one swipeable row instead of six stacked cards */
+  .nodes{padding:56px 16px 40px}
+  .nodes-head{margin-bottom:20px}
+  .grid-nodes{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;margin:0 -16px;padding:4px 16px 8px;scroll-padding:0 16px}
+  .grid-nodes::-webkit-scrollbar{display:none}
+  .grid-nodes>.card,.grid-nodes>.card.wide,.grid-nodes>.card.tall,.grid-nodes>.card.full{flex:0 0 84%;height:360px;scroll-snap-align:center}
+  .node-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:14px}
+  .node-dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:rgba(0,229,255,.3);cursor:pointer;transition:width .25s,background .25s}
+  .node-dots button.on{width:22px;background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.6)}
+  .node-swipe{display:block;text-align:center;margin-top:8px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:3px;color:var(--text-dim)}
+
+  /* 3. dialer: ring, address and buttons stay; the explainer and saved list fold away */
+  .dialer{padding:44px 16px}
+  .dial-how,.saved-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:6px;padding:11px 14px;
+    border-radius:8px;cursor:pointer;font-family:var(--f-mono);font-size:.66rem;letter-spacing:2px;text-align:left}
+  .dial-how{border:1px solid rgba(0,229,255,.3);background:rgba(0,229,255,.04);color:var(--cyan)}
+  .saved-toggle{border:0;background:none;color:var(--gold);padding:0}
+  .dial-how .chev,.saved-toggle .chev{transition:transform .25s}
+  .dialer.how-open .dial-how .chev,.saved.open .saved-toggle .chev{transform:rotate(180deg)}
+  .dialer:not(.how-open) .steps,.dialer:not(.how-open) .hex-note,.dialer:not(.how-open) .galaxy-pick small{display:none}
+  .saved:not(.open){padding:14px 16px}
+  .saved:not(.open)>:not(.saved-toggle){display:none}
+  .saved.open .saved-toggle{margin-bottom:12px}
+
+  /* 4. hero: one main button; replay/install become small links */
+  .hero-ctas{gap:4px 14px}
+  .hero-ctas .btn-primary{flex:1 1 100%;max-width:320px}
+  .hero-ctas .btn-replay{background:none!important;border:0!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none!important;
+    padding:8px 4px!important;font-size:.62rem!important;color:var(--text-dim)!important;text-decoration:underline;text-underline-offset:4px}
+
+  /* 5. back to top */
+  .to-top{display:flex;align-items:center;justify-content:center;position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));z-index:70;
+    width:46px;height:46px;border-radius:50%;border:1px solid rgba(0,229,255,.5);background:rgba(4,9,16,.88);color:var(--cyan);
+    font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 0 16px rgba(0,229,255,.25)}
+  .to-top.show{opacity:1;pointer-events:auto;transform:none}
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.node-dots button,.to-top,.jumpbar a{transition:none}}

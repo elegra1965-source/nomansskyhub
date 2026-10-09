@@ -310,6 +310,7 @@ footer p{margin:0;max-width:70ch;font-size:.88rem;color:var(--text-dim)}
 }
 </style>
 <link rel="stylesheet" href="alliances.css">
+<link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 
@@ -372,6 +373,11 @@ HUB</h1>
     <span class="exp-meta" id="expMeta"></span>
   </div>
 </section>
+
+<!-- ═══ PHONE JUMP BAR (sticky; hidden on desktop — mobile.css/mobile.js) ═══ -->
+<nav class="jumpbar" id="jumpbar" aria-label="Jump to a section">
+  <a href="#nodes">TOOLS</a><a href="#dialer">DIALER</a><a href="#translator">TRANSLATE</a><a href="#alliances">ALLIANCES</a>
+</nav>
 
 <!-- ═══ NODES ═══ -->
 <section class="nodes" id="nodes">
@@ -940,5 +946,6 @@ HUB</h1>
 })();
 </script>
 <script src="alliances.js"></script>
+<script src="mobile.js"></script>
 </body>
 </html>
