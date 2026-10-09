@@ -86,6 +86,7 @@
       btn.querySelector('.al-more-t').textContent = open ? 'Hide details' : 'How alliances work';
     });
     loadLive(s.querySelector('#al-live'));
+    setInterval(function () { loadLive(s.querySelector('#al-live')); }, 15 * 60000); // re-check every 15 min while the page is open
     var footer = document.querySelector('footer');
     if (footer) footer.parentNode.insertBefore(s, footer); else document.body.appendChild(s);
   }
