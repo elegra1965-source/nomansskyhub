@@ -89,6 +89,14 @@
     }, { passive: true });
   }
 
-  function run() { jumpbar(); nodeDots(); dialerFolds(); toTop(); }
+  function translatorFold() {
+    var tr = $('#translator'), inp = $('#trIn'); if (!tr || !inp) return;
+    var hint = document.createElement('span'); hint.className = 'tr-hint'; hint.textContent = '▸ TAP TO SEE IT IN NMS TEXT';
+    inp.parentNode.insertBefore(hint, inp.nextSibling);
+    var open = function () { tr.classList.add('tr-on'); };
+    inp.addEventListener('focus', open); inp.addEventListener('input', open);
+  }
+
+  function run() { jumpbar(); nodeDots(); dialerFolds(); translatorFold(); toTop(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();

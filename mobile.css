@@ -1,7 +1,7 @@
 /* No Man's Sky Hub — phone layout (2026-10-09, from REVIEW-2026-10-09.md).
    Desktop is untouched: everything here is inside the 760px breakpoint, and the extra
    elements mobile.js adds (jump bar, dots, toggles, back-to-top) are hidden above it. */
-.jumpbar,.node-dots,.dial-how,.saved-toggle,.to-top{display:none}
+.jumpbar,.node-dots,.dial-how,.saved-toggle,.to-top,.tr-hint{display:none}
 
 @media (max-width:760px){
   /* 1. sticky jump bar */
@@ -45,6 +45,19 @@
   .hero-ctas .btn-primary{flex:1 1 100%;max-width:320px}
   .hero-ctas .btn-replay{background:none!important;border:0!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none!important;
     padding:8px 4px!important;font-size:.62rem!important;color:var(--text-dim)!important;text-decoration:underline;text-underline-offset:4px}
+
+  /* hero sized to its content, so the expedition card rises into the gap between the brackets */
+  .hero{height:auto;max-height:none}
+  .hero-centre{position:relative;inset:auto;padding:118px 22px 96px}
+  .exp{margin-top:-74px}
+
+  /* galaxy picker as wide as the HOW IT WORKS bar */
+  .galaxy-pick select{max-width:none;width:100%}
+
+  /* translator: input first; the NMS text panel opens when you tap in or type */
+  .tr:not(.tr-on) .tr-out{display:none}
+  .tr-hint{display:block;margin-top:2px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:2px;color:var(--cyan)}
+  .tr.tr-on .tr-hint{display:none}
 
   /* 5. back to top */
   .to-top{display:flex;align-items:center;justify-content:center;position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));z-index:70;
