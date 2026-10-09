@@ -23,8 +23,10 @@
   .grid-nodes::-webkit-scrollbar{display:none}
   .grid-nodes>.card,.grid-nodes>.card.wide,.grid-nodes>.card.tall,.grid-nodes>.card.full{flex:0 0 84%;height:360px;scroll-snap-align:center}
   .node-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:14px}
-  .node-dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:rgba(0,229,255,.3);cursor:pointer;transition:width .25s,background .25s}
-  .node-dots button.on{width:22px;background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.6)}
+  .node-dots{gap:0!important}
+  .node-dots button{width:auto;height:auto;padding:9px 5px;border:0;background:none;cursor:pointer} /* ~26px tap area around an 8px dot */
+  .node-dots button::before{content:"";display:block;width:8px;height:8px;border-radius:4px;background:rgba(0,229,255,.3);transition:width .25s,background .25s}
+  .node-dots button.on::before{width:22px;background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.6)}
   .node-swipe{display:block;text-align:center;margin-top:8px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:3px;color:var(--text-dim)}
 
   /* 3. dialer: ring, address and buttons stay; the explainer and saved list fold away */
@@ -32,7 +34,7 @@
   .dial-how,.saved-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:6px;padding:11px 14px;
     border-radius:8px;cursor:pointer;font-family:var(--f-mono);font-size:.66rem;letter-spacing:2px;text-align:left}
   .dial-how{border:1px solid rgba(0,229,255,.3);background:rgba(0,229,255,.04);color:var(--cyan)}
-  .saved-toggle{border:0;background:none;color:var(--gold);padding:0}
+  .saved-toggle{border:0;background:none;color:var(--gold);padding:12px 0;margin:-12px 0}
   .dial-how .chev,.saved-toggle .chev{transition:transform .25s}
   .dialer.how-open .dial-how .chev,.saved.open .saved-toggle .chev{transform:rotate(180deg)}
   .dialer:not(.how-open) .steps,.dialer:not(.how-open) .hex-note,.dialer:not(.how-open) .galaxy-pick small{display:none}
@@ -66,4 +68,4 @@
     -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 0 16px rgba(0,229,255,.25)}
   .to-top.show{opacity:1;pointer-events:auto;transform:none}
 }
-@media (max-width:760px) and (prefers-reduced-motion:reduce){.node-dots button,.to-top,.jumpbar a{transition:none}}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.node-dots button::before,.to-top,.jumpbar a{transition:none}}
