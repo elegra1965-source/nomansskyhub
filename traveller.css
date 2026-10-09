@@ -1,0 +1,20 @@
+/* No Man's Sky Hub — Traveller ID card (2026-10-09) */
+.tid{padding:30px 22px 60px}
+.tid-card{position:relative;max-width:820px;margin:0 auto;padding:30px 28px;border-radius:16px;border:1px solid rgba(0,229,255,.22);
+  background:radial-gradient(120% 90% at 100% 0%,rgba(240,165,0,.08),transparent 55%),rgba(8,14,24,.82);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.tid-c{position:absolute;width:22px;height:22px;border-color:var(--cyan);border-style:solid;opacity:.8}
+.tid-c.a{top:10px;left:10px;border-width:2px 0 0 2px}.tid-c.b{bottom:10px;right:10px;border-width:0 2px 2px 0}
+.tid-h{font-size:clamp(1.4rem,2.6vw,2rem)!important}
+.tid-sub{margin:10px 0 18px;color:var(--text-dim);font-size:1.02rem;max-width:62ch}
+.tid-form{display:grid;grid-template-columns:1.3fr 1fr 1.3fr;gap:12px;align-items:end}
+.tid-form label{display:flex;flex-direction:column;gap:6px;min-width:0}
+.tid-form label span{font-family:var(--f-mono);font-size:.7rem;letter-spacing:3px;color:var(--gold)}
+.tid-form input,.tid-form select{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(0,229,255,.3);background:rgba(0,229,255,.04);color:var(--white);font-family:var(--f-body);font-size:1rem}
+.tid-form select option{background:#0a1424;color:var(--white)}
+.tid-form input:focus,.tid-form select:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 2px rgba(0,229,255,.2)}
+.tid-btns{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.tid-save{padding:13px 22px;border:0;border-radius:8px;cursor:pointer;background:linear-gradient(135deg,var(--cyan),var(--cta-blue));color:var(--on-cyan);font-family:var(--f-display);font-weight:700;font-size:.72rem;letter-spacing:1.5px}
+.tid-clear{border:0;background:none;color:var(--text-dim);text-decoration:underline;text-underline-offset:4px;cursor:pointer;font-family:var(--f-mono);font-size:.72rem;letter-spacing:1px;padding:8px 4px}
+.tid-status{margin-top:14px;font-family:var(--f-mono);font-size:.8rem;letter-spacing:2px;color:var(--green,#00ff88);min-height:1em}
+.tid-status b{color:var(--white)}
+@media (max-width:760px){.tid{padding:20px 16px 44px}.tid-card{padding:24px 18px}.tid-form{grid-template-columns:1fr}}
