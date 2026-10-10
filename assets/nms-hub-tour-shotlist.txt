@@ -1,33 +1,36 @@
 NO MAN'S SKY HUB - FULL TOUR VIDEO - SHOT LIST
-nms-hub-tour.mp4 · 1:50 · portrait 1080x1920 · 30 fps · original music
-Free to use in your videos, reviews and posts. A credit to nomansskyhub.app is appreciated.
-Making a 16:9 video? Ask for the creator pack: clean 1920x1080 clips of every tool, no text, no music.
+nms-hub-tour.mp4 · 2:03 · portrait 1080x1920 · 30 fps · original music
+Free to use in your videos (monetised ones included), reviews and posts. A credit to nomansskyhub.app is appreciated.
+Music: original, generated for this video (no third-party tracks or samples), so it is free to use and won't trigger copyright / Content ID claims.
+Short version: nms-hub-teaser-30s.mp4 (34 s, same music) for Shorts, Reels and TikTok.
+Making a 16:9 video? Download the creator pack: https://nomansskyhub.app/assets/nms-hub-creator-pack.zip
+(19 clean 1920x1080 clips of every tool, 5-10 s each, no text, no audio)
 
 TIME    WHAT'S ON SCREEN
 0:00    Title card: One hub. Six free tools.
-0:02    Hub: "Enter the Anomaly" landing screen
-0:04    Hub: home screen with the live expedition card
+0:01    Hub: "Enter the Anomaly" landing screen
+0:03    Hub: home screen with the live expedition card
 0:07    Hub: swiping through the six tool cards
-0:11    Portal dialer: tapping in 12 glyphs (1052F9557C30, Euclid)
-0:15    Portal dialer: ring spins, the portal opens
-0:20    ATLAS AI: greets the Traveller by their Traveller ID
-0:23    ATLAS AI: "How do I make a warp cell?" and the recipe answer
-0:30    ATLAS AI: "How do I tame a creature?" answered free, no key
-0:38    ATLAS AI: expedition guide (phases, milestones, rewards)
-0:42    Galactic Map: the galaxy in 3D
-0:45    Galactic Map: typing a portal address
-0:48    Galactic Map: portal warp
-0:50    Galactic Map: Galactic Hub Capitol system in orbit (planets, moons, station)
-0:58    Galactic Map: Share system picture card (glyphs, hex, fly-there link)
-1:06    Weather Station: live weather as a planet scan, globe and day cycle
-1:12    Weather Station: exosuit readings and hazard protection
-1:19    Weather Station: daily survey of 8 real player-charted worlds, full scan with portal glyphs
-1:24    Weather Station: "Share my planet" card
-1:26    Alphabet Translator: typing English, shown in the NMS alien font
-1:30    Glyph reader: scanning portal glyphs with the phone camera, filled in automatically
-1:36    Theme Pack: home page and themed phone home screen
-1:42    Atlas Obsidian Theme: notes in the NMS alien font, hover to read in English
-1:45    End card: nomansskyhub.app, credits
+0:13    Portal dialer: tapping in 12 glyphs (1052F9557C30, Euclid)
+0:16    Portal dialer: ring spins, the portal opens
+0:21    ATLAS AI: greets the Traveller by their Traveller ID
+0:26    ATLAS AI: "How do I make a warp cell?" and the recipe answer
+0:33    ATLAS AI: "How do I tame a creature?" answered free, no key
+0:41    ATLAS AI: expedition guide (phases, milestones, rewards)
+0:44    Galactic Map: the galaxy in 3D
+0:48    Galactic Map: typing a portal address
+0:50    Galactic Map: portal warp
+0:53    Galactic Map: Galactic Hub Capitol system in orbit (planets, moons, station)
+1:00    Galactic Map: Share system picture card (glyphs, hex, fly-there link)
+1:09    Weather Station: live weather as a planet scan, globe and day cycle
+1:15    Weather Station: exosuit readings and hazard protection
+1:24    Weather Station: daily survey of 8 real player-charted worlds, full scan with portal glyphs
+1:30    Weather Station: "Share my planet" card
+1:33    Alphabet Translator: typing English, shown in the NMS alien font
+1:37    Glyph reader: line up one glyph in each of 12 boxes, the phone camera reads them by itself
+1:49    Theme Pack: home page and themed phone home screen
+1:54    Atlas Obsidian Theme: notes in the NMS alien font, hover to read in English
+1:57    End card: nomansskyhub.app, credits
 
 Note: the numbers shown (expedition progress, London weather) are sample data from the recording.
 Thanks to Voyager's Haven (havenmap.online, u/IAmThe-Ekimo-1920), GoodGuysFree & hadsh (nms_namegen) and the No Man's Sky Wiki.

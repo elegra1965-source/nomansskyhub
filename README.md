@@ -50,10 +50,12 @@ Plain HTML, CSS and JavaScript with no build step and no framework. Deployed on 
 
 ## Videos for creators
 
-Both are linked in the page footer and free to use in videos, reviews and posts:
+All linked in the page footer and free to use in videos (monetised ones included), reviews and posts. The music in the tour and teaser is original, made for them (no third-party tracks or samples), so they won't trigger copyright / Content ID claims. A credit to nomansskyhub.app is appreciated.
 
+- `assets/nms-hub-tour.mp4`: 2-minute captioned tour of every tool, portrait 1080x1920, original music (FULL TOUR VIDEO)
+- `assets/nms-hub-teaser-30s.mp4`: 34-second captioned teaser for Shorts, Reels and TikTok (30s TEASER)
+- `assets/nms-hub-creator-pack.zip`: 19 clean 16:9 clips of every tool, 1920x1080, 5-10 seconds each, no text and no audio, with a README (CREATOR PACK)
 - `assets/nms-hub-portal-dialer-clip.mp4`: 17-second clip of the portal dialer (CREATOR CLIP)
-- `assets/nms-hub-tour.mp4`: 99-second captioned tour of every tool, portrait 1080x1920, original music (FULL TOUR VIDEO)
 - `assets/nms-hub-tour-shotlist.txt`: timestamps for every scene in the tour (SHOT LIST)
 
 ## Credits
