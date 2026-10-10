@@ -53,7 +53,8 @@ Plain HTML, CSS and JavaScript with no build step and no framework. Deployed on 
 Both are linked in the page footer and free to use in videos, reviews and posts:
 
 - `assets/nms-hub-portal-dialer-clip.mp4`: 17-second clip of the portal dialer (CREATOR CLIP)
-- `assets/nms-hub-tour.mp4`: 92-second captioned tour of every tool, portrait 1080x1920, original music (FULL TOUR VIDEO)
+- `assets/nms-hub-tour.mp4`: 99-second captioned tour of every tool, portrait 1080x1920, original music (FULL TOUR VIDEO)
+- `assets/nms-hub-tour-shotlist.txt`: timestamps for every scene in the tour (SHOT LIST)
 
 ## Credits
 
