@@ -48,6 +48,13 @@ Plain HTML, CSS and JavaScript with no build step and no framework. Deployed on 
 | `manifest.webmanifest` | App install details |
 | `assets/` | Backgrounds, intro video, glyph masks, icons and the NMS alphabet font |
 
+## Videos for creators
+
+Both are linked in the page footer and free to use in videos, reviews and posts:
+
+- `assets/nms-hub-portal-dialer-clip.mp4`: 17-second clip of the portal dialer (CREATOR CLIP)
+- `assets/nms-hub-tour.mp4`: 92-second captioned tour of every tool, portrait 1080x1920, original music (FULL TOUR VIDEO)
+
 ## Credits
 
 - Live expedition data: the official Galactic Atlas API by Hello Games
