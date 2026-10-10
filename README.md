@@ -6,6 +6,8 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 
 ![No Man's Sky Hub: cinematic hero with the title in the NMS alphabet](screenshots/01-hero.jpg)
 
+<p align="center"><a href="https://nomansskyhub.app/assets/nms-hub-tour.mp4"><img src="screenshots/04-tour-preview.gif" alt="Tour preview: portal dialer, ATLAS, the Galactic Map, the camera glyph reader and the Weather Station" width="300"></a><br><b><a href="https://nomansskyhub.app/assets/nms-hub-tour.mp4">▶ Watch the full 2-minute tour</a></b> · <a href="https://nomansskyhub.app/assets/nms-hub-teaser-30s.mp4">34 s teaser</a> · <a href="https://nomansskyhub.app/assets/nms-hub-creator-pack.zip">creator pack</a> (free to use, original music)</p>
+
 ## What it does
 
 - **Anomaly intro and cinematic hero** with a live clock and a status bar showing the current expedition, read live from the official Galactic Atlas feed.
@@ -22,6 +24,10 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 ![Six nodes, one network: image cards for every tool](screenshots/02-nodes.jpg)
 
 ![Galactic Alliances guide from the Cosmos update](screenshots/03-alliances.jpg)
+
+**New on the Theme Pack: make it yours.** Put your Traveller name and home portal glyphs on a wallpaper, wear one of today's real player-charted planets from the Weather Station, or keep a live expedition countdown on your home screen: [theme.nomansskyhub.app](https://theme.nomansskyhub.app/#studio-portal).
+
+![Portal wallpaper, planet of the day and the expedition countdown](screenshots/05-make-it-yours.jpg)
 
 ## The family
 
