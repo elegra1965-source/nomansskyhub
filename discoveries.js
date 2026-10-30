@@ -104,13 +104,16 @@
         r.className += ' dc-medal'; r.setAttribute('role', 'button'); r.tabIndex = 0;
         r.setAttribute('aria-label', p.name + ' · ' + T2('Medal #{n}', { n: i + 1 }));
         (function (p, i) {
-          function go(e) { e.preventDefault(); survCard(p, i + 1, top, false); }
+          function go(e) { e.preventDefault(); if (p.name === 'Unnamed traveller') { window.open(MAP + '/', '_blank', 'noopener'); return; } survCard(p, i + 1, top, false); }
           r.addEventListener('click', go);
           r.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') go(e); });
         })(p, i);
       } else r.appendChild(el('span', 'pos', String(i + 1)));
-      r.appendChild(el('span', 'al-lname', p.name));
+      var ln = el('span', 'al-lname', p.name);
+      // 2026-10-30 (Tony): nobody can claim a medal without a name, so say how
+      r.appendChild(ln);
       r.appendChild(el('span', 'al-lstat', p.saves + (p.saves === 1 ? ' save' : ' saves') + ' · ' + p.sys + (p.sys === 1 ? ' system' : ' systems')));
+      if (i < 3 && p.name === 'Unnamed traveller') { r.appendChild(el('small', 'dc-claim', 'Add your name to claim this medal')); r.className += ' dc-unnamed'; }
       live.appendChild(r);
     });
     setTimeout(function () { myMedal(top); }, 2500);
