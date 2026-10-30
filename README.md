@@ -50,6 +50,7 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 
   <img src="screenshots/11-update-bar.jpg" alt="The update bar at the bottom of the page on a phone: New version ready, tap to update, with a close button" width="390">
 
+- **🏅 Medals and streaks.** One medal set shared with the Galactic Map: a metal disc with laurels and an NMS ship flying in (gold Exotic #1, silver Fighter #2, bronze Shuttle #3). The top 3 in **Top surveyors** and **🔥 Trending** get a real medal instead of a number; tap it for the medal card (system, glyphs + hex, **Download** a 1080x1350 picture, **Share**). If your Traveller ID name is in the Top surveyors top 3, your medal card pops up once a week with a colour reveal (tap skips it; reduced motion shows it at once). **Get on the board** now ends with your **streak**: chart a *new* system on the Galactic Map every day (the NMS Almanac has to confirm it's real) for medals at 3 / 7 / 14 / 30 days in a row, plus weekly (3 new systems) and monthly (10) medals, 1 grace day a week. The map saves the streak on your device in a small cookie on .nomansskyhub.app, so the Hub shows the same numbers; **View streak** opens the panel. Cards and the panel show *Unlocked by N travellers so far* (an anonymous total per medal kept by the map; only which medal was earned is ever sent, never a name or the streak). All in `nms-medals.js` (the same file as the map) with the ship pictures in `medals/`.
 - **Built for phones too.** On a phone the page is about 40% shorter: a sticky jump bar (Tools · Dialer · Translate · Alliances · 🔥 Trending · My ID), the six tool cards in one swipeable row, the dialer's explainer and saved addresses folded behind toggles, the translator opening its NMS-text panel when you tap in, the expedition card tucked into the hero, and a back-to-top button. Desktop is unchanged.
 - **Short links.** `nomansskyhub.app/atlas`, `/weather`, `/theme`, `/translator` and `/map` jump to each tool.
 
@@ -64,6 +65,8 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 ![Top surveyors beside Trending this week: medals, rank arrows, view counts and portal glyphs (real charted systems, example view counts)](screenshots/08-trending.jpg)
 
 ![Top surveyors with the Get on the board box underneath (3 steps + See all discoveries / Chart your own system), beside Trending this week (example data)](screenshots/12-get-on-the-board.jpg)
+
+<img src="screenshots/14-medals.jpg" alt="Top surveyors with gold, silver and bronze medals and the streak line in Get on the board, and the Top surveyor number 1 medal card on a phone (example data)" width="560">
 
 <img src="screenshots/10-languages.jpg" alt="The Hub on a phone: the language picker (left) and the page in Español (right)" width="560">
 
@@ -112,6 +115,7 @@ Plain HTML, CSS and JavaScript with no build step and no framework. Deployed on 
 | `mobile.css`, `mobile.js` | Phone layout: jump bar, swipeable tool cards, dialer folds, back-to-top |
 | `alliances.css`, `alliances.js` | The Galactic Alliances section, including the live top 5 |
 | `ticker.js`, `ticker.css`, `discoveries.js`, `discoveries.css` | Recently charted ticker and Traveller Discoveries (Galactic Map feeds) |
+| `nms-medals.js`, `medals/` | 🏅 medals + streaks (same file as the Galactic Map): medal pictures, medal cards with Download/Share, the View streak panel |
 | `trending.js`, `trending.css` | 🔥 Trending this week board, medals on cards and in the ticker |
 | `calm.js` | Calm mode switch, shared by every site in the family |
 | `lang.js`, `lang/`, `fonts/` | Language picker and translations, shared by every site in the family |

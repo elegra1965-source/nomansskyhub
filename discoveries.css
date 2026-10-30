@@ -53,3 +53,9 @@
 @media (max-width:760px){.dc-steps li{padding:3px 2px;margin:0;border:0;background:none;font-size:14px;line-height:1.35}
   .dc-steps{margin:2px 0 8px}.dc-col{gap:12px}}
 @media (max-width:760px){.dc-join-ctas .al-cta{flex-basis:100%;white-space:normal}}
+/* 2026-10-30 medals + streaks (nms-medals.js) */
+.dc-medal{cursor:pointer}
+.dc-medal:hover,.dc-medal:focus-visible{background:rgba(0,229,255,.07);outline:none}
+.al-row .pos.dc-mdl,.tr-live .pos.tr-mdl{width:auto;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.dc-streak{display:block;width:100%;margin:10px 0 0;min-height:44px;padding:8px 10px;background:none;border:1px dashed rgba(0,229,255,.55);color:var(--cyan,#00e5ff);font-family:var(--f-display,Orbitron),sans-serif;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-align:center}
+.dc-streak:hover,.dc-streak:focus-visible{background:rgba(0,229,255,.08);outline:none}

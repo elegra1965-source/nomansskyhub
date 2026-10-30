@@ -13,7 +13,26 @@
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function plain(s) { var t = document.createElement('textarea'); t.innerHTML = String(s || ''); return t.value; }
   function link(x) { return MAP + '/?arrival=1&addr=' + x.address + '&galaxy=' + x.galaxy; }
-  var rank = {}, mode = 'week';
+  var rank = {}, mode = 'week', week = '';
+  function T2(s, v) { return window.NMS_T ? NMS_T(s, v) : s.replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); }
+  function medalCard(x, last) {
+    var wl = ''; try { var d = new Date(week + 'T12:00:00Z'); if (!isNaN(d)) wl = window.NMS_DATE ? NMS_DATE(d, { day: 'numeric', month: 'short', timeZone: 'UTC' }) : d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', timeZone: 'UTC' }); } catch (e) {}
+    var name = plain(x.name) || T2('Unnamed system');
+    return NMSMedals.card({
+      metal: NMSMedals.rankMetal(x.rank), label: '#' + x.rank,
+      kick: '◈ ' + (last ? T2('Trending · last week') : (wl ? T2('Trending · week of {date}', { date: wl }) : T2('Trending this week'))),
+      title: T2('Most viewed #{n}', { n: x.rank }),
+      big: T2(x.views === 1 ? '{n} VIEW' : '{n} VIEWS', { n: x.views }),
+      sub: T2(last ? 'Last week · {galaxy}' : 'This week · {galaxy}', { galaxy: gal(x.galaxy) }),
+      lab: T2('System'), sys: name, hex: x.address,
+      meta: gal(x.galaxy) + (x.editor ? ' · ' + T2('Charted by {name}', { name: plain(x.editor) }) : ''),
+      next: T2('A new list starts every Monday (UK)'),
+      file: 'nms-trending-' + x.rank + '-' + x.address,
+      shareText: MEDAL[x.rank - 1] + ' ' + name + ' is #' + x.rank + ' most viewed on the NMS Galactic Map ' + (last ? 'last week' : 'this week') + '! Portal: ' + x.address,
+      shareUrl: link(x),
+      wide: { label: '▤ ' + T2('View Trending list'), run: function () { window.open(MAP + '/?trending=1', '_blank', 'noopener'); } }
+    });
+  }
   function copyLink(e) {
     e.preventDefault(); e.stopPropagation();
     var b = this, url = b.getAttribute('data-link'), t = b.getAttribute('data-label') || b.textContent;
@@ -69,7 +88,17 @@
       var box = (more && x.rank > 3) ? more : live;
       var r = el('a', 'al-row al-lrow tr-row' + (x.rank <= 3 ? ' tr-medal' : ''));
       r.href = link(x); r.target = '_blank'; r.rel = 'noopener';
-      r.appendChild(el('span', 'pos', x.rank <= 3 ? MEDAL[x.rank - 1] : String(x.rank)));
+      if (x.rank <= 3 && window.NMSMedals) {
+        // 2026-10-30: real medal; tap it for the medal card (Download / Share)
+        var pm = el('span', 'pos tr-mdl'); pm.appendChild(NMSMedals.mini(x.rank));
+        pm.setAttribute('role', 'button'); pm.tabIndex = 0; pm.setAttribute('aria-label', T2('Medal #{n}', { n: x.rank }));
+        (function (x) {
+          function go(e) { e.preventDefault(); e.stopPropagation(); medalCard(x, last); }
+          pm.addEventListener('click', go);
+          pm.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') go(e); });
+        })(x);
+        r.appendChild(pm);
+      } else r.appendChild(el('span', 'pos', x.rank <= 3 ? MEDAL[x.rank - 1] : String(x.rank)));
       var nm = el('span', 'al-lname');
       nm.appendChild(el('b', null, plain(x.name) || 'Unnamed system'));
       nm.appendChild(el('span', 'tr-by', (x.editor ? ' by ' + plain(x.editor) : '') + ' · ' + gal(x.galaxy)));
@@ -136,7 +165,7 @@
 
   function run() {
     fetch(FEED).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (j) {
-      mode = j.mode || 'week';
+      mode = j.mode || 'week'; week = j.week || '';
       (j.show || j.top || []).forEach(function (x) { rank[x.key] = x.rank; });
       var s = build(j);
       // wait briefly for Charted by travellers so Trending can sit beside Top surveyors

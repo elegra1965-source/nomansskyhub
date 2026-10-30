@@ -22,6 +22,40 @@
     if (s < 86400) return Math.round(s / 3600) + ' h ago';
     var d = Math.round(s / 86400); return d + (d === 1 ? ' day ago' : ' days ago');
   }
+  function T2(s, v) { return window.NMS_T ? NMS_T(s, v) : s.replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); }
+  function survCard(p, rank, top, reveal) {
+    var x = p.latest, next;
+    if (rank === 1) next = top[1] ? T2('{n} saves ahead of #2', { n: p.saves - top[1].saves }) : T2('Nobody else has charted this week — yet');
+    else next = T2('{n} saves behind #{r}', { n: top[rank - 2].saves - p.saves, r: rank - 1 });
+    return NMSMedals.card({
+      metal: NMSMedals.rankMetal(rank), label: '#' + rank, reveal: reveal,
+      kick: '◈ ' + T2('Top surveyors · last 7 days'), title: T2('Top surveyor #{n}', { n: rank }),
+      big: T2(p.sys === 1 ? '{n} SYSTEM' : '{n} SYSTEMS', { n: p.sys }),
+      sub: T2('Charted by {name}', { name: p.name }),
+      lab: x ? T2('Latest system') : '', sys: x ? (plain(x.name) || T2('Unnamed system')) : '', hex: x ? x.address : '',
+      meta: x ? (GAL[x.galaxy] || ('Galaxy ' + (x.galaxy + 1))) + ' · ' + T2('Charted by {name}', { name: p.name }) : '',
+      next: next, file: 'nms-top-surveyor-' + rank,
+      shareText: (['🥇', '🥈', '🥉'][rank - 1]) + ' ' + p.name + ' is #' + rank + ' Top Surveyor on the NMS Galactic Map this week!',
+      shareUrl: MAP + '/community',
+      wide: { label: '▤ ' + T2('View leaderboard'), run: function () { NMSMedals.close(); var d = document.getElementById('discoveries'); if (d) d.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+    });
+  }
+  // your own top-3 place: shown once a week with the colour reveal (name = Traveller ID / map name on this device)
+  function myMedal(top) {
+    if (!window.NMSMedals) return;
+    var me = NMSMedals.me().toLowerCase(); if (!me) return;
+    var wk = NMSMedals.ukDay(); wk = wk - ((wk + 3) % 7);
+    for (var i = 0; i < 3 && i < top.length; i++) {
+      if (String(top[i].name).trim().toLowerCase() !== me) continue;
+      var k = 'nmsHubSurvSeen', seen = ''; try { seen = localStorage.getItem(k) || ''; } catch (e) {}
+      var id = wk + ':' + (i + 1); if (seen === id) return;
+      try { localStorage.setItem(k, id); } catch (e) {}
+      var intro = document.getElementById('intro');
+      if ((intro && getComputedStyle(intro).display !== 'none') || document.querySelector('.nmsm-ov') || (function (t) { return t && t.offsetParent; })(document.getElementById('nmsTourCard'))) { setTimeout(function () { myMedal(top); }, 3000); try { localStorage.setItem(k, seen); } catch (e) {} return; }
+      survCard(top[i], i + 1, top, true);
+      return;
+    }
+  }
   function mapLink(x) { return MAP + '/?arrival=1&addr=' + x.address + '&galaxy=' + x.galaxy; }
 
   function build(j) {
@@ -38,7 +72,10 @@
     });
     var nSys = Object.keys(systems).length;
     if (!nSys) return null;
-    var top = Object.keys(people).map(function (n) { return { name: n, saves: people[n].saves, sys: Object.keys(people[n].sys).length }; })
+    var top = Object.keys(people).map(function (n) {
+      var ks = Object.keys(people[n].sys).sort(function (a, b) { return (last[b] || 0) - (last[a] || 0); });
+      return { name: n, saves: people[n].saves, sys: ks.length, latest: ks[0] && sys[ks[0]] };
+    })
       .sort(function (a, b) { return b.saves - a.saves; }).slice(0, 5);
     var latest = Object.keys(last).sort(function (a, b) { return last[b] - last[a]; }).slice(0, 6)
       .map(function (k) { var x = sys[k]; return x && { t: last[k], galaxy: x.galaxy, address: x.address, name: plain(x.name) || 'Unnamed system', who: plain(x.editor) || 'Unnamed traveller', shots: [img(x.screenshot), img(x.stationPhoto)].filter(Boolean) }; })
@@ -61,11 +98,22 @@
     var lh = el('div', 'al-live-h'); lh.appendChild(el('span', 'al-dot')); var lt = el('span', 'dc-htxt', 'TOP SURVEYORS'); lt.appendChild(el('small', 'dc-hsub', 'Most saves this week')); lh.appendChild(lt); live.appendChild(lh);
     top.forEach(function (p, i) {
       var r = el('div', 'al-row al-lrow');
-      r.appendChild(el('span', 'pos', String(i + 1)));
+      if (i < 3 && window.NMSMedals) {
+        // 2026-10-30: gold / silver / bronze medal; tap the row for the medal card
+        var pm = el('span', 'pos dc-mdl'); pm.appendChild(NMSMedals.mini(i + 1)); r.appendChild(pm);
+        r.className += ' dc-medal'; r.setAttribute('role', 'button'); r.tabIndex = 0;
+        r.setAttribute('aria-label', p.name + ' · ' + T2('Medal #{n}', { n: i + 1 }));
+        (function (p, i) {
+          function go(e) { e.preventDefault(); survCard(p, i + 1, top, false); }
+          r.addEventListener('click', go);
+          r.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') go(e); });
+        })(p, i);
+      } else r.appendChild(el('span', 'pos', String(i + 1)));
       r.appendChild(el('span', 'al-lname', p.name));
       r.appendChild(el('span', 'al-lstat', p.saves + (p.saves === 1 ? ' save' : ' saves') + ' · ' + p.sys + (p.sys === 1 ? ' system' : ' systems')));
       live.appendChild(r);
     });
+    setTimeout(function () { myMedal(top); }, 2500);
     // 2026-10-27 (Tony): fill the space under Top surveyors with a 3-step "get on the board" box;
     // the two buttons and the note that sat at the bottom of the section now live in it.
     var col = el('div', 'dc-col'); col.appendChild(live);
@@ -77,6 +125,13 @@
       var li = el('li'); li.appendChild(el('span', i === 2 ? 'dc-hang' : null, t)); ol.appendChild(li);
     });
     join.appendChild(ol);
+    // 2026-10-30: your streak (saved on this device by the Galactic Map, read from the shared cookie)
+    if (window.NMSMedals) {
+      var st = NMSMedals.stats(), sb = el('button', 'dc-streak'); sb.type = 'button';
+      sb.textContent = st.any && st.cur ? '🔥 ' + T2(st.cur === 1 ? 'Your streak: {n} day · view medals ›' : 'Your streak: {n} days · view medals ›', { n: st.cur }) : '🏅 ' + T2('Streak medals: chart a new system every day ›');
+      sb.addEventListener('click', function () { NMSMedals.panel(); });
+      join.appendChild(sb);
+    }
     col.appendChild(join);
     s.appendChild(col);
 

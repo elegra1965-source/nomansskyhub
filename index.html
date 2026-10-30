@@ -368,7 +368,7 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
 <link rel="stylesheet" href="traveller.css">
 <link rel="stylesheet" href="ticker.css?v=20261030">
 <link rel="stylesheet" href="feedback.css?v=20261031b">
-<link rel="stylesheet" href="discoveries.css?v=20261101a">
+<link rel="stylesheet" href="discoveries.css?v=20261106">
 <link rel="stylesheet" href="trending.css">
 <link rel="stylesheet" href="mobile.css">
 </head>
@@ -1083,8 +1083,11 @@ HUB</h1>
 <script src="traveller.js"></script>
 <script src="feedback.js?v=20261031b"></script>
 <script src="ticker.js?v=20261030"></script>
-<script src="discoveries.js?v=20261101a"></script>
-<script src="trending.js?v=20261027"></script>
+<script>/* medals + streaks (nms-medals.js, same file as the Galactic Map) */window.NMSMedals_CONFIG={glyph:function(ch){return "assets/glyph-mask-"+ch+".png";},mapUrl:"https://map.nomansskyhub.app",
+  panelExtra:function(c){var a=document.createElement("a");a.className="nmsm-btn";a.style.cssText="display:flex;align-items:center;justify-content:center;margin:12px auto 0;max-width:320px;text-decoration:none";a.href="https://map.nomansskyhub.app/";a.target="_blank";a.rel="noopener";a.textContent="Chart a system on the Galactic Map ›";c.appendChild(a);}};</script>
+<script src="nms-medals.js?v=2"></script>
+<script src="discoveries.js?v=20261106"></script>
+<script src="trending.js?v=20261106"></script>
 <script src="mobile.js"></script>
 <script src="/nms-tour.js?v=2"></script>
 <script>NMSTour.init({id:'hub',launchers:['#tourOpen','#heroTour'],
@@ -1092,7 +1095,7 @@ HUB</h1>
     {sel:'.grid-nodes',title:'Six free tools',body:'Tap a card to open that tool. Each one works on phone and PC and installs like an app.'},
     {sel:'.ring-wrap',title:'Portal dialer',body:'Tap the glyphs round the ring or type the hex code, then copy, share or open it on the Galactic Map.'},
     {sel:'.tr-box',title:'Translator',body:'Type English and see it written in the NMS font.'},
-    {sel:'#discoveries .dc-col',title:'Top surveyors',body:'Who charted the most on the Galactic Map this week. Follow the 3 steps to get your name here.'},
+    {sel:'#discoveries .dc-col',title:'Top surveyors',body:'Who charted the most on the Galactic Map this week. The top 3 get a medal. Follow the 3 steps to get your name here, and chart a new system every day for streak medals.'},
     {sel:'#trending',title:'🔥 Trending',body:'The systems travellers opened most this week. Tap one to fly there.'},
     {sel:'#traveller',title:'My Traveller ID',body:'Save your name, platform and home galaxy once. ATLAS greets you by name and the Galactic Map opens in your home galaxy.'},
     {sel:'#fbOpen',title:'Reviews & feedback',body:'Tell us what you think, report a bug or ask for something new. Reviews you OK to share scroll past in the live strip at the top.'},
