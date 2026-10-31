@@ -1,0 +1,283 @@
+{
+ "version": "v7.4",
+ "date": "2026-11-06",
+ "site": "NO MAN'S SKY HUB",
+ "lastToday": false,
+ "items": [
+  {
+   "tag": "new",
+   "text": {
+    "en": "Trending and Top surveyors #1–3 now win medals. Open yours to download or share it",
+    "es": "Los puestos 1–3 de Tendencias y de Mejores exploradores ganan medallas. Abre la tuya para descargarla o compartirla",
+    "de": "Platz 1–3 in den Trends und bei den Top-Vermessern gewinnt jetzt Medaillen. Öffne deine, um sie herunterzuladen oder zu teilen",
+    "nl": "De nummers 1–3 van Trending en Topverkenners winnen nu medailles. Open de jouwe om hem te downloaden of te delen",
+    "pl": "Miejsca 1–3 w sekcjach Na topie i Najlepsi zwiadowcy zdobywają medale. Otwórz swój, aby go pobrać lub udostępnić",
+    "fr": "Les 3 premiers des Tendances et des Meilleurs explorateurs gagnent des médailles. Ouvre la tienne pour la télécharger ou la partager",
+    "pt-BR": "Os 3 primeiros de Em alta e de Melhores exploradores ganham medalhas. Abra a sua para baixar ou compartilhar",
+    "it": "I primi 3 di Di tendenza e Migliori esploratori vincono medaglie. Apri la tua per scaricarla o condividerla"
+   }
+  },
+  {
+   "tag": "new",
+   "text": {
+    "en": "Your streak: chart new systems on the Galactic Map for daily, weekly and monthly medals",
+    "es": "Tu racha: cartografía sistemas nuevos en el Mapa Galáctico para ganar medallas diarias, semanales y mensuales",
+    "de": "Deine Serie: Kartiere neue Systeme auf der Galaktischen Karte für tägliche, wöchentliche und monatliche Medaillen",
+    "nl": "Jouw reeks: breng nieuwe systemen in kaart op de Galactische Kaart voor dag-, week- en maandmedailles",
+    "pl": "Twoja seria: oznaczaj nowe układy na Mapie Galaktycznej, by zdobywać medale dzienne, tygodniowe i miesięczne",
+    "fr": "Ta série : cartographie de nouveaux systèmes sur la Carte galactique pour des médailles quotidiennes, hebdomadaires et mensuelles",
+    "pt-BR": "Sua sequência: mapeie sistemas novos no Mapa Galáctico e ganhe medalhas diárias, semanais e mensais",
+    "it": "La tua serie: mappa nuovi sistemi sulla Mappa galattica per medaglie giornaliere, settimanali e mensili"
+   }
+  },
+  {
+   "tag": "improved",
+   "text": {
+    "en": "Unnamed traveller in the top 3? Add your name on the map to claim the medal",
+    "es": "¿Viajero sin nombre en el top 3? Añade tu nombre en el mapa para reclamar la medalla",
+    "de": "Unbenannter Reisender in den Top 3? Trage deinen Namen auf der Karte ein, um die Medaille zu beanspruchen",
+    "nl": "Naamloze reiziger in de top 3? Voeg je naam toe op de kaart om de medaille op te eisen",
+    "pl": "Podróżnik bez nazwy w pierwszej trójce? Dodaj swoją nazwę na mapie, by odebrać medal",
+    "fr": "Voyageur sans nom dans le top 3 ? Ajoute ton nom sur la carte pour réclamer la médaille",
+    "pt-BR": "Viajante sem nome no top 3? Adicione seu nome no mapa para resgatar a medalha",
+    "it": "Viaggiatore senza nome nella top 3? Aggiungi il tuo nome sulla mappa per reclamare la medaglia"
+   }
+  },
+  {
+   "tag": "new",
+   "text": {
+    "en": "Patch notes like these after each big update",
+    "es": "Notas como estas después de cada gran actualización",
+    "de": "Patch-Notes wie diese nach jedem großen Update",
+    "nl": "Patchnotes zoals deze na elke grote update",
+    "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
+    "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
+    "pt-BR": "Notas como estas depois de cada grande atualização",
+    "it": "Note come queste dopo ogni grande aggiornamento"
+   }
+  }
+ ],
+ "others": [
+  {
+   "site": "NMS GALACTIC MAP",
+   "version": "v41",
+   "url": "https://map.nomansskyhub.app/",
+   "items": [
+    {
+     "tag": "new",
+     "text": {
+      "en": "Medals and streaks: chart a new system the NMS Almanac confirms to build a daily, weekly and monthly streak",
+      "es": "Medallas y rachas: cartografía un sistema nuevo que confirme NMS Almanac y crea una racha diaria, semanal y mensual",
+      "de": "Medaillen und Serien: Kartiere ein neues System, das NMS Almanac bestätigt, und baue eine tägliche, wöchentliche und monatliche Serie auf",
+      "nl": "Medailles en reeksen: breng een nieuw systeem in kaart dat NMS Almanac bevestigt en bouw een dagelijkse, wekelijkse en maandelijkse reeks op",
+      "pl": "Medale i serie: oznacz na mapie nowy układ potwierdzony przez NMS Almanac i buduj serię dzienną, tygodniową i miesięczną",
+      "fr": "Médailles et séries : cartographie un nouveau système confirmé par NMS Almanac pour construire une série quotidienne, hebdomadaire et mensuelle",
+      "pt-BR": "Medalhas e sequências: mapeie um sistema novo confirmado pelo NMS Almanac e monte uma sequência diária, semanal e mensal",
+      "it": "Medaglie e serie: mappa un nuovo sistema confermato da NMS Almanac e costruisci una serie giornaliera, settimanale e mensile"
+     }
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Trending and Top surveyors #1–3 now win medals. Open yours to download or share it",
+      "es": "Los puestos 1–3 de Tendencias y de Mejores exploradores ganan medallas. Abre la tuya para descargarla o compartirla",
+      "de": "Platz 1–3 in den Trends und bei den Top-Vermessern gewinnt jetzt Medaillen. Öffne deine, um sie herunterzuladen oder zu teilen",
+      "nl": "De nummers 1–3 van Trending en Topverkenners winnen nu medailles. Open de jouwe om hem te downloaden of te delen",
+      "pl": "Miejsca 1–3 w sekcjach Na topie i Najlepsi zwiadowcy zdobywają medale. Otwórz swój, aby go pobrać lub udostępnić",
+      "fr": "Les 3 premiers des Tendances et des Meilleurs explorateurs gagnent des médailles. Ouvre la tienne pour la télécharger ou la partager",
+      "pt-BR": "Os 3 primeiros de Em alta e de Melhores exploradores ganham medalhas. Abra a sua para baixar ou compartilhar",
+      "it": "I primi 3 di Di tendenza e Migliori esploratori vincono medaglie. Apri la tua per scaricarla o condividerla"
+     }
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Station photo button on the Surveyor log step",
+      "es": "Botón Foto de la estación en el paso Diario del explorador",
+      "de": "Stationsfoto-Knopf im Schritt Vermessungslog",
+      "nl": "Knop Stationsfoto bij de stap Verkenningslogboek",
+      "pl": "Przycisk Zdjęcie stacji w kroku Dziennik zwiadowcy",
+      "fr": "Bouton Photo de la station à l'étape Journal d'exploration",
+      "pt-BR": "Botão Foto da estação na etapa Diário de exploração",
+      "it": "Pulsante Foto della stazione nel passo Diario di esplorazione"
+     }
+    },
+    {
+     "tag": "improved",
+     "text": {
+      "en": "Picked a collage as your station photo? Tap the part that shows your station. Bug reports are always welcome — I also check saved systems myself.",
+      "es": "¿Elegiste un collage como foto de la estación? Toca la parte donde sale tu estación. Los reportes de errores siempre son bienvenidos; yo también reviso los sistemas guardados.",
+      "de": "Eine Collage als Stationsfoto gewählt? Tippe auf den Teil, der deine Station zeigt. Fehlermeldungen sind immer willkommen – ich prüfe gespeicherte Systeme auch selbst.",
+      "nl": "Een collage als stationsfoto gekozen? Tik op het deel met je station. Bugmeldingen zijn altijd welkom – ik controleer opgeslagen systemen ook zelf.",
+      "pl": "Wybrano kolaż jako zdjęcie stacji? Dotknij części, na której jest twoja stacja. Zgłoszenia błędów są zawsze mile widziane – sam też sprawdzam zapisane układy.",
+      "fr": "Tu as choisi un collage comme photo de station ? Touche la partie qui montre ta station. Les signalements de bugs sont toujours bienvenus — je vérifie aussi moi-même les systèmes enregistrés.",
+      "pt-BR": "Escolheu uma colagem como foto da estação? Toque na parte que mostra a sua estação. Relatos de bugs são sempre bem-vindos — eu também confiro os sistemas salvos.",
+      "it": "Hai scelto un collage come foto della stazione? Tocca la parte che mostra la tua stazione. Le segnalazioni di bug sono sempre benvenute: controllo anche io i sistemi salvati."
+     }
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "New Deep Space Anomaly signal marker",
+      "es": "Nuevo marcador de señal Deep Space Anomaly",
+      "de": "Neue Signalmarkierung „Deep Space Anomaly“",
+      "nl": "Nieuwe signaalmarkering Deep Space Anomaly",
+      "pl": "Nowy znacznik sygnału Deep Space Anomaly",
+      "fr": "Nouveau marqueur de signal Deep Space Anomaly",
+      "pt-BR": "Novo marcador de sinal Deep Space Anomaly",
+      "it": "Nuovo indicatore di segnale Deep Space Anomaly"
+     }
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Patch notes like these after each big update",
+      "es": "Notas como estas después de cada gran actualización",
+      "de": "Patch-Notes wie diese nach jedem großen Update",
+      "nl": "Patchnotes zoals deze na elke grote update",
+      "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
+      "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
+      "pt-BR": "Notas como estas depois de cada grande atualização",
+      "it": "Note come queste dopo ogni grande aggiornamento"
+     }
+    }
+   ]
+  },
+  {
+   "site": "ATLAS",
+   "version": "v131",
+   "url": "https://atlas.nomansskyhub.app/",
+   "items": [
+    {
+     "tag": "new",
+     "text": {
+      "en": "Medals on the Galactic Map: chart new systems for daily, weekly and monthly streak medals",
+      "es": "Medallas en el Mapa Galáctico: cartografía sistemas nuevos y gana medallas de racha diarias, semanales y mensuales",
+      "de": "Medaillen auf der Galaktischen Karte: Kartiere neue Systeme für tägliche, wöchentliche und monatliche Serienmedaillen",
+      "nl": "Medailles op de Galactische Kaart: breng nieuwe systemen in kaart voor dag-, week- en maandreeksmedailles",
+      "pl": "Medale na Mapie Galaktycznej: oznaczaj nowe układy i zdobywaj medale za serie dzienne, tygodniowe i miesięczne",
+      "fr": "Des médailles sur la Carte galactique : cartographie de nouveaux systèmes pour des médailles de série quotidiennes, hebdomadaires et mensuelles",
+      "pt-BR": "Medalhas no Mapa Galáctico: mapeie sistemas novos e ganhe medalhas de sequência diárias, semanais e mensais",
+      "it": "Medaglie sulla Mappa galattica: mappa nuovi sistemi per medaglie di serie giornaliere, settimanali e mensili"
+     },
+     "url": "https://map.nomansskyhub.app/"
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Patch notes like these after each big update",
+      "es": "Notas como estas después de cada gran actualización",
+      "de": "Patch-Notes wie diese nach jedem großen Update",
+      "nl": "Patchnotes zoals deze na elke grote update",
+      "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
+      "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
+      "pt-BR": "Notas como estas depois de cada grande atualização",
+      "it": "Note come queste dopo ogni grande aggiornamento"
+     }
+    }
+   ]
+  },
+  {
+   "site": "NMS WEATHER",
+   "version": "v84",
+   "url": "https://weather.nomansskyhub.app/",
+   "items": [
+    {
+     "tag": "new",
+     "text": {
+      "en": "Medals on the Galactic Map: chart new systems for daily, weekly and monthly streak medals",
+      "es": "Medallas en el Mapa Galáctico: cartografía sistemas nuevos y gana medallas de racha diarias, semanales y mensuales",
+      "de": "Medaillen auf der Galaktischen Karte: Kartiere neue Systeme für tägliche, wöchentliche und monatliche Serienmedaillen",
+      "nl": "Medailles op de Galactische Kaart: breng nieuwe systemen in kaart voor dag-, week- en maandreeksmedailles",
+      "pl": "Medale na Mapie Galaktycznej: oznaczaj nowe układy i zdobywaj medale za serie dzienne, tygodniowe i miesięczne",
+      "fr": "Des médailles sur la Carte galactique : cartographie de nouveaux systèmes pour des médailles de série quotidiennes, hebdomadaires et mensuelles",
+      "pt-BR": "Medalhas no Mapa Galáctico: mapeie sistemas novos e ganhe medalhas de sequência diárias, semanais e mensais",
+      "it": "Medaglie sulla Mappa galattica: mappa nuovi sistemi per medaglie di serie giornaliere, settimanali e mensili"
+     },
+     "url": "https://map.nomansskyhub.app/"
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Patch notes like these after each big update",
+      "es": "Notas como estas después de cada gran actualización",
+      "de": "Patch-Notes wie diese nach jedem großen Update",
+      "nl": "Patchnotes zoals deze na elke grote update",
+      "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
+      "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
+      "pt-BR": "Notas como estas depois de cada grande atualização",
+      "it": "Note come queste dopo ogni grande aggiornamento"
+     }
+    }
+   ]
+  },
+  {
+   "site": "NMS ALPHABET TRANSLATOR",
+   "version": "v35",
+   "url": "https://translator.nomansskyhub.app/",
+   "items": [
+    {
+     "tag": "new",
+     "text": {
+      "en": "Medals on the Galactic Map: chart new systems for daily, weekly and monthly streak medals",
+      "es": "Medallas en el Mapa Galáctico: cartografía sistemas nuevos y gana medallas de racha diarias, semanales y mensuales",
+      "de": "Medaillen auf der Galaktischen Karte: Kartiere neue Systeme für tägliche, wöchentliche und monatliche Serienmedaillen",
+      "nl": "Medailles op de Galactische Kaart: breng nieuwe systemen in kaart voor dag-, week- en maandreeksmedailles",
+      "pl": "Medale na Mapie Galaktycznej: oznaczaj nowe układy i zdobywaj medale za serie dzienne, tygodniowe i miesięczne",
+      "fr": "Des médailles sur la Carte galactique : cartographie de nouveaux systèmes pour des médailles de série quotidiennes, hebdomadaires et mensuelles",
+      "pt-BR": "Medalhas no Mapa Galáctico: mapeie sistemas novos e ganhe medalhas de sequência diárias, semanais e mensais",
+      "it": "Medaglie sulla Mappa galattica: mappa nuovi sistemi per medaglie di serie giornaliere, settimanali e mensili"
+     },
+     "url": "https://map.nomansskyhub.app/"
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Patch notes like these after each big update",
+      "es": "Notas como estas después de cada gran actualización",
+      "de": "Patch-Notes wie diese nach jedem großen Update",
+      "nl": "Patchnotes zoals deze na elke grote update",
+      "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
+      "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
+      "pt-BR": "Notas como estas depois de cada grande atualização",
+      "it": "Note come queste dopo ogni grande aggiornamento"
+     }
+    }
+   ]
+  },
+  {
+   "site": "NMS THEME PACK",
+   "version": "v42",
+   "url": "https://theme.nomansskyhub.app/",
+   "items": [
+    {
+     "tag": "new",
+     "text": {
+      "en": "Medals on the Galactic Map: chart new systems for daily, weekly and monthly streak medals",
+      "es": "Medallas en el Mapa Galáctico: cartografía sistemas nuevos y gana medallas de racha diarias, semanales y mensuales",
+      "de": "Medaillen auf der Galaktischen Karte: Kartiere neue Systeme für tägliche, wöchentliche und monatliche Serienmedaillen",
+      "nl": "Medailles op de Galactische Kaart: breng nieuwe systemen in kaart voor dag-, week- en maandreeksmedailles",
+      "pl": "Medale na Mapie Galaktycznej: oznaczaj nowe układy i zdobywaj medale za serie dzienne, tygodniowe i miesięczne",
+      "fr": "Des médailles sur la Carte galactique : cartographie de nouveaux systèmes pour des médailles de série quotidiennes, hebdomadaires et mensuelles",
+      "pt-BR": "Medalhas no Mapa Galáctico: mapeie sistemas novos e ganhe medalhas de sequência diárias, semanais e mensais",
+      "it": "Medaglie sulla Mappa galattica: mappa nuovi sistemi per medaglie di serie giornaliere, settimanali e mensili"
+     },
+     "url": "https://map.nomansskyhub.app/"
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Patch notes like these after each big update",
+      "es": "Notas como estas después de cada gran actualización",
+      "de": "Patch-Notes wie diese nach jedem großen Update",
+      "nl": "Patchnotes zoals deze na elke grote update",
+      "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
+      "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
+      "pt-BR": "Notas como estas depois de cada grande atualização",
+      "it": "Note come queste dopo ogni grande aggiornamento"
+     }
+    }
+   ]
+  }
+ ]
+}
