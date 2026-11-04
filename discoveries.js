@@ -195,6 +195,8 @@
       if (al && al.parentNode) al.parentNode.insertBefore(s, al.nextSibling);
       else { var f = document.querySelector('footer'); if (f) f.parentNode.insertBefore(s, f); }
       hang(); setTimeout(hang, 300);
+      /* the Galactic Map's "Traveller discoveries" link opens nomansskyhub.app/#discoveries -- this box is built after load, so jump to it now */
+      if (location.hash === '#discoveries') setTimeout(function () { try { s.scrollIntoView({ block: 'start' }); } catch (e) {} }, 350);
     }).catch(function () {});
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
