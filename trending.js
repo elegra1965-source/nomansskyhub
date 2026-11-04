@@ -15,11 +15,11 @@
   function link(x) { return MAP + '/?arrival=1&addr=' + x.address + '&galaxy=' + x.galaxy; }
   var rank = {}, mode = 'week', week = '';
   function T2(s, v) { return window.NMS_T ? NMS_T(s, v) : s.replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); }
-  function medalCard(x, last) {
+  function medalCard(x, last, reveal) {
     var wl = ''; try { var d = new Date(week + 'T12:00:00Z'); if (!isNaN(d)) wl = window.NMS_DATE ? NMS_DATE(d, { day: 'numeric', month: 'short', timeZone: 'UTC' }) : d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', timeZone: 'UTC' }); } catch (e) {}
     var name = plain(x.name) || T2('Unnamed system');
     return NMSMedals.card({
-      metal: NMSMedals.rankMetal(x.rank), label: '#' + x.rank,
+      metal: NMSMedals.rankMetal(x.rank), label: '#' + x.rank, reveal: !!reveal,
       kick: '◈ ' + (last ? T2('Trending · last week') : (wl ? T2('Trending · week of {date}', { date: wl }) : T2('Trending this week'))),
       title: T2('Most viewed #{n}', { n: x.rank }),
       big: T2(x.views === 1 ? '{n} VIEW' : '{n} VIEWS', { n: x.views }),
@@ -32,6 +32,32 @@
       shareUrl: link(x),
       wide: { label: '▤ ' + T2('View Trending list'), run: function () { window.open(MAP + '/?trending=1', '_blank', 'noopener'); } }
     });
+  }
+
+  // your own top-3 system: the card pops once per system per week, with the colour reveal.
+  // Match = the system's 'charted by' name equals the name on this device (Traveller ID / map name).
+  function myTrending(j) {
+    if (!window.NMSMedals) return;
+    var me = NMSMedals.me().toLowerCase(); if (!me) return;
+    var top = j.show || j.top || [], last = (j.mode === 'last'), k = 'nmsHubTrendSeen', seen = {};
+    try { seen = JSON.parse(localStorage.getItem(k) || '{}') || {}; } catch (e) {}
+    var pick = null;
+    top.forEach(function (x) {
+      var id = (last ? 'last:' : '') + (j.week || '') + ':' + x.key + ':' + x.rank;
+      if (!pick && x.rank <= 3 && String(plain(x.editor)).trim().toLowerCase() === me && !seen[id]) pick = { x: x, id: id };
+    });
+    if (!pick) return;
+    var tries = 0;
+    (function go() {
+      var intro = document.getElementById('intro'), tour = document.getElementById('nmsTourCard');
+      var busy = (intro && getComputedStyle(intro).display !== 'none') || document.querySelector('.nmsm-ov') || (tour && tour.offsetParent);
+      if (busy && tries++ < 40) { setTimeout(go, 3000); return; }
+      if (busy) return;
+      seen[pick.id] = 1;
+      Object.keys(seen).forEach(function (q) { if (q.indexOf(j.week || '') < 0) delete seen[q]; });
+      try { localStorage.setItem(k, JSON.stringify(seen)); } catch (e) {}
+      medalCard(pick.x, last, true);
+    })();
   }
   function copyLink(e) {
     e.preventDefault(); e.stopPropagation();
@@ -168,6 +194,7 @@
       mode = j.mode || 'week'; week = j.week || '';
       (j.show || j.top || []).forEach(function (x) { rank[x.key] = x.rank; });
       var s = build(j);
+      setTimeout(function () { myTrending(j); }, 1500);
       // wait briefly for Charted by travellers so Trending can sit beside Top surveyors
       var tries = 0;
       (function wait() {
