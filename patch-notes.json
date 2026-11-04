@@ -46,6 +46,19 @@
   {
    "tag": "new",
    "text": {
+    "en": "Trending: if your own system is in the top 3, its medal pops up once a week and a ship flies in",
+    "es": "Tendencias: si tu propio sistema está en el top 3, su medalla aparece una vez por semana y una nave llega volando",
+    "de": "Trending: Liegt dein eigenes System in den Top 3, erscheint seine Medaille einmal pro Woche und ein Schiff fliegt herein",
+    "fr": "Tendances : si ton propre système est dans le top 3, sa médaille s'affiche une fois par semaine et un vaisseau arrive en volant",
+    "it": "Tendenze: se il tuo sistema è nella top 3, la sua medaglia appare una volta a settimana e una nave arriva in volo",
+    "nl": "Trending: staat je eigen systeem in de top 3, dan verschijnt de medaille één keer per week en vliegt er een schip binnen",
+    "pl": "Na topie: jeśli twój system jest w top 3, jego medal pojawia się raz w tygodniu, a statek przylatuje",
+    "pt-BR": "Em alta: se o seu sistema estiver no top 3, a medalha dele aparece uma vez por semana e uma nave chega voando"
+   }
+  },
+  {
+   "tag": "new",
+   "text": {
     "en": "Patch notes like these after each big update",
     "es": "Notas como estas después de cada gran actualización",
     "de": "Patch-Notes wie diese nach jedem großen Update",
@@ -131,6 +144,32 @@
     {
      "tag": "new",
      "text": {
+      "en": "Earn a medal and a ship flies in and lands on the badge: shuttle for bronze, fighter for silver, exotic for gold. Tap to skip",
+      "es": "Si ganas una medalla, una nave llega volando y aterriza en la insignia: lanzadera para el bronce, caza para la plata, exótica para el oro. Toca para saltar",
+      "de": "Verdienst du eine Medaille, fliegt ein Schiff herein und landet auf dem Abzeichen: Shuttle für Bronze, Jäger für Silber, Exot für Gold. Zum Überspringen tippen",
+      "fr": "Quand tu gagnes une médaille, un vaisseau arrive en volant et se pose sur l'insigne : navette pour le bronze, chasseur pour l'argent, exotique pour l'or. Touche pour passer",
+      "it": "Quando ottieni una medaglia, una nave arriva in volo e atterra sul distintivo: navetta per il bronzo, caccia per l'argento, esotica per l'oro. Tocca per saltare",
+      "nl": "Verdien je een medaille, dan vliegt er een schip binnen en landt op de badge: shuttle voor brons, jager voor zilver, exotisch voor goud. Tik om over te slaan",
+      "pl": "Gdy zdobędziesz medal, przylatuje statek i ląduje na odznace: prom za brąz, myśliwiec za srebro, egzotyczny za złoto. Dotknij, aby pominąć",
+      "pt-BR": "Ao ganhar uma medalha, uma nave chega voando e pousa no emblema: transporte para o bronze, caça para a prata, exótica para o ouro. Toque para pular"
+     }
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Read these glyphs: a link under a portal address opens it in the Alphabet Translator",
+      "es": "Leer estos glifos: un enlace bajo la dirección del portal la abre en el Traductor de alfabeto",
+      "de": "Glyphen entziffern: Ein Link unter der Portaladresse öffnet sie im Alphabet-Übersetzer",
+      "fr": "Lire ces glyphes : un lien sous l'adresse du portail l'ouvre dans le Traducteur d'alphabet",
+      "it": "Leggi questi glifi: un link sotto l'indirizzo del portale lo apre nel Traduttore dell'alfabeto",
+      "nl": "Lees deze glyphen: een link onder het portaaladres opent het in de Alfabetvertaler",
+      "pl": "Odczytaj te glify: link pod adresem portalu otwiera go w Tłumaczu alfabetu",
+      "pt-BR": "Ler estes glifos: um link sob o endereço do portal abre-o no Tradutor de alfabeto"
+     }
+    },
+    {
+     "tag": "new",
+     "text": {
       "en": "Patch notes like these after each big update",
       "es": "Notas como estas después de cada gran actualización",
       "de": "Patch-Notes wie diese nach jedem großen Update",
@@ -145,7 +184,7 @@
   },
   {
    "site": "ATLAS",
-   "version": "v131",
+   "version": "v132",
    "url": "https://atlas.nomansskyhub.app/",
    "items": [
     {
@@ -165,6 +204,19 @@
     {
      "tag": "new",
      "text": {
+      "en": "ATLAS knows the live Galactic Alliances top 10 and can tell you who built this interface",
+      "es": "ATLAS conoce el top 10 en vivo de las Alianzas Galácticas y sabe quién creó esta interfaz",
+      "de": "ATLAS kennt die aktuelle Top 10 der Galaktischen Allianzen und weiß, wer diese Oberfläche gebaut hat",
+      "fr": "ATLAS connaît le top 10 en direct des Alliances galactiques et sait qui a créé cette interface",
+      "it": "ATLAS conosce la top 10 in tempo reale delle Alleanze Galattiche e sa chi ha creato questa interfaccia",
+      "nl": "ATLAS kent de actuele top 10 van de Galactische Allianties en weet wie deze interface heeft gebouwd",
+      "pl": "ATLAS zna aktualną dziesiątkę Galaktycznych Sojuszy i wie, kto stworzył ten interfejs",
+      "pt-BR": "O ATLAS conhece o top 10 ao vivo das Alianças Galácticas e sabe quem criou esta interface"
+     }
+    },
+    {
+     "tag": "new",
+     "text": {
       "en": "Patch notes like these after each big update",
       "es": "Notas como estas después de cada gran actualización",
       "de": "Patch-Notes wie diese nach jedem großen Update",
@@ -179,7 +231,7 @@
   },
   {
    "site": "NMS WEATHER",
-   "version": "v84",
+   "version": "v85",
    "url": "https://weather.nomansskyhub.app/",
    "items": [
     {
@@ -213,7 +265,7 @@
   },
   {
    "site": "NMS ALPHABET TRANSLATOR",
-   "version": "v35",
+   "version": "v36",
    "url": "https://translator.nomansskyhub.app/",
    "items": [
     {
@@ -247,7 +299,7 @@
   },
   {
    "site": "NMS THEME PACK",
-   "version": "v42",
+   "version": "v43",
    "url": "https://theme.nomansskyhub.app/",
    "items": [
     {
@@ -263,6 +315,19 @@
       "it": "Medaglie sulla Mappa galattica: mappa nuovi sistemi per medaglie di serie giornaliere, settimanali e mensili"
      },
      "url": "https://map.nomansskyhub.app/"
+    },
+    {
+     "tag": "improved",
+     "text": {
+      "en": "New FAQ answers: Samsung phones, blurry icons, icons resetting after a restart, Windows icon cache",
+      "es": "Nuevas respuestas en las preguntas frecuentes: móviles Samsung, iconos borrosos, iconos que vuelven a su estado tras reiniciar y la caché de iconos de Windows",
+      "de": "Neue FAQ-Antworten: Samsung-Handys, unscharfe Symbole, Symbole nach Neustart zurückgesetzt, Windows-Symbolcache",
+      "fr": "Nouvelles réponses dans la FAQ : téléphones Samsung, icônes floues, icônes réinitialisées après un redémarrage, cache d'icônes Windows",
+      "it": "Nuove risposte nelle FAQ: telefoni Samsung, icone sfocate, icone ripristinate dopo il riavvio, cache delle icone di Windows",
+      "nl": "Nieuwe FAQ-antwoorden: Samsung-telefoons, wazige pictogrammen, pictogrammen die na een herstart terugspringen, Windows-pictogramcache",
+      "pl": "Nowe odpowiedzi w FAQ: telefony Samsung, rozmyte ikony, ikony wracające po restarcie, pamięć podręczna ikon Windows",
+      "pt-BR": "Novas respostas no FAQ: celulares Samsung, ícones borrados, ícones que voltam ao normal após reiniciar, cache de ícones do Windows"
+     }
     },
     {
      "tag": "new",
