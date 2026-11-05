@@ -4,11 +4,12 @@
    The Hub's "★ REVIEWS & FEEDBACK" pop-up sends here.
 
    POST  /.netlify/functions/feedback
-         { type: review|bug|idea, tools: [..], rating: 0-5, text, name,
+         { type: review|bug|idea|other, tools: [..], rating: 0-5, text, name,
+           email (optional, only to reply: goes in the email's Reply-To, NEVER saved),
            show: true/false, website (spam trap, must be empty),
            info: { app, lang, screen, installed, browser } }
          -> saved in Netlify Blobs (store "feedback", key items/<id>)
-         -> emailed to Tony (Resend), subject starts [BUG] / [IDEA] / [REVIEW]
+         -> emailed to Tony (Resend), subject starts [BUG] / [IDEA] / [REVIEW] / [OTHER]
             so they are easy to spot. Review emails with "OK to show" ticked
             carry an APPROVE link. Every email has an INBOX link.
          Max 5 sends an hour per visitor (hashed IP, the IP itself is never kept).
@@ -40,7 +41,8 @@ import { getStore } from "@netlify/blobs";
 import { createHmac, createHash, randomBytes } from "node:crypto";
 
 const STORE = "feedback";
-const TYPES = ["review", "bug", "idea"];
+const TYPES = ["review", "bug", "idea", "other"];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // no whitespace, so no CR/LF can get into a header
 const TOOLS = ["hub", "map", "atlas", "weather", "translator", "theme"];
 const TOOL_NAME = { hub: "Hub", map: "Galactic Map", atlas: "ATLAS", weather: "Weather", translator: "Translator", theme: "Theme Pack" };
 const MAX_PER_HOUR = 5;
@@ -59,7 +61,7 @@ const cors = req => {
 const page = (title, body, status = 200) => new Response(
   `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)}</title>
 <style>body{margin:0;padding:20px;background:#0a1424;color:#cfe0f0;font:16px/1.5 system-ui,sans-serif}h1{font-size:1.1rem;letter-spacing:2px;color:#00e5ff}a{color:#00e5ff}
-.it{border:1px solid rgba(0,229,255,.2);border-radius:8px;padding:10px 12px;margin:10px 0;background:rgba(255,255,255,.03)}.it.bug{border-color:#ff3322}.it.idea{border-color:#f0a500}
+.it{border:1px solid rgba(0,229,255,.2);border-radius:8px;padding:10px 12px;margin:10px 0;background:rgba(255,255,255,.03)}.it.bug{border-color:#ff3322}.it.idea{border-color:#f0a500}.it.other{border-color:#00e5ff}
 .k{font:12px monospace;letter-spacing:1px;color:rgba(207,224,240,.65)}.t{white-space:pre-wrap;margin:6px 0}.st{color:#f0a500}.ok{color:#00ff88}.tab a{margin-right:12px}h1{margin-right:96px}
 #x{position:fixed;top:35px;right:14px;z-index:9;background:#0a1424;border:1px solid rgba(0,229,255,.45);border-radius:6px;color:#00e5ff;font:600 13px/1 system-ui,sans-serif;letter-spacing:1px;padding:10px 12px;cursor:pointer}</style>
 <button id="x" type="button" onclick="window.close();setTimeout(function(){if(history.length>1)history.back();else location.href='https://nomansskyhub.app'},300)">✕ CLOSE</button>${body}`,
@@ -88,10 +90,10 @@ async function rebuildApproved(store) {
   return out.length;
 }
 
-async function sendEmail(it) {
+async function sendEmail(it, replyTo) {
   const key = process.env.RESEND_API_KEY, to = process.env.NOTIFY_EMAIL_TO;
   if (!key || !to) return { skipped: true };
-  const tag = it.type === "bug" ? "[BUG]" : it.type === "idea" ? "[IDEA]" : "[REVIEW]";
+  const tag = it.type === "bug" ? "[BUG]" : it.type === "idea" ? "[IDEA]" : it.type === "other" ? "[OTHER]" : "[REVIEW]";
   const tools = (it.tools || []).map(t => TOOL_NAME[t]).join(", ") || "no tool picked";
   const stars = it.rating ? " " + "★".repeat(it.rating) : "";
   const from = TOOL_NAME[it.info.site] || "Hub";
@@ -101,13 +103,14 @@ async function sendEmail(it) {
     `<p><b>From:</b> ${esc(it.name || "(no name)")}<br><b>Tools:</b> ${esc(tools)}${it.rating ? `<br><b>Rating:</b> ${"★".repeat(it.rating)}` : ""}`,
     `<br><b>OK to show on the site:</b> ${it.show ? "YES" : "no"}<br><b>Language:</b> ${esc(it.info.lang || "?")}<br><b>Sent from:</b> ${esc(from)}</p>`
   ];
+  if (replyTo) rows.push(`<p><b>Reply to:</b> ${esc(replyTo)} (just press Reply)</p>`);
   if (it.type === "bug") rows.push(`<p><b>Device:</b> ${esc(it.info.browser || "?")} · screen ${esc(it.info.screen || "?")} · ${it.info.installed ? "installed app" : "browser"} · ${esc(it.info.app || "")}</p>`);
   if (it.type === "review" && it.show && sign("approve" + it.id)) rows.push(`<p><a href="${link("approve" + it.id, "approve=" + it.id)}" style="background:#00e5ff;color:#00131a;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:bold">✓ APPROVE — show it on the Hub</a></p>`);
   if (sign("inbox")) rows.push(`<p><a href="${link("inbox", "inbox=1")}">Open the feedback inbox</a></p>`);
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { authorization: "Bearer " + key, "content-type": "application/json" },
-    body: JSON.stringify({ from: "NMS Hub Feedback <onboarding@resend.dev>", to: [to], subject, html: rows.join("") })
+    body: JSON.stringify({ from: "NMS Hub Feedback <onboarding@resend.dev>", to: [to], subject, html: rows.join(""), ...(replyTo ? { reply_to: replyTo } : {}) })
   });
   if (!res.ok) throw new Error("Resend " + res.status + " " + (await res.text()).slice(0, 200));
   return { sent: true };
@@ -118,13 +121,13 @@ async function inboxPage(store, url) {
   const { blobs } = await store.list({ prefix: "items/" });
   const items = [];
   for (const b of blobs) { const it = await store.get(b.key, { type: "json" }); if (it) items.push(it); }
-  const order = { bug: 0, idea: 1, review: 2 };
+  const order = { bug: 0, idea: 1, other: 2, review: 3 };
   items.sort((a, b) => (order[a.type] - order[b.type]) || (b.t - a.t));
   const count = t => items.filter(i => i.type === t).length;
   const sig = url.searchParams.get("sig");
-  const tabs = `<p class="tab"><a href="?inbox=1&sig=${sig}">ALL (${items.length})</a><a href="?inbox=1&type=bug&sig=${sig}">🐞 BUGS (${count("bug")})</a><a href="?inbox=1&type=idea&sig=${sig}">💡 IDEAS (${count("idea")})</a><a href="?inbox=1&type=review&sig=${sig}">★ REVIEWS (${count("review")})</a></p>`;
+  const tabs = `<p class="tab"><a href="?inbox=1&sig=${sig}">ALL (${items.length})</a><a href="?inbox=1&type=bug&sig=${sig}">🐞 BUGS (${count("bug")})</a><a href="?inbox=1&type=idea&sig=${sig}">💡 IDEAS (${count("idea")})</a><a href="?inbox=1&type=other&sig=${sig}">❓ OTHER (${count("other")})</a><a href="?inbox=1&type=review&sig=${sig}">★ REVIEWS (${count("review")})</a></p>`;
   const list = items.filter(i => !only || i.type === only).slice(0, 200).map(it => {
-    const icon = it.type === "bug" ? "🐞 BUG" : it.type === "idea" ? "💡 IDEA" : "★ REVIEW";
+    const icon = it.type === "bug" ? "🐞 BUG" : it.type === "idea" ? "💡 IDEA" : it.type === "other" ? "❓ OTHER" : "★ REVIEW";
     const tools = (it.tools || []).map(t => TOOL_NAME[t]).join(", ");
     let act = "";
     if (it.type === "review" && it.show) act = it.approved
@@ -198,6 +201,7 @@ export default async (req, context) => {
   const text = clean(b.text, 1000);
   if (text.length < 3) return json({ error: "too short" }, 400, C);
   const tools = Array.isArray(b.tools) ? [...new Set(b.tools.filter(t => TOOLS.includes(t)))] : [];
+  const replyTo = EMAIL_RE.test(String(b.email == null ? "" : b.email).trim()) ? String(b.email).trim().slice(0, 120) : "";
   const rating = type === "review" ? Math.max(0, Math.min(5, b.rating | 0)) : 0;
   const name = clean(b.name, 40);
   const show = type === "review" && !!b.show;
@@ -218,7 +222,7 @@ export default async (req, context) => {
   await store.setJSON("items/" + id, it);
 
   let mail = null;
-  try { mail = await sendEmail(it); } catch (e) { console.log("feedback email failed: " + e.message); }
+  try { mail = await sendEmail(it, replyTo); } catch (e) { console.log("feedback email failed: " + e.message); }
   console.log(`feedback: saved ${type} ${id}` + (mail && mail.sent ? " (emailed)" : ""));
   return json({ ok: true }, 200, C);
 };

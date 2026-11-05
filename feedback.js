@@ -6,7 +6,8 @@
      for reviews only, an "OK to show this on the site" switch. Bug reports also
      send the device type, browser, screen size and Hub version (nothing personal).
      Posts to /.netlify/functions/feedback, which saves it and emails Tony with the
-     type in the subject ([BUG] / [IDEA] / [REVIEW]).
+     type in the subject ([BUG] / [IDEA] / [REVIEW] / [OTHER]).
+2026-11-05: 4th chip 'Other' (questions), optional reply email (only the email's reply-to, never saved), NMS 'SIGNAL QUEUED' screen on the 5-an-hour limit.
    - WHAT TRAVELLERS SAY: reviews Tony has approved. The same reviews also scroll
      past in the "Live from the Galactic Map" tape (ticker.js); tapping one opens here.
    X, tapping outside, Esc and the phone's Back button close it.
@@ -29,7 +30,8 @@
   var TYPE = {
     review: { tools: 'WHICH TOOLS HAVE YOU USED?', text: 'WHAT DO YOU LIKE, OR WHAT COULD BE BETTER?', ph: 'Tell us anything: a favourite feature, something to improve…' },
     bug: { tools: 'WHICH TOOL?', text: 'WHAT WENT WRONG?', ph: 'What did you tap, and what happened?' },
-    idea: { tools: 'WHICH TOOL?', text: 'WHAT WOULD YOU LIKE ADDED OR CHANGED?', ph: 'Describe your idea…' }
+    idea: { tools: 'WHICH TOOL?', text: 'WHAT WOULD YOU LIKE ADDED OR CHANGED?', ph: 'Describe your idea…' },
+    other: { tools: 'WHICH TOOL?', text: 'WHAT WOULD YOU LIKE TO ASK OR TELL US?', ph: 'Ask a question or tell us anything…' }
   };
 
   var d = el('div'); d.id = 'fbDlg'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true'); d.setAttribute('aria-labelledby', 'fbTitle');
@@ -41,13 +43,15 @@
         '<div><p class="fb-lbl">WHAT\'S IT ABOUT, TRAVELLER?</p><div class="fb-chips fb-type" role="radiogroup">' +
           '<label><input type="radio" name="fbType" value="review" checked><span><img class="fb-ico" src="assets/fb-ico-review.webp" srcset="assets/fb-ico-review@2x.webp 2x" alt="" width="24" height="24">Review</span></label>' +
           '<label><input type="radio" name="fbType" value="bug"><span><img class="fb-ico" src="assets/fb-ico-bug.webp" srcset="assets/fb-ico-bug@2x.webp 2x" alt="" width="24" height="24">Bug</span></label>' +
-          '<label><input type="radio" name="fbType" value="idea"><span><img class="fb-ico" src="assets/fb-ico-idea.webp" srcset="assets/fb-ico-idea@2x.webp 2x" alt="" width="24" height="24">Idea / request</span></label></div></div>' +
+          '<label><input type="radio" name="fbType" value="idea"><span><img class="fb-ico" src="assets/fb-ico-idea.webp" srcset="assets/fb-ico-idea@2x.webp 2x" alt="" width="24" height="24">Idea / request</span></label>' +
+          '<label><input type="radio" name="fbType" value="other"><span><img class="fb-ico" src="assets/fb-ico-ask.webp" srcset="assets/fb-ico-ask@2x.webp 2x" alt="" width="24" height="24">Other</span></label></div></div>' +
         '<div><p class="fb-lbl"><span id="fbToolsLbl">WHICH TOOLS HAVE YOU USED?</span> <small>(TAP ALL THAT APPLY)</small></p><div class="fb-chips" id="fbTools" translate="no"></div></div>' +
         '<div id="fbRateWrap"><p class="fb-lbl">RATING <small>(OPTIONAL)</small></p><div class="fb-stars" id="fbStars" role="radiogroup" aria-label="Rating"></div></div>' +
         '<div><p class="fb-lbl" id="fbTextLbl">WHAT DO YOU LIKE, OR WHAT COULD BE BETTER?</p>' +
           '<textarea class="fb-ta" id="fbText" maxlength="1000" placeholder="Tell us anything: a favourite feature, something to improve…" aria-labelledby="fbTextLbl"></textarea>' +
           '<div class="fb-count"><span id="fbCount">0</span>/1000</div></div>' +
         '<div><p class="fb-lbl" id="fbNameLbl">YOUR NAME <small>(OPTIONAL)</small></p><input class="fb-in" id="fbName" maxlength="40" autocomplete="nickname" placeholder="Traveller, Reddit or Discord name" aria-labelledby="fbNameLbl"></div>' +
+        '<div><p class="fb-lbl" id="fbEmLbl">YOUR EMAIL <small>(ONLY IF YOU\'D LIKE A REPLY)</small></p><input class="fb-in" id="fbEmail" type="email" inputmode="email" maxlength="120" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="name@example.com" aria-labelledby="fbEmLbl"><p class="fb-note" style="margin:6px 0 0">Only used to reply. It isn\'t saved on the site.</p></div>' +
         '<label class="fb-sw" id="fbShowWrap"><input type="checkbox" id="fbShow"><span>OK to show this on the site (with my name, if given)</span></label>' +
         '<input class="fb-hp" name="website" id="fbHp" tabindex="-1" autocomplete="off" aria-hidden="true">' +
         '<p class="fb-note" id="fbDevNote" hidden>Your device type and browser are added so it can be fixed faster. Nothing personal.</p>' +
@@ -58,13 +62,16 @@
       '<div class="fb-done" id="fbDone" hidden><div class="tick" aria-hidden="true">✓</div><h3>TRANSMISSION RECEIVED</h3>' +
         '<p class="fb-note">Thanks, traveller. Your feedback has been sent.</p>' +
         '<div class="row"><button type="button" class="btn" id="fbAgain">SEND ANOTHER</button><button type="button" class="btn" id="fbDoneClose">CLOSE</button></div></div>' +
+      '<div class="fb-done" id="fbSlow" hidden><div class="tick" aria-hidden="true">…</div><h3>SIGNAL QUEUED</h3>' +
+        '<p class="fb-note">Your signal has been heard, Traveller. Earlier transmissions are still being analysed. Please try again within the hour.</p>' +
+        '<div class="row"><button type="button" class="btn" id="fbSlowClose">CLOSE</button></div></div>' +
       '<div class="fb-say" id="fbSay" hidden></div>' +
     '</div>';
   document.body.appendChild(d);
 
   var $ = function (id) { return document.getElementById(id); };
-  var f = $('fbForm'), t = $('fbText'), send = $('fbSend'), done = $('fbDone'), say = $('fbSay'), err = $('fbErr');
-  var tabs = d.querySelectorAll('.fb-tabs button'), rating = 0, sent = false, lastFocus = null;
+  var f = $('fbForm'), t = $('fbText'), send = $('fbSend'), done = $('fbDone'), slowEl = $('fbSlow'), say = $('fbSay'), err = $('fbErr');
+  var tabs = d.querySelectorAll('.fb-tabs button'), rating = 0, sent = false, slow = false, lastFocus = null;
 
   TOOLS.forEach(function (x) {
     var l = el('label'), i = el('input'), s = el('span', null, x[1]);
@@ -99,7 +106,7 @@
   function showTab(which) {
     tabs.forEach(function (x) { x.setAttribute('aria-selected', String(x.dataset.t === which)); });
     var s = which === 'say';
-    say.hidden = !s; f.hidden = s || sent; done.hidden = s || !sent;
+    say.hidden = !s; f.hidden = s || sent || slow; done.hidden = s || !sent; slowEl.hidden = s || !slow;
     if (s) renderSay();
   }
   tabs.forEach(function (b) { b.addEventListener('click', function () { showTab(b.dataset.t); }); });
@@ -144,7 +151,7 @@
     if (lastFocus && lastFocus.focus) try { lastFocus.focus(); } catch (e) {}
   }
   function reset() {
-    sent = false; f.reset(); rating = 0; t.value = '';
+    sent = false; slow = false; f.reset(); rating = 0; t.value = '';
     $('fbCount').textContent = '0'; err.hidden = true;
     $('fbStars').querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); x.setAttribute('aria-pressed', 'false'); });
     applyType(); check();
@@ -154,6 +161,7 @@
   btn.addEventListener('click', function () { open(); showTab('send'); });
   $('fbClose').addEventListener('click', function () { close(); });
   $('fbDoneClose').addEventListener('click', function () { close(); });
+  $('fbSlowClose').addEventListener('click', function () { close(); });
   $('fbAgain').addEventListener('click', function () { reset(); showTab('send'); t.focus(); });
   d.addEventListener('click', function (e) { if (e.target === d) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && d.classList.contains('show')) close(); });
@@ -174,13 +182,18 @@
   }
   function hubVersion() {
     if (!window.caches) return Promise.resolve('');
-    return caches.keys().then(function (ks) { return ks.filter(function (k) { return /^nms-hub-/.test(k); })[0] || ''; }).catch(function () { return ''; });
+    return caches.keys().then(function (ks) {
+      var best = '', bn = -1;
+      ks.forEach(function (k) { if (!/^nms-hub-/.test(k)) return; var m = k.match(/(\d+(?:\.\d+)?)$/), n = m ? parseFloat(m[1]) : 0; if (n > bn) { bn = n; best = k; } });
+      return best;
+    }).catch(function () { return ''; });
   }
 
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     if (send.disabled) return;
-    var ty = type();
+    var ty = type(), em = $('fbEmail').value.trim();
+    if (em && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { err.textContent = T("That email address doesn't look right."); err.hidden = false; return; }
     send.disabled = true; send.textContent = T('SENDING…'); err.hidden = true;
     hubVersion().then(function (ver) {
       var body = {
@@ -189,6 +202,7 @@
         rating: ty === 'review' ? rating : 0,
         text: t.value.trim(),
         name: $('fbName').value.trim(),
+        email: em,
         show: ty === 'review' && $('fbShow').checked,
         website: $('fbHp').value,
         info: {
@@ -205,7 +219,8 @@
       sent = true; showTab('send');
       try { if (window.goatcounter && goatcounter.count) goatcounter.count({ path: 'feedback/' + ty, event: true }); } catch (x) {}
     }).catch(function (x) {
-      err.textContent = T(x === 'slow' ? 'Too many sends. Try again in an hour.' : 'Couldn\'t send. Check your connection and try again.');
+      if (x === 'slow') { slow = true; showTab('send'); return; }
+      err.textContent = T('Couldn\'t send. Check your connection and try again.');
       err.hidden = false;
     }).then(function () { send.textContent = T('SEND'); check(); });
   });
