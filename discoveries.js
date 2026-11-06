@@ -47,7 +47,7 @@
     var wk = NMSMedals.ukDay(); wk = wk - ((wk + 3) % 7);
     for (var i = 0; i < 3 && i < top.length; i++) {
       if (String(top[i].name).trim().toLowerCase() !== me) continue;
-      var k = 'nmsHubSurvSeen', seen = ''; try { seen = localStorage.getItem(k) || ''; } catch (e) {}
+      var k = 'nmsHubSurvSeen2', seen = ''; try { seen = localStorage.getItem(k) || ''; } catch (e) {}
       var id = wk + ':' + (i + 1); if (seen === id) return;
       try { localStorage.setItem(k, id); } catch (e) {}
       var intro = document.getElementById('intro');
