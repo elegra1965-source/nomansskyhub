@@ -49,3 +49,4 @@
 .tr-more-btn{display:block;width:100%;margin:2px 0 0;padding:10px 12px;border:1px solid rgba(0,229,255,.35);border-radius:8px;background:rgba(0,229,255,.05);
   color:var(--cyan);font-family:var(--f-mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-align:center}
 .tr-more-btn:hover,.tr-more-btn:focus-visible{background:rgba(0,229,255,.12);border-color:var(--cyan);outline:none}
+.tr-more-btn[hidden]{display:none}

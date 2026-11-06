@@ -96,18 +96,24 @@
     lh.appendChild(lb); live.appendChild(lh);
     if (!top.length) live.appendChild(el('div', 'tr-empty', 'A new week has started — open some charted systems on the map!'));
     // 2026-10-20 (Tony): gold, silver and bronze stay open; 4th place down folds away to save scrolling
-    var more = null, moreBtn = null;
+    var more = null, moreBtn = null, moreBtn2 = null;
     if (top.length > 3) {
       more = el('div', 'tr-more'); more.id = 'trMore';
       moreBtn = el('button', 'tr-more-btn'); moreBtn.type = 'button';
       moreBtn.setAttribute('aria-controls', 'trMore');
+      // 2026-11-06 (Tony): second fold button under place 10, so you don't scroll back up to fold the list
+      moreBtn2 = el('button', 'tr-more-btn'); moreBtn2.type = 'button'; moreBtn2.setAttribute('aria-controls', 'trMore');
       var open = false; try { open = localStorage.getItem('nmsHubTrMore') === '1'; } catch (e) {}
       var setOpen = function (o) {
-        more.hidden = !o; moreBtn.setAttribute('aria-expanded', o ? 'true' : 'false');
-        moreBtn.textContent = o ? 'Show top 3 only ▴' : 'Show places 4–' + top[top.length - 1].rank + ' ▾';
+        more.hidden = !o; moreBtn2.hidden = !o;
+        [moreBtn, moreBtn2].forEach(function (b) {
+          b.setAttribute('aria-expanded', o ? 'true' : 'false');
+          b.textContent = o ? 'Show top 3 only ▴' : 'Show places 4–' + top[top.length - 1].rank + ' ▾';
+        });
         try { localStorage.setItem('nmsHubTrMore', o ? '1' : '0'); } catch (e) {}
       };
       moreBtn.addEventListener('click', function () { setOpen(more.hidden); });
+      moreBtn2.addEventListener('click', function () { setOpen(false); moreBtn.scrollIntoView({ block: 'center' }); });
       setOpen(open);
     }
     top.forEach(function (x) {
@@ -146,7 +152,7 @@
       cp.addEventListener('click', copyLink);
       box.appendChild(cp);
     });
-    if (more) { live.appendChild(moreBtn); live.appendChild(more); }
+    if (more) { live.appendChild(moreBtn); live.appendChild(more); live.appendChild(moreBtn2); }
     if (j.lastWeek && !last) {
       var lw = el('div', 'tr-last');
       lw.appendChild(document.createTextNode('Last week’s ' + MEDAL[0] + ' #1: '));
