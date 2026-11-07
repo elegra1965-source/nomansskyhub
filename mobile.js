@@ -70,7 +70,7 @@
       var list = $('#savedList');
       var label = function () {
         var n = list ? list.children.length : 0;
-        tg.innerHTML = '<span>★ MY SAVED ADDRESSES' + (n ? ' (' + n + ')' : '') + '</span><span class="chev" aria-hidden="true">▾</span>';
+        tg.innerHTML = '<span>★ FAVOURITES' + (n ? ' (' + n + ')' : '') + '</span><span class="chev" aria-hidden="true">▾</span>';
       };
       label();
       if (list && 'MutationObserver' in window) new MutationObserver(label).observe(list, { childList: true });

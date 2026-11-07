@@ -552,14 +552,14 @@ HUB</h1>
     </div>
     <div class="recent" id="recent"><button type="button" id="recBtn" aria-expanded="false"><span class="lab">RECENT ADDRESSES</span><span class="cnt" id="recCnt">0</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></button><div class="rbody"><ol class="saved-list" id="recList"></ol><p class="saved-empty" id="recEmpty">Addresses you dial appear here (last 10) — tap one to load it back onto the ring. Stored on this device only.</p></div></div>
     <div class="saved" id="savedBox">
-      <span class="legend">★ MY SAVED ADDRESSES</span>
+      <span class="legend">★ FAVOURITES</span>
       <div class="saved-form">
         <label class="sr-only" for="saveName">Name for this address</label>
         <input id="saveName" type="text" maxlength="40" autocomplete="off" placeholder="Name it (optional) — e.g. Paradise planet, my base">
-        <button class="btn" id="dialSave" type="button">★ SAVE THIS ADDRESS</button>
+        <button class="btn" id="dialSave" type="button">★ ADD TO FAVOURITES</button>
       </div>
       <ol class="saved-list" id="savedList"></ol>
-      <p class="saved-empty" id="savedEmpty">Dial or roll an address you like, then save it here — tap a saved one to load it back onto the ring. Stored on this device only — up to 50 addresses.</p>
+      <p class="saved-empty" id="savedEmpty">Dial or roll an address you like, then add it to your favourites — tap one to load it back onto the ring. Stored on this device only — up to 50 addresses.</p>
       <p class="saved-empty" id="savedCount" aria-live="polite" style="display:none"></p>
     </div>
   </div>
@@ -912,7 +912,7 @@ HUB</h1>
     }
     var slotEls=[];
     for(var s=0;s<12;s++){var d=document.createElement('div');d.className='slot';slotsEl.appendChild(d);slotEls.push(d);}
-    var wasDone=false,openAt=0;
+    var wasDone=false,openAt=0,lastRC='';
     function render(newIdx){
       var used={};addr.forEach(function(n){used[n]=true;});
       keys.forEach(function(k,n){k.classList.toggle('lit',!!used[n]);});
@@ -935,6 +935,8 @@ HUB</h1>
         openAt=performance.now()+(reduce?0:2900);
       }else if(!full){ring.classList.remove('done','halt');$('portal').classList.remove('open');$('readout').classList.remove('hidden');}
       wasDone=full;
+      /* a different full address pasted over a full one is a new recent too */
+      if(full){var rcc=code();if(rcc!==lastRC){lastRC=rcc;addRecent();}}else lastRC='';
       syncMapLink();syncUrl();
     }
     /* 2026-10-24 (Tony): type or paste the hex, like the Translator. Each digit fills the next glyph;
@@ -1001,7 +1003,10 @@ HUB</h1>
           var small=window.innerWidth<760;document.querySelector(small?'.ring-wrap':'#dialer').scrollIntoView({behavior:reduce?'auto':'smooth',block:small?'center':'start'});
           toast('✓ LOADED · '+x.a);
         });
-        li.appendChild(b);ul.appendChild(li);
+        var rd=document.createElement('button');rd.type='button';rd.className='sv-del';rd.textContent='✕';rd.setAttribute('aria-label','Remove '+x.a);
+        /* removes it from Recent only; a Favourite with the same address stays until the traveller removes it there */
+        rd.addEventListener('click',function(){recent=recent.filter(function(r){return r!==x;});try{localStorage.setItem(RC_KEY,JSON.stringify(recent));}catch(e){}drawRecent();toast('REMOVED');});
+        li.appendChild(b);li.appendChild(rd);ul.appendChild(li);
       });
       $('recEmpty').style.display=recent.length?'none':'';$('recCnt').textContent=recent.length;
     }
