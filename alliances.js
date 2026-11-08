@@ -77,7 +77,7 @@
           '<a class="al-cta" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener">◈ Open ATLAS</a></div>' +
       '</div>' +
       '</div>' +
-      '<div class="al-src">Source: <a href="https://www.nomanssky.com/cosmos-update/" target="_blank" rel="noopener">Hello Games — Cosmos update</a></div>';
+      '<div class="al-src">Source: <a href="https://www.nomanssky.com/cosmos-update/" target="_blank" rel="noopener">Hello Games. Cosmos update</a></div>';
     var btn = s.querySelector('.al-more'), body = s.querySelector('.al-body');
     btn.addEventListener('click', function () {
       var open = btn.getAttribute('aria-expanded') !== 'true';

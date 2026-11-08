@@ -8,6 +8,8 @@
   var MAP = 'https://map.nomansskyhub.app';
   var FEED = MAP + '/.netlify/functions/trending';
   var MEDAL = ['🥇', '🥈', '🥉'];
+  // 2026-11-08 (Tony): the drawn medal instead of the emoji (emoji only if the medal script has not loaded)
+  function medalIcon(r) { return window.NMSMedals ? NMSMedals.mini(r) : document.createTextNode(MEDAL[r - 1] + ' '); }
   var GAL = ['Euclid','Hilbert Dimension','Calypso','Hesperius Dimension','Hyades','Ickjamatew','Budullangr','Kikolgallr','Eltiensleen','Eissentam','Elkupalos','Aptarkaba','Ontiniangp','Odiwagiri','Ogtialabi','Muhacksonto','Hitonskyer','Rerasmutul','Isdoraijung','Doctinawyra','Loychazinq','Zukasizawa','Ekwathore','Yeberhahne','Twerbetek','Sivarates','Eajerandal','Aldukesci','Wotyarogii','Sudzerbal','Maupenzhay','Sugueziume','Brogoweldian','Ehbogdenbu','Ijsenufryos','Nipikulha','Autsurabin','Lusontrygiamh','Rewmanawa','Ethiophodhe','Urastrykle','Xobeurindj','Oniijialdu','Wucetosucc','Ebyeloof','Odyavanta','Milekistri','Waferganh','Agnusopwit','Teyaypilny','Zalienkosm','Ladgudiraf','Mushonponte','Amsentisz','Fladiselm','Laanawemb','Ilkerloor','Davanossi','Ploehrliou','Corpinyaya','Leckandmeram','Quulngais','Nokokipsechl','Rinblodesa','Loydporpen','Ibtrevskip','Elkowaldb','Heholhofsko','Yebrilowisod','Husalvangewi',"Ovna'uesed",'Bahibusey','Nuybeliaure','Doshawchuc','Ruckinarkh','Thorettac','Nuponoparau','Moglaschil','Uiweupose','Nasmilete','Ekdaluskin','Hakapanasy','Dimonimba','Cajaccari','Olonerovo','Umlanswick','Henayliszm','Utzenmate','Umirpaiya','Paholiang','Iaereznika','Yudukagath','Boealalosnj','Yaevarcko','Coellosipp','Wayndohalou','Smoduraykl','Apmaneessu','Hicanpaav','Akvasanta','Tuychelisaor','Rivskimbe','Daksanquix','Kissonlin','Aediabiel','Ulosaginyik','Roclaytonycar','Kichiaroa','Irceauffey','Nudquathsenfe','Getaizakaal','Hansolmien','Bloytisagra','Ladsenlay','Luyugoslasr','Ubredhatk','Cidoniana','Jasinessa','Torweierf','Saffneckm','Thnistner','Dotusingg','Luleukous','Jelmandan','Otimanaso','Enjaxusanto','Sezviktorew','Zikehpm','Bephembah','Broomerrai','Meximicka','Venessika','Gaiteseling','Zosakasiro','Drajayanes','Ooibekuar','Urckiansi','Dozivadido','Emiekereks','Meykinunukur','Kimycuristh','Roansfien','Isgarmeso','Daitibeli','Gucuttarik','Enlaythie','Drewweste','Akbulkabi','Homskiw','Zavainlani','Jewijkmas','Itlhotagra','Podalicess','Hiviusauer','Halsebenk','Puikitoac','Gaybakuaria','Grbodubhe','Rycempler','Indjalala','Fontenikk','Pasycihelwhee','Ikbaksmit','Telicianses','Oyleyzhan','Uagerosat','Impoxectin','Twoodmand','Hilfsesorbs','Ezdaranit','Wiensanshe','Ewheelonc','Litzmantufa','Emarmatosi','Mufimbomacvi','Wongquarum','Hapirajua','Igbinduina','Wepaitvas','Sthatigudi','Yekathsebehn','Ebedeagurst','Nolisonia','Ulexovitab','Iodhinxois','Irroswitzs','Bifredait','Beiraghedwe','Yeonatlak','Cugnatachh','Nozoryenki','Ebralduri','Evcickcandj','Ziybosswin','Heperclait','Sugiuniam','Aaseertush','Uglyestemaa','Horeroedsh','Drundemiso','Ityanianat','Purneyrine','Dokiessmat','Nupiacheh','Dihewsonj','Rudrailhik','Tweretnort','Snatreetze','Iwundaracos','Digarlewena','Erquagsta','Logovoloin','Boyaghosganh','Kuolungau','Pehneldept','Yevettiiqidcon','Sahliacabru','Noggalterpor','Chmageaki','Veticueca','Vittesbursul','Nootanore','Innebdjerah','Kisvarcini','Cuzcogipper','Pamanhermonsu','Brotoghek','Mibittara','Huruahili','Raldwicarn','Ezdartlic','Badesclema','Isenkeyan','Iadoitesu','Yagrovoisi','Ewcomechio','Inunnunnoda','Dischiutun','Yuwarugha','Ialmendra','Reponudrle','Rinjanagrbo','Zeziceloh','Oeileutasc','Zicniijinis','Dugnowarilda','Neuxoisan','Ilmenhorn','Rukwatsuku','Nepitzaspru','Chcehoemig','Haffneyrin','Uliciawai','Tuhgrespod','Iousongola','Odyalutai'];
   function gal(g) { return GAL[g] || ('Galaxy ' + (g + 1)); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -63,7 +65,7 @@
     e.preventDefault(); e.stopPropagation();
     var b = this, url = b.getAttribute('data-link'), t = b.getAttribute('data-label') || b.textContent;
     b.setAttribute('data-label', t);
-    function ok() { b.textContent = '✓ Link copied — paste it anywhere'; setTimeout(function () { b.textContent = t; }, 2500); }
+    function ok() { b.textContent = '✓ Link copied. Paste it anywhere'; setTimeout(function () { b.textContent = t; }, 2500); }
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, function () { window.prompt('Copy this link:', url); });
     else window.prompt('Copy this link:', url);
   }
@@ -84,7 +86,7 @@
     head.appendChild(el('h2', 'al-title', last ? '🔥 Last week’s final standings' : '🔥 Trending this week'));
     head.appendChild(el('p', 'al-sub', last
       ? 'A new week has started on the Galactic Map. These were last week’s most-viewed systems until this week’s list fills up.'
-      : 'The charted systems travellers opened most on the Galactic Map this week. Resets every Monday at midnight (UK) — chart yours and it could be next.'));
+      : 'The charted systems travellers opened most on the Galactic Map this week. Resets every Monday at midnight (UK). Chart yours and it could be next.'));
     s.appendChild(head);
 
     var live = el('div', 'al-live tr-live');
@@ -94,7 +96,7 @@
     var lb = el('a', 'tr-link', 'Leaderboard ›'); lb.href = MAP + '/?trending=1'; lb.target = '_blank'; lb.rel = 'noopener';
     lb.setAttribute('aria-label', 'Open the full trending leaderboard on the Galactic Map');
     lh.appendChild(lb); live.appendChild(lh);
-    if (!top.length) live.appendChild(el('div', 'tr-empty', 'A new week has started — open some charted systems on the map!'));
+    if (!top.length) live.appendChild(el('div', 'tr-empty', 'A new week has started. Open some charted systems on the map!'));
     // 2026-10-20 (Tony): gold, silver and bronze stay open; 4th place down folds away to save scrolling
     var more = null, moreBtn = null, moreBtn2 = null;
     if (top.length > 3) {
@@ -155,7 +157,7 @@
     if (more) { live.appendChild(moreBtn); live.appendChild(more); live.appendChild(moreBtn2); }
     if (j.lastWeek && !last) {
       var lw = el('div', 'tr-last');
-      lw.appendChild(document.createTextNode('Last week’s ' + MEDAL[0] + ' #1: '));
+      lw.appendChild(medalIcon(1)); lw.appendChild(document.createTextNode(' Last week’s #1: '));
       var a = el('a', null, plain(j.lastWeek.name) || 'Unnamed system'); a.href = link(j.lastWeek); a.target = '_blank'; a.rel = 'noopener';
       lw.appendChild(a);
       lw.appendChild(document.createTextNode(' · ' + gal(j.lastWeek.galaxy)));
@@ -174,7 +176,7 @@
       if (!nm || nm.querySelector('.tr-badge')) continue;
       var m = /addr=([0-9A-F]{12})&galaxy=(\d+)/.exec(c.getAttribute('href') || ''); if (!m) continue;
       var r = rank[m[2] + ':' + m[1]]; if (!r || r > 3) continue;
-      nm.appendChild(el('span', 'tr-badge', MEDAL[r - 1] + ' #' + r + (mode === 'last' ? ' last week' : ' Most viewed')));
+      var bd = el('span', 'tr-badge'); bd.appendChild(medalIcon(r)); bd.appendChild(document.createTextNode(' #' + r + (mode === 'last' ? ' last week' : ' Most viewed'))); nm.appendChild(bd);
     }
   }
 

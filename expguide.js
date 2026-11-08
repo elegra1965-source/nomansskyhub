@@ -35,7 +35,7 @@
       NMSCodex.expedition(name || 'Expedition').then(function (g) {
         if (!g || !g.phases.length) throw new Error('none');
         guide = g; draw();
-      }).catch(function () { loaded = false; box.innerHTML = '<div class="eg-status">THE ARCHIVE HAS NO MILESTONE LIST FOR THIS EXPEDITION YET — TRY AGAIN LATER.</div>'; });
+      }).catch(function () { loaded = false; box.innerHTML = '<div class="eg-status">THE ARCHIVE HAS NO MILESTONE LIST FOR THIS EXPEDITION YET · TRY AGAIN LATER.</div>'; });
     }
     btn.addEventListener('click', function () {
       var open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false');

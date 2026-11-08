@@ -262,10 +262,10 @@
         var p = intent.phase ? g.phases.filter(function (x) { return x.phase === intent.phase; })[0] : null;
         if (p) {
           return 'Phase ' + p.phase + ' of ' + g.title.replace(/^Expedition \d+:\s*/, '') + ': ' +
-            p.milestones.map(function (x) { return x.name + ' — ' + x.req.replace(/\.$/, '') + (x.hint ? ' (' + x.hint.replace(/\.$/, '') + ')' : ''); }).join('. ') + '.' + CREDIT;
+            p.milestones.map(function (x) { return x.name + ' · ' + x.req.replace(/\.$/, '') + (x.hint ? ' (' + x.hint.replace(/\.$/, '') + ')' : ''); }).join('. ') + '.' + CREDIT;
         }
         var total = g.phases.reduce(function (a, x) { return a + x.milestones.length; }, 0);
-        var first = g.phases[0].milestones.slice(0, 3).map(function (x) { return x.name + ' — ' + x.req.replace(/\.$/, ''); }).join('; ');
+        var first = g.phases[0].milestones.slice(0, 3).map(function (x) { return x.name + ' · ' + x.req.replace(/\.$/, ''); }).join('; ');
         return g.title.replace(/^Expedition (\d+):\s*/, 'Expedition $1, ') + ', has ' + g.phases.length + ' phases and ' + total +
           ' milestones, Traveller. Phase 1 opens with ' + first + '. Ask me for any phase by number, or open the full guide on screen.' + CREDIT;
       });
@@ -284,7 +284,7 @@
             var other = by[p].inputs.replace(self, ' + ').replace(/^\s*\+\s*|\s*\+\s*$/g, '').trim();
             return other ? p + ' (with ' + other.replace(/ x(\d+)/g, ' ×$1') + ')' : p;
           });
-          s += 'in a refiner it becomes ' + list(shown) + (prods.length > 6 ? ' — ' + prods.length + ' products in all' : '') + '. ';
+          s += 'in a refiner it becomes ' + list(shown) + (prods.length > 6 ? ' · ' + prods.length + ' products in all' : '') + '. ';
         }
         if (u.craftCount) s += 'It also goes into ' + u.craftCount + ' crafting recipe' + (u.craftCount === 1 ? '' : 's') + '.';
         return s.trim() + CREDIT;
@@ -297,10 +297,10 @@
       if (intent.kind === 'about' && !isThing) return null; // lore questions: leave them to the Atlas
       if ((intent.kind === 'make' || intent.kind === 'find') && (!isThing || /catalog|^list of/i.test(it.title || ''))) return null; // ships, pets, places: the archive lookup answers those
       if (intent.kind === 'make' || intent.kind === 'about') {
-        if (it.craft.length) out.push('Craft ' + it.title + ' from ' + ings(it.craft[0]) + (it.craft[0].blueprint ? ' — you\'ll need its blueprint first' : '') + '.');
+        if (it.craft.length) out.push('Craft ' + it.title + ' from ' + ings(it.craft[0]) + (it.craft[0].blueprint ? ' · you\'ll need its blueprint first' : '') + '.');
         if (it.refine.length) out.push('In a refiner: ' + it.refine.slice(0, 3).map(function (r) { return ings(r) + ' make ' + r.out; }).join('; or ') + '.');
         if (it.cook.length && !it.craft.length && !it.refine.length) out.push('Cook it in the Nutrient Processor from ' + ings(it.cook[0]) + '.');
-        if (intent.kind === 'make' && !out.length) out.push(it.title + ' isn\'t crafted or refined, Traveller — it\'s gathered.');
+        if (intent.kind === 'make' && !out.length) out.push(it.title + ' isn\'t crafted or refined, Traveller. It\'s gathered.');
       }
       if (intent.kind === 'find' || (intent.kind === 'make' && !it.craft.length && !it.refine.length) || intent.kind === 'about') {
         if (it.source.length) {
@@ -310,7 +310,7 @@
           });
           out.push((intent.kind === 'find' ? 'Where to find ' + it.title + ': ' : 'Found: ') + bits.join('; ') + '.');
         }
-        else if (intent.kind === 'find' && (it.craft.length || it.refine.length)) out.push(it.title + ' is made rather than found — ask me how to make it.');
+        else if (intent.kind === 'find' && (it.craft.length || it.refine.length)) out.push(it.title + ' is made rather than found. Ask me how to make it.');
       }
       if (intent.kind === 'about') {
         var lead = it.summary || it.desc;

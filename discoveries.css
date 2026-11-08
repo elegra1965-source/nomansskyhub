@@ -74,3 +74,5 @@
   .dc-live .al-row.dc-unnamed .al-lname{flex:1 1 0;min-width:0}
   .dc-live .al-row.dc-unnamed .al-lstat{flex:0 0 100%;order:8;padding-left:var(--dc-claim-pad,40px);text-align:left;margin-left:0}
 }
+
+.dc-streak .nmsm-row .nmsm-mini{width:22px;height:22px;flex-basis:22px}.dc-streak .nmsm-row .nmsm-svg{width:22px;height:22px}

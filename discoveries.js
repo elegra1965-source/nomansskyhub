@@ -25,7 +25,7 @@
   function T2(s, v) { return window.NMS_T ? NMS_T(s, v) : s.replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); }
   function survCard(p, rank, top, reveal) {
     var x = p.latest, next;
-    if (rank === 1) next = top[1] ? T2('{n} saves ahead of #2', { n: p.saves - top[1].saves }) : T2('Nobody else has charted this week — yet');
+    if (rank === 1) next = top[1] ? T2('{n} saves ahead of #2', { n: p.saves - top[1].saves }) : T2('Nobody else has charted this week yet');
     else next = T2('{n} saves behind #{r}', { n: top[rank - 2].saves - p.saves, r: rank - 1 });
     return NMSMedals.card({
       metal: NMSMedals.rankMetal(rank), label: '#' + rank, reveal: reveal,
@@ -131,7 +131,9 @@
     // 2026-10-30: your streak (saved on this device by the Galactic Map, read from the shared cookie)
     if (window.NMSMedals) {
       var st = NMSMedals.stats(), sb = el('button', 'dc-streak'); sb.type = 'button';
-      sb.textContent = st.any && st.cur ? '🔥 ' + T2(st.cur === 1 ? 'Your streak: {n} day · view medals ›' : 'Your streak: {n} days · view medals ›', { n: st.cur }) : '🏅 ' + T2('Streak medals: chart a new system every day ›');
+      sb.textContent = '';
+      if (!(st.any && st.cur)) sb.appendChild(NMSMedals.row());
+      sb.appendChild(document.createTextNode(st.any && st.cur ? '🔥 ' + T2(st.cur === 1 ? 'Your streak: {n} day · view medals ›' : 'Your streak: {n} days · view medals ›', { n: st.cur }) : T2('Streak medals: chart a new system every day ›')));
       sb.addEventListener('click', function () { NMSMedals.panel(); });
       join.appendChild(sb);
     }
