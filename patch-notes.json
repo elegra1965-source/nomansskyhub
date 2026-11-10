@@ -1,72 +1,72 @@
 {
- "version": "v7.4",
- "date": "2026-11-06",
+ "version": "v7.5",
+ "date": "2026-11-27",
  "site": "NO MAN'S SKY HUB",
  "lastToday": false,
  "items": [
   {
    "tag": "new",
    "text": {
-    "en": "Trending and Top surveyors #1–3 now win medals. Open yours to download or share it",
-    "es": "Los puestos 1–3 de Tendencias y de Mejores exploradores ganan medallas. Abre la tuya para descargarla o compartirla",
-    "de": "Platz 1–3 in den Trends und bei den Top-Vermessern gewinnt jetzt Medaillen. Öffne deine, um sie herunterzuladen oder zu teilen",
-    "nl": "De nummers 1–3 van Trending en Topverkenners winnen nu medailles. Open de jouwe om hem te downloaden of te delen",
-    "pl": "Miejsca 1–3 w sekcjach Na topie i Najlepsi zwiadowcy zdobywają medale. Otwórz swój, aby go pobrać lub udostępnić",
-    "fr": "Les 3 premiers des Tendances et des Meilleurs explorateurs gagnent des médailles. Ouvre la tienne pour la télécharger ou la partager",
-    "pt-BR": "Os 3 primeiros de Em alta e de Melhores exploradores ganham medalhas. Abra a sua para baixar ou compartilhar",
-    "it": "I primi 3 di Di tendenza e Migliori esploratori vincono medaglie. Apri la tua per scaricarla o condividerla"
+    "en": "Portal dialer rebuilt like the game: the ring turns to each glyph you pick, and the portal opens with a swirling centre, haze and lightning",
+    "es": "Marcador de portal rehecho como en el juego: el anillo gira hacia cada glifo que eliges y el portal se abre con un centro en remolino, bruma y relámpagos",
+    "de": "Portal-Wähler wie im Spiel neu gebaut: Der Ring dreht sich zu jedem gewählten Glyphen, und das Portal öffnet sich mit wirbelndem Zentrum, Dunst und Blitzen",
+    "nl": "Portaalkiezer opnieuw gebouwd zoals in het spel: de ring draait naar elk glyph dat je kiest en het portaal opent met een wervelend midden, nevel en bliksem",
+    "pl": "Wybierak portalu przebudowany jak w grze: pierścień obraca się do każdego wybranego glifu, a portal otwiera się wirującym środkiem, mgłą i błyskawicami",
+    "fr": "Composeur de portail refait comme dans le jeu : l'anneau tourne vers chaque glyphe choisi et le portail s'ouvre avec un centre tourbillonnant, de la brume et des éclairs",
+    "pt-BR": "Discador de portal refeito como no jogo: o anel gira até cada glifo escolhido e o portal se abre com um centro em redemoinho, névoa e relâmpagos",
+    "it": "Compositore di portali rifatto come nel gioco: l'anello ruota verso ogni glifo scelto e il portale si apre con un centro vorticoso, foschia e fulmini"
    }
   },
   {
    "tag": "new",
    "text": {
-    "en": "Your streak: chart new systems on the Galactic Map for daily, weekly and monthly medals",
-    "es": "Tu racha: cartografía sistemas nuevos en el Mapa Galáctico para ganar medallas diarias, semanales y mensuales",
-    "de": "Deine Serie: Kartiere neue Systeme auf der Galaktischen Karte für tägliche, wöchentliche und monatliche Medaillen",
-    "nl": "Jouw reeks: breng nieuwe systemen in kaart op de Galactische Kaart voor dag-, week- en maandmedailles",
-    "pl": "Twoja seria: oznaczaj nowe układy na Mapie Galaktycznej, by zdobywać medale dzienne, tygodniowe i miesięczne",
-    "fr": "Ta série : cartographie de nouveaux systèmes sur la Carte galactique pour des médailles quotidiennes, hebdomadaires et mensuelles",
-    "pt-BR": "Sua sequência: mapeie sistemas novos no Mapa Galáctico e ganhe medalhas diárias, semanais e mensais",
-    "it": "La tua serie: mappa nuovi sistemi sulla Mappa galattica per medaglie giornaliere, settimanali e mensili"
+    "en": "Recent addresses and Favourites on the dialer: tap one to put it back on the ring. Kept on this device only",
+    "es": "Direcciones recientes y Favoritos en el marcador: toca una para volver a ponerla en el anillo. Se guardan solo en este dispositivo",
+    "de": "Zuletzt gewählte Adressen und Favoriten im Wähler: Tippe auf eine, um sie zurück auf den Ring zu legen. Nur auf diesem Gerät gespeichert",
+    "nl": "Recente adressen en Favorieten in de kiezer: tik op een adres om het terug op de ring te zetten. Alleen op dit apparaat bewaard",
+    "pl": "Ostatnie adresy i Ulubione w wybieraku: dotknij jednego, by wrócić z nim na pierścień. Zapisane tylko na tym urządzeniu",
+    "fr": "Adresses récentes et Favoris dans le composeur : touche-en une pour la remettre sur l'anneau. Gardés uniquement sur cet appareil",
+    "pt-BR": "Endereços recentes e Favoritos no discador: toque em um para colocá-lo de volta no anel. Guardados apenas neste dispositivo",
+    "it": "Indirizzi recenti e Preferiti nel compositore: tocca un indirizzo per rimetterlo sull'anello. Salvati solo su questo dispositivo"
+   }
+  },
+  {
+   "tag": "new",
+   "text": {
+    "en": "Reviews & feedback has a 4th Other chip and an optional reply email, used only to answer you and never saved",
+    "es": "Reseñas y comentarios tiene una cuarta opción, Otro, y un correo de respuesta opcional, que solo sirve para responderte y nunca se guarda",
+    "de": "Bewertungen & Feedback hat jetzt einen vierten Chip, Sonstiges, und eine optionale Antwort-E-Mail, die nur für deine Antwort genutzt und nie gespeichert wird",
+    "nl": "Reviews & feedback heeft een vierde optie, Anders, en een optioneel antwoordadres dat alleen dient om je te antwoorden en nooit wordt opgeslagen",
+    "pl": "Opinie i uwagi mają czwartą opcję, Inne, oraz opcjonalny e-mail do odpowiedzi, używany tylko do odpisania ci i nigdy nie zapisywany",
+    "fr": "Avis et retours a maintenant une 4e option, Autre, et un e-mail de réponse facultatif, utilisé uniquement pour te répondre et jamais enregistré",
+    "pt-BR": "Avaliações e feedback ganhou uma 4ª opção, Outro, e um e-mail de resposta opcional, usado só para responder a você e nunca guardado",
+    "it": "Recensioni e feedback ha una quarta opzione, Altro, e un'email di risposta facoltativa, usata solo per risponderti e mai salvata"
+   }
+  },
+  {
+   "tag": "new",
+   "text": {
+    "en": "The Atlas is listening: one tap to tell us if you want a Players' wallpaper section",
+    "es": "El Atlas escucha: un toque para decirnos si quieres una sección de fondos de pantalla de jugadores",
+    "de": "Der Atlas hört zu: Mit einem Tipp sagst du uns, ob du einen Bereich für Spieler-Hintergrundbilder willst",
+    "nl": "De Atlas luistert: met één tik laat je weten of je een sectie met achtergronden van spelers wilt",
+    "pl": "Atlas nasłuchuje: jednym dotknięciem powiedz nam, czy chcesz sekcję tapet od graczy",
+    "fr": "L'Atlas écoute : un toucher pour nous dire si tu veux une section de fonds d'écran des joueurs",
+    "pt-BR": "O Atlas está ouvindo: um toque para nos dizer se você quer uma seção de papéis de parede dos jogadores",
+    "it": "L'Atlas ascolta: un tocco per dirci se vuoi una sezione di sfondi dei giocatori"
    }
   },
   {
    "tag": "improved",
    "text": {
-    "en": "Unnamed traveller in the top 3? Add your name on the map to claim the medal",
-    "es": "¿Viajero sin nombre en el top 3? Añade tu nombre en el mapa para reclamar la medalla",
-    "de": "Unbenannter Reisender in den Top 3? Trage deinen Namen auf der Karte ein, um die Medaille zu beanspruchen",
-    "nl": "Naamloze reiziger in de top 3? Voeg je naam toe op de kaart om de medaille op te eisen",
-    "pl": "Podróżnik bez nazwy w pierwszej trójce? Dodaj swoją nazwę na mapie, by odebrać medal",
-    "fr": "Voyageur sans nom dans le top 3 ? Ajoute ton nom sur la carte pour réclamer la médaille",
-    "pt-BR": "Viajante sem nome no top 3? Adicione seu nome no mapa para resgatar a medalha",
-    "it": "Viaggiatore senza nome nella top 3? Aggiungi il tuo nome sulla mappa per reclamare la medaglia"
-   }
-  },
-  {
-   "tag": "new",
-   "text": {
-    "en": "Trending: if your own system is in the top 3, its medal pops up once a week and a ship flies in",
-    "es": "Tendencias: si tu propio sistema está en el top 3, su medalla aparece una vez por semana y una nave llega volando",
-    "de": "Trending: Liegt dein eigenes System in den Top 3, erscheint seine Medaille einmal pro Woche und ein Schiff fliegt herein",
-    "fr": "Tendances : si ton propre système est dans le top 3, sa médaille s'affiche une fois par semaine et un vaisseau arrive en volant",
-    "it": "Tendenze: se il tuo sistema è nella top 3, la sua medaglia appare una volta a settimana e una nave arriva in volo",
-    "nl": "Trending: staat je eigen systeem in de top 3, dan verschijnt de medaille één keer per week en vliegt er een schip binnen",
-    "pl": "Na topie: jeśli twój system jest w top 3, jego medal pojawia się raz w tygodniu, a statek przylatuje",
-    "pt-BR": "Em alta: se o seu sistema estiver no top 3, a medalha dele aparece uma vez por semana e uma nave chega voando"
-   }
-  },
-  {
-   "tag": "new",
-   "text": {
-    "en": "Patch notes like these after each big update",
-    "es": "Notas como estas después de cada gran actualización",
-    "de": "Patch-Notes wie diese nach jedem großen Update",
-    "nl": "Patchnotes zoals deze na elke grote update",
-    "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
-    "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
-    "pt-BR": "Notas como estas depois de cada grande atualização",
-    "it": "Note come queste dopo ogni grande aggiornamento"
+    "en": "Medals are now drawn pictures instead of emoji",
+    "es": "Las medallas ahora son imágenes dibujadas en lugar de emojis",
+    "de": "Medaillen sind jetzt gezeichnete Bilder statt Emojis",
+    "nl": "Medailles zijn nu getekende afbeeldingen in plaats van emoji",
+    "pl": "Medale są teraz rysowanymi obrazkami zamiast emoji",
+    "fr": "Les médailles sont maintenant des images dessinées au lieu d'emojis",
+    "pt-BR": "As medalhas agora são imagens desenhadas em vez de emojis",
+    "it": "Le medaglie ora sono immagini disegnate al posto delle emoji"
    }
   }
  ],
@@ -265,82 +265,81 @@
   },
   {
    "site": "NMS ALPHABET TRANSLATOR",
-   "version": "v36",
+   "version": "v37",
    "url": "https://translator.nomansskyhub.app/",
    "items": [
     {
      "tag": "new",
      "text": {
-      "en": "Medals on the Galactic Map: chart new systems for daily, weekly and monthly streak medals",
-      "es": "Medallas en el Mapa Galáctico: cartografía sistemas nuevos y gana medallas de racha diarias, semanales y mensuales",
-      "de": "Medaillen auf der Galaktischen Karte: Kartiere neue Systeme für tägliche, wöchentliche und monatliche Serienmedaillen",
-      "nl": "Medailles op de Galactische Kaart: breng nieuwe systemen in kaart voor dag-, week- en maandreeksmedailles",
-      "pl": "Medale na Mapie Galaktycznej: oznaczaj nowe układy i zdobywaj medale za serie dzienne, tygodniowe i miesięczne",
-      "fr": "Des médailles sur la Carte galactique : cartographie de nouveaux systèmes pour des médailles de série quotidiennes, hebdomadaires et mensuelles",
-      "pt-BR": "Medalhas no Mapa Galáctico: mapeie sistemas novos e ganhe medalhas de sequência diárias, semanais e mensais",
-      "it": "Medaglie sulla Mappa galattica: mappa nuovi sistemi per medaglie di serie giornaliere, settimanali e mensili"
-     },
-     "url": "https://map.nomansskyhub.app/"
+      "en": "Share the translator on X, Reddit or Discord from the footer",
+      "es": "Comparte el traductor en X, Reddit o Discord desde el pie de página",
+      "de": "Teile den Übersetzer auf X, Reddit oder Discord über die Fußzeile",
+      "nl": "Deel de vertaler op X, Reddit of Discord via de voettekst",
+      "pl": "Udostępnij tłumacz na X, Reddicie lub Discordzie ze stopki",
+      "fr": "Partage le traducteur sur X, Reddit ou Discord depuis le pied de page",
+      "pt-BR": "Compartilhe o tradutor no X, Reddit ou Discord pelo rodapé",
+      "it": "Condividi il traduttore su X, Reddit o Discord dal piè di pagina"
+     }
     },
     {
      "tag": "new",
      "text": {
-      "en": "Patch notes like these after each big update",
-      "es": "Notas como estas después de cada gran actualización",
-      "de": "Patch-Notes wie diese nach jedem großen Update",
-      "nl": "Patchnotes zoals deze na elke grote update",
-      "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
-      "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
-      "pt-BR": "Notas como estas depois de cada grande atualização",
-      "it": "Note come queste dopo ogni grande aggiornamento"
+      "en": "Reviews & feedback has a 4th Other chip and an optional reply email, used only to answer you and never saved",
+      "es": "Reseñas y comentarios tiene una cuarta opción, Otro, y un correo de respuesta opcional, que solo sirve para responderte y nunca se guarda",
+      "de": "Bewertungen & Feedback hat jetzt einen vierten Chip, Sonstiges, und eine optionale Antwort-E-Mail, die nur für deine Antwort genutzt und nie gespeichert wird",
+      "nl": "Reviews & feedback heeft een vierde optie, Anders, en een optioneel antwoordadres dat alleen dient om je te antwoorden en nooit wordt opgeslagen",
+      "pl": "Opinie i uwagi mają czwartą opcję, Inne, oraz opcjonalny e-mail do odpowiedzi, używany tylko do odpisania ci i nigdy nie zapisywany",
+      "fr": "Avis et retours a maintenant une 4e option, Autre, et un e-mail de réponse facultatif, utilisé uniquement pour te répondre et jamais enregistré",
+      "pt-BR": "Avaliações e feedback ganhou uma 4ª opção, Outro, e um e-mail de resposta opcional, usado só para responder a você e nunca guardado",
+      "it": "Recensioni e feedback ha una quarta opzione, Altro, e un'email di risposta facoltativa, usata solo per risponderti e mai salvata"
      }
     }
    ]
   },
   {
    "site": "NMS THEME PACK",
-   "version": "v43",
+   "version": "v44",
    "url": "https://theme.nomansskyhub.app/",
    "items": [
     {
      "tag": "new",
      "text": {
-      "en": "Medals on the Galactic Map: chart new systems for daily, weekly and monthly streak medals",
-      "es": "Medallas en el Mapa Galáctico: cartografía sistemas nuevos y gana medallas de racha diarias, semanales y mensuales",
-      "de": "Medaillen auf der Galaktischen Karte: Kartiere neue Systeme für tägliche, wöchentliche und monatliche Serienmedaillen",
-      "nl": "Medailles op de Galactische Kaart: breng nieuwe systemen in kaart voor dag-, week- en maandreeksmedailles",
-      "pl": "Medale na Mapie Galaktycznej: oznaczaj nowe układy i zdobywaj medale za serie dzienne, tygodniowe i miesięczne",
-      "fr": "Des médailles sur la Carte galactique : cartographie de nouveaux systèmes pour des médailles de série quotidiennes, hebdomadaires et mensuelles",
-      "pt-BR": "Medalhas no Mapa Galáctico: mapeie sistemas novos e ganhe medalhas de sequência diárias, semanais e mensais",
-      "it": "Medaglie sulla Mappa galattica: mappa nuovi sistemi per medaglie di serie giornaliere, settimanali e mensili"
-     },
-     "url": "https://map.nomansskyhub.app/"
-    },
-    {
-     "tag": "improved",
-     "text": {
-      "en": "New FAQ answers: Samsung phones, blurry icons, icons resetting after a restart, Windows icon cache",
-      "es": "Nuevas respuestas en las preguntas frecuentes: móviles Samsung, iconos borrosos, iconos que vuelven a su estado tras reiniciar y la caché de iconos de Windows",
-      "de": "Neue FAQ-Antworten: Samsung-Handys, unscharfe Symbole, Symbole nach Neustart zurückgesetzt, Windows-Symbolcache",
-      "fr": "Nouvelles réponses dans la FAQ : téléphones Samsung, icônes floues, icônes réinitialisées après un redémarrage, cache d'icônes Windows",
-      "it": "Nuove risposte nelle FAQ: telefoni Samsung, icone sfocate, icone ripristinate dopo il riavvio, cache delle icone di Windows",
-      "nl": "Nieuwe FAQ-antwoorden: Samsung-telefoons, wazige pictogrammen, pictogrammen die na een herstart terugspringen, Windows-pictogramcache",
-      "pl": "Nowe odpowiedzi w FAQ: telefony Samsung, rozmyte ikony, ikony wracające po restarcie, pamięć podręczna ikon Windows",
-      "pt-BR": "Novas respostas no FAQ: celulares Samsung, ícones borrados, ícones que voltam ao normal após reiniciar, cache de ícones do Windows"
+      "en": "S Pen Icons for Samsung phones: floating icons and pointers, with a 4 step set-up",
+      "es": "Iconos S Pen para móviles Samsung: iconos flotantes y punteros, con una configuración en 4 pasos",
+      "de": "S-Pen-Icons für Samsung-Handys: schwebende Icons und Zeiger, mit einer Einrichtung in 4 Schritten",
+      "nl": "S Pen-iconen voor Samsung-telefoons: zwevende iconen en aanwijzers, met een installatie in 4 stappen",
+      "pl": "Ikony S Pen dla telefonów Samsung: pływające ikony i wskaźniki, z konfiguracją w 4 krokach",
+      "fr": "Icônes S Pen pour les téléphones Samsung : icônes flottantes et pointeurs, avec une installation en 4 étapes",
+      "pt-BR": "Ícones S Pen para celulares Samsung: ícones flutuantes e ponteiros, com configuração em 4 passos",
+      "it": "Icone S Pen per i telefoni Samsung: icone flottanti e puntatori, con una configurazione in 4 passaggi"
      }
     },
     {
      "tag": "new",
      "text": {
-      "en": "Patch notes like these after each big update",
-      "es": "Notas como estas después de cada gran actualización",
-      "de": "Patch-Notes wie diese nach jedem großen Update",
-      "nl": "Patchnotes zoals deze na elke grote update",
-      "pl": "Takie informacje o zmianach po każdej dużej aktualizacji",
-      "fr": "Des notes comme celles-ci après chaque grosse mise à jour",
-      "pt-BR": "Notas como estas depois de cada grande atualização",
-      "it": "Note come queste dopo ogni grande aggiornamento"
+      "en": "Photo Mode Studio: Exosuit HUD Icons and a Game style HUD to dress your screenshots",
+      "es": "Estudio del Modo Foto: iconos HUD del exotraje y un HUD estilo juego para vestir tus capturas",
+      "de": "Fotomodus-Studio: Exosuit-HUD-Icons und ein HUD im Spielstil für deine Screenshots",
+      "nl": "Fotomodus-studio: Exosuit-HUD-iconen en een HUD in spelstijl om je screenshots op te maken",
+      "pl": "Studio trybu fotograficznego: ikony HUD egzokombinezonu i HUD w stylu gry dla twoich zrzutów ekranu",
+      "fr": "Studio du mode photo : icônes HUD de l'exosuit et HUD style jeu pour habiller tes captures",
+      "pt-BR": "Estúdio do Modo Foto: ícones de HUD do exotraje e um HUD no estilo do jogo para vestir suas capturas",
+      "it": "Studio della Modalità foto: icone HUD dell'Exosuit e un HUD in stile gioco per rivestire i tuoi screenshot"
      }
+    },
+    {
+     "tag": "new",
+     "text": {
+      "en": "Widgets are now live previews: Weather Scan, Home Planet and a new Planet of the Day (matched to your weather, with a quote of the day)",
+      "es": "Los widgets ahora son vistas en vivo: Escaneo del clima, Planeta natal y un nuevo Planeta del día (según tu clima, con cita del día)",
+      "de": "Widgets sind jetzt Live-Vorschauen: Wetter-Scan, Heimatplanet und neu: Planet des Tages (passend zu deinem Wetter, mit Zitat des Tages)",
+      "nl": "Widgets zijn nu live voorbeelden: Weerscan, Thuisplaneet en nieuw: Planeet van de dag (past bij je weer, met citaat van de dag)",
+      "pl": "Widżety to teraz podglądy na żywo: Skan pogody, Planeta domowa i nowość: Planeta dnia (dopasowana do pogody, z cytatem dnia)",
+      "fr": "Les widgets sont désormais des aperçus en direct : Scan météo, Planète d'origine et nouveau : Planète du jour (selon ta météo, avec citation du jour)",
+      "pt-BR": "Os widgets agora são prévias ao vivo: Varredura do clima, Planeta natal e novo Planeta do dia (conforme seu clima, com citação do dia)",
+      "it": "I widget ora sono anteprime dal vivo: Scansione meteo, Pianeta natale e il nuovo Pianeta del giorno (in base al tuo meteo, con citazione del giorno)"
+     },
+     "url": "https://theme.nomansskyhub.app/widgets.html"
     }
    ]
   }

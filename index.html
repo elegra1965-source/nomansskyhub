@@ -349,6 +349,22 @@ footer p{margin:0;max-width:70ch;font-size:.88rem;color:var(--text-dim)}
    links that used to sit in the footer (page is ~3 rows shorter). Videos stream
    only when tapped; downloads for creators live inside the pop-up. */
 footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
+/* THE ATLAS IS LISTENING: one-line interest poll in the footer (flat panel, corner brackets, no glass/glow) */
+footer .atlas-poll{position:relative;display:flex;align-items:center;gap:14px;max-width:640px;width:100%;box-sizing:border-box;padding:14px 16px;text-align:left;background:var(--bg-deep);border:1px solid var(--border-soft)}
+footer .atlas-poll::before,footer .atlas-poll::after{content:"";position:absolute;width:10px;height:10px;border:2px solid var(--gold);pointer-events:none}
+footer .atlas-poll::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+footer .atlas-poll::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.atlas-poll img{position:absolute;top:12px;right:14px;width:44px;height:44px}
+.atlas-poll .ap-k,.atlas-poll .ap-q{padding-right:56px}
+.atlas-poll .ap-body{flex:1;min-width:0}
+.atlas-poll .ap-k{font-family:var(--f-display);font-size:.62rem;letter-spacing:2px;color:var(--gold);margin-bottom:4px}
+.atlas-poll .ap-q{font-size:.86rem;line-height:1.4;color:var(--text)}
+.atlas-poll .ap-btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
+footer .atlas-poll .ap-btns .btn{padding:9px 14px;font-size:.62rem;font-weight:400}
+.atlas-poll .ap-btns .ap-yes{border-color:var(--gold);color:var(--gold)}
+.atlas-poll .ap-done{display:none;font-family:var(--f-display);font-size:.7rem;letter-spacing:2px;color:var(--cyan);margin-top:8px}
+.atlas-poll.voted .ap-btns{display:none}.atlas-poll.voted .ap-done{display:block}
+@media(max-width:420px){.atlas-poll{padding:12px}.atlas-poll img{width:36px;height:36px;top:10px;right:10px}.atlas-poll .ap-k,.atlas-poll .ap-q{padding-right:46px}}
 #tourDlg{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(2,6,12,.88)}
 #tourDlg.show{display:flex}
 #tourBox{position:relative;width:100%;max-width:440px;max-height:100%;overflow:auto;background:var(--bg-deep);border:1px solid var(--border-soft);border-radius:10px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px}
@@ -597,6 +613,15 @@ HUB</h1>
       <button class="btn" type="button" data-share="discord">DISCORD</button>
       <button class="btn btn-fb" type="button" id="fbOpen" aria-haspopup="dialog" title="Send a review, report a bug or ask for something new"><span class="fb-l">★ REVIEWS &amp; FEEDBACK</span><span class="fb-s">★ REVIEWS</span></button>
       <button class="btn btn-tour" type="button" id="tourOpen" aria-haspopup="dialog" title="Take a quick tour of the Hub">▶ TAKE A TOUR</button>
+    </div>
+    <div class="atlas-poll" id="atlasPoll" role="group" aria-labelledby="apK">
+      <img src="assets/fb-ico-poll.webp" srcset="assets/fb-ico-poll@2x.webp 2x" alt="" width="44" height="44">
+      <div class="ap-body">
+        <div class="ap-k" id="apK">THE ATLAS IS LISTENING</div>
+        <div class="ap-q">Travellers are asking for a Players' wallpaper section: your own screenshots shared as wallpapers, credited to you. Should the Atlas build it?</div>
+        <div class="ap-btns"><button type="button" class="btn ap-yes" data-v="yes">TRANSMIT: YES</button><button type="button" class="btn" data-v="no">NOT NOW</button></div>
+        <div class="ap-done" role="status">SIGNAL RECEIVED, TRAVELLER</div>
+      </div>
     </div>
     <div class="mono" style="font-size:.8rem;letter-spacing:2px;color:var(--text-dim)" translate="no">BUILT BY ELEGRA1965 · TRAVELLER T672B774 · FRIEND CODE MGD8-C6PP-XKFGT</div>
     <div class="mono" style="font-size:.8rem;letter-spacing:2px;color:var(--text-dim)"><span>LIVE DATA:</span> <span translate="no"><a href="https://nmsalmanac.com" target="_blank" rel="noopener" style="color:var(--cyan)">NMS ALMANAC</a> · <a href="https://havenmap.online" target="_blank" rel="noopener" style="color:var(--cyan)">VOYAGER'S HAVEN</a> · <a href="https://galacticatlas.nomanssky.com" target="_blank" rel="noopener" style="color:var(--cyan)">GALACTIC ATLAS</a></span></div>
@@ -1171,6 +1196,15 @@ HUB</h1>
     function ev(path,title){try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:path,title:title,event:true});}catch(e){}}
     document.querySelectorAll('.card[data-node]').forEach(function(c){c.addEventListener('click',function(){ev('node/'+c.getAttribute('data-node').toLowerCase().replace(/\s+/g,'-'),'Opened '+c.getAttribute('data-node'));});});
     ['dialRandom','dialCopy','dialShare','dialMap','dialSave'].forEach(function(id){var b=$(id);if(b)b.addEventListener('click',function(){ev('dialer/'+id.slice(4).toLowerCase(),'Dialer '+id.slice(4));});});
+  })();
+  /* 2026-11-09 THE ATLAS IS LISTENING poll: one tap per browser (localStorage nmsPollWallpapers, holds only yes/no), counted as a GoatCounter event idea/player-wallpapers-yes|no. No server, nothing sent except the anonymous event. */
+  (function(){
+    var box=document.getElementById('atlasPoll');if(!box)return;var K='nmsPollWallpapers';
+    try{if(localStorage.getItem(K))box.classList.add('voted');}catch(e){}
+    box.addEventListener('click',function(e){var b=e.target.closest('button[data-v]');if(!b)return;var v=b.getAttribute('data-v');
+      try{localStorage.setItem(K,v);}catch(x){}
+      try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:'idea/player-wallpapers-'+v,title:'Poll: Players wallpapers '+v,event:true});}catch(x){}
+      box.classList.add('voted');});
   })();
 
   /* ── INSTALL APP button (same approach as the Alphabet Translator): one-tap install where the browser
