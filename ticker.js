@@ -33,7 +33,8 @@
     a.target = '_blank'; a.rel = 'noopener';
     if (dup) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
     var r = rank[x.galaxy + ':' + x.address];
-    if (r && r <= 3) a.appendChild(el('span', 'tick-medal', MEDAL[r - 1]));
+    // 2026-11-10 (Tony): the drawn medal instead of the emoji (emoji only if the medal script has not loaded)
+    if (r && r <= 3) { var mm = el('span', 'tick-medal'); if (window.NMSMedals) mm.appendChild(NMSMedals.mini(r)); else mm.textContent = MEDAL[r - 1]; a.appendChild(mm); }
     a.appendChild(el('b', null, x.who));
     a.appendChild(document.createTextNode(' charted '));
     a.appendChild(el('i', null, x.name));

@@ -25,6 +25,9 @@
 .tick-item::before{content:'◆';color:var(--cyan);font-size:.6rem;margin-left:4px}
 .tick-item b{color:var(--white);font-weight:700}
 .tick-item i{font-style:normal;color:var(--gold)}
+.tick .tick-medal{display:inline-flex;align-items:center;line-height:0}
+.tick .tick-medal .nmsm-mini{width:24px;height:24px;flex-basis:24px;margin:0}
+.tick .tick-medal .nmsm-svg{width:24px;height:24px}
 .tick-item small{font-family:var(--f-mono);font-size:.72rem;letter-spacing:1px;color:var(--text-dim)}
 .tick-item:hover i,.tick-item:focus-visible i{text-decoration:underline}
 .tick-item:focus-visible{outline:1px solid var(--cyan);outline-offset:-3px}
