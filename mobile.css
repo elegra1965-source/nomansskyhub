@@ -76,3 +76,13 @@
   html body #alliances .al-head,html body #discoveries .al-head,html body #trending .al-head{margin-bottom:14px}
 }
 @media (max-width:760px) and (prefers-reduced-motion:reduce){.node-dots button::before,.to-top,.jumpbar a{transition:none}}
+
+/* Phone readability + tap targets (2026-11-10 review): nothing under 11px, buttons at least 40px tall */
+@media (max-width:760px){
+  html body .brand-name,html body .lc-code,html body small,html body .btn-replay,html body .chev,html body .exp-alert-link,html body .node-swipe,html body #hexLegend,html body #recCnt,html body .tr-hint,html body .fb-l,html body .btn-tour,html body .btn,html body footer a,html body footer span,html body .hero-ctas .btn-replay,html body .jumpbar a,html body .dial-how,html body .saved-toggle,html body .exp-guide-btn span,html body .tour-dl,html body .tour-dl *,html body .fb-lbl,html body .fb-count,html body .scroll-hint{font-size:11px!important}
+  html body .btn-replay,html body .exp-guide-btn,html body .exp-alert-link,html body .tid-clear,html body .btn-tour{min-height:40px}
+  html body #langBtn.lang-clock{min-width:40px}
+  html body #dialHex{min-height:40px}
+}
+@media (max-width:340px){html body .clocks{gap:8px}html body .clocks>.clock:last-child{display:none}}
+@media (max-width:340px){html body section.exp{overflow-x:clip}}
