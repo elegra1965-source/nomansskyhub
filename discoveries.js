@@ -133,7 +133,8 @@
       var st = NMSMedals.stats(), sb = el('button', 'dc-streak'); sb.type = 'button';
       sb.textContent = '';
       if (!(st.any && st.cur)) sb.appendChild(NMSMedals.row());
-      sb.appendChild(document.createTextNode(st.any && st.cur ? '🔥 ' + T2(st.cur === 1 ? 'Your streak: {n} day · view medals ›' : 'Your streak: {n} days · view medals ›', { n: st.cur }) : T2('Streak medals: chart a new system every day ›')));
+      if (st.any && st.cur) { var sfl = document.createElement('i'); sfl.className = 'nmsfl'; sfl.setAttribute('aria-hidden', 'true'); sb.appendChild(sfl); }
+      sb.appendChild(document.createTextNode(st.any && st.cur ? T2(st.cur === 1 ? 'Your streak: {n} day · view medals ›' : 'Your streak: {n} days · view medals ›', { n: st.cur }) : T2('Streak medals: chart a new system every day ›')));
       sb.addEventListener('click', function () { NMSMedals.panel(); });
       join.appendChild(sb);
     }
