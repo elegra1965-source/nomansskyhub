@@ -188,7 +188,7 @@ img{max-width:100%}
 .nodes-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:36px}
 .nodes-head .h2{text-wrap:balance;display:table;text-align:center}
 .nodes-head p{margin:0;max-width:40ch;color:var(--text-dim)}
-.node-rows{display:grid;gap:14px}
+.node-rows{display:grid;gap:14px 10px}
 .nrow{position:relative;overflow:hidden;display:block;min-height:190px;border:1px solid rgba(0,229,255,.28);background:#02060b;text-decoration:none;color:inherit;transition:border-color .25s}
 .nrow:hover{border-color:var(--cyan);color:inherit}
 .nrow .img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.85) brightness(.7)}
@@ -205,7 +205,7 @@ img{max-width:100%}
 .nrow .live i,.nlist .live i{width:6px;height:6px;border-radius:50%;background:var(--green)}
 .nrow .live.checking,.nlist .live.checking{color:var(--text-dim)}.nrow .live.checking i,.nlist .live.checking i{background:var(--text-dim);animation:blinkC 1s steps(1) infinite}
 .nrow .live.off,.nlist .live.off{color:var(--red)}.nrow .live.off i,.nlist .live.off i{background:var(--red)}
-.nlist-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.node-rows{grid-template-columns:repeat(2,minmax(0,1fr))}.node-rows>.nrow{grid-column:1/-1}
 .nlist{display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:64px;border:1px solid rgba(0,229,255,.22);background:rgba(2,6,11,.85);text-decoration:none;color:inherit}
 .nlist:hover{border-color:var(--cyan);color:inherit}
 .nlist .nl-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
@@ -400,10 +400,8 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
 @media (max-width:760px){
   .hide-sm{display:none!important}
   .topbar{left:28px;right:28px;top:32px}
-  .nlist-wrap{grid-template-columns:minmax(0,1fr)}
-  .nrow{min-height:210px}.nrow .name{font-size:1.45rem}
+  .nrow .name{font-size:1.45rem}
   .nrow .shade{background:linear-gradient(180deg,rgba(2,6,11,.55),rgba(2,6,11,.92))}
-  .nlist .live b,.nlist .tag{display:none}
   .hud-frame{inset:16px}
   .brand{gap:10px;font-size:.66rem;letter-spacing:2px}
   .brand .mark{width:34px;height:34px}
@@ -430,7 +428,7 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
 <link rel="stylesheet" href="feedback.css?v=20261104">
 <link rel="stylesheet" href="discoveries.css?v=20261111">
 <link rel="stylesheet" href="trending.css?v=20261111">
-<link rel="stylesheet" href="mobile.css?v=20261110">
+<link rel="stylesheet" href="mobile.css?v=20261111">
 </head>
 <body>
 
@@ -511,7 +509,7 @@ HUB</h1>
       <div><div class="kicker" translate="no">ELEGRA1965 SYSTEMS</div><h2 class="h2">Six nodes. One network.</h2></div>
       <p>Every tool is free, works on phone and desktop, and installs like an app.</p>
     </div>
-    <div class="node-rows">
+    <div class="node-rows grid-nodes">
       <a class="nrow red" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Atlas AI">
         <span class="img" style="background-image:url('assets/atlas29.jpg')"></span><span class="shade"></span>
         <span class="body"><span class="tags"><span class="tag">NODE 01</span><span class="live checking"><i></i><b>CHECKING</b></span></span><span class="name">Atlas AI</span><span class="desc">A voice-first AI guide to No Man's Sky. Ask how to craft or refine anything, where to find it, today's expedition milestones, or the lore. And hear the Atlas answer.</span><span class="go">TALK TO THE ATLAS <span>→</span></span></span>
@@ -524,7 +522,6 @@ HUB</h1>
         <span class="img" style="background-image:url('assets/neon11.jpg')"></span><span class="shade"></span>
         <span class="body"><span class="tags"><span class="tag">TOOL</span></span><span class="name">Portal Dialer</span><span class="desc">Dial a portal address on the glyph ring. See it light up, then open it on the Galactic Map.</span><span class="go">OPEN THE DIALER <span>→</span></span></span>
       </a>
-      <div class="nlist-wrap">
       <a class="nlist" href="https://weather.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Weather Station">
         <span class="tag">NODE 02</span><span class="nl-t"><span class="name">Weather Station</span><span class="desc">Real local weather as an NMS planetary scan, with storm and rain alerts.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
@@ -537,7 +534,6 @@ HUB</h1>
       <a class="nlist" href="https://github.com/elegra1965-source/obsidian-nms-atlas" target="_blank" rel="noopener" data-node="Atlas Obsidian Theme">
         <span class="tag">NODE 06</span><span class="nl-t"><span class="name">Atlas Obsidian Theme</span><span class="desc">A deep-space theme for the Obsidian notes app. Free on GitHub.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
-      </div>
     </div>
   </div>
 </section>
