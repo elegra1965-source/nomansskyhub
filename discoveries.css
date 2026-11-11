@@ -76,3 +76,11 @@
 }
 
 .dc-streak .nmsm-row .nmsm-mini{width:22px;height:22px;flex-basis:22px}.dc-streak .nmsm-row .nmsm-svg{width:22px;height:22px}
+
+.dc-statline{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:6px 10px;margin:0 auto 14px;font-family:var(--f-mono);font-size:12px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase}
+.dc-statline i{font-style:normal;color:var(--border-soft)}
+.dc-statline .dc-sl{display:inline-flex;gap:6px;align-items:baseline}
+.dc-statline b{font-family:var(--f-display);font-size:1.15rem;letter-spacing:.1em;color:var(--white)}
+.dc-statline .dc-sl:first-child b{color:var(--gold)}
+.dc-statline .dc-per{font-size:11px;letter-spacing:2px;opacity:.8}
+@media (max-width:520px){.dc-statline{font-size:11px;letter-spacing:1px;gap:4px 12px}.dc-statline i{display:none}}

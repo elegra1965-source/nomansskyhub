@@ -149,7 +149,7 @@
       box.appendChild(r);
       // 2026-10-19 (Tony): one-tap link to this system's picture (medal for the top 3),
       // for pasting where pictures can't be attached -- Reddit messages etc.
-      var cp = el('button', 'tr-copy', x.rank <= 3 ? '🔗 Copy medal picture link' : '🔗 Copy picture link');
+      var cp = el('button', 'tr-copy', x.rank <= 3 ? 'Copy medal picture link' : 'Copy picture link');
       cp.type = 'button';
       cp.setAttribute('data-link', MAP + '/?rankcard=' + x.address + '&galaxy=' + gal(x.galaxy).replace(/[^A-Za-z0-9]/g, ''));
       cp.addEventListener('click', copyLink);
@@ -189,8 +189,17 @@
     if (sv && s.trLive) {
       var pair = el('div', 'tr-pair');
       sv.parentNode.insertBefore(pair, sv);
+      // phones: one box with two tabs (Trending | Top surveyors); desktop keeps them side by side
+      var tabs = el('div', 'tr-tabs'); tabs.setAttribute('role', 'tablist');
+      var bt = el('button', 'on', 'TRENDING'), bs = el('button', null, 'TOP SURVEYORS');
+      [bt, bs].forEach(function (b) { b.type = 'button'; b.setAttribute('role', 'tab'); });
+      function pick(w) { pair.setAttribute('data-tab', w); bt.className = w === 'tr' ? 'on' : ''; bs.className = w === 'sv' ? 'on' : ''; bt.setAttribute('aria-selected', w === 'tr'); bs.setAttribute('aria-selected', w === 'sv'); }
+      bt.addEventListener('click', function () { pick('tr'); }); bs.addEventListener('click', function () { pick('sv'); });
+      pair.appendChild(tabs); tabs.appendChild(bt); tabs.appendChild(bs);
       pair.appendChild(sv); pair.appendChild(s.trLive);
       s.trLive.id = 'trending';
+      pick('tr');
+      window.addEventListener('hashchange', function () { if (location.hash === '#trending') pick('tr'); });
       return;
     }
     var after = d || al;

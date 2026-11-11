@@ -52,3 +52,12 @@
 .tr-more-btn[hidden]{display:none}
 
 .tr-badge .nmsm-mini,.tr-last .nmsm-mini{width:20px;height:20px;flex-basis:20px;margin-right:3px}.tr-badge .nmsm-svg,.tr-last .nmsm-svg{width:20px;height:20px}
+
+.tr-tabs{display:none}
+@media (max-width:760px){
+  .tr-tabs{display:flex;gap:0;border:1px solid rgba(0,229,255,.35)}
+  .tr-tabs button{flex:1;min-height:44px;background:transparent;border:0;color:var(--text-dim);font-family:var(--f-display);font-size:.75rem;font-weight:700;letter-spacing:2px;cursor:pointer}
+  .tr-tabs button.on{background:rgba(0,229,255,.14);color:var(--cyan)}
+  .tr-tabs button+button{border-left:1px solid rgba(0,229,255,.35)}
+  .tr-pair[data-tab=tr] .dc-col,.tr-pair[data-tab=sv] #trending{display:none}
+}

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>No Man's Sky Hub | Free Tools: Atlas AI, Map &amp; Portal Dialer</title>
 <script src="/calm.js?v=3"></script>
-<script src="/lang.js?v=4"></script>
+<script src="/lang.js?v=5"></script>
 <script src="/nms-update.js?v=4" defer></script>
 <meta name="robots" content="max-image-preview:large">
 <meta name="description" content="Six free No Man's Sky tools in one place: a voice AI guide, 3D galactic map, portal glyph dialer, glyph translator, NMS weather and a theme pack. No account.">
@@ -62,8 +62,18 @@ img{max-width:100%}
 .h2{margin:6px 0 0;font-family:var(--f-display);font-size:clamp(1.8rem,3.4vw,2.8rem);color:var(--white);letter-spacing:2px;line-height:1.15}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:8px;font-family:var(--f-display);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-decoration:none;cursor:pointer;border:1px solid var(--border);background:var(--panel);color:var(--white);transition:transform .2s,box-shadow .2s,background .2s}
 .btn:hover{transform:translateY(-2px);color:var(--white)}
-.btn-primary{background:linear-gradient(135deg,var(--cyan),var(--cta-blue));color:var(--on-cyan);border-color:transparent;box-shadow:0 8px 30px rgba(0,229,255,0.35)}
-.btn-primary:hover{color:var(--on-cyan);box-shadow:0 10px 38px rgba(0,229,255,0.5)}
+.btn-primary{background:rgba(0,229,255,.1);color:var(--cyan);border-color:var(--cyan)}
+.btn-primary:hover{background:rgba(0,229,255,.2);color:var(--white)}
+.ci{width:22px;height:22px;flex:none;object-fit:contain;vertical-align:middle}
+.ci-b::before,#replayIntro::before,#installBtn::before,#heroTour::before,#tourOpen::before,#tourDl::before,.exp-alert-link::before,.tr-copy::before,.dc-hang::before{content:"";display:inline-block;width:20px;height:20px;flex:none;vertical-align:middle;margin-right:8px;background:center/contain no-repeat}
+#replayIntro::before{background-image:url(assets/crystal/ci-refresh.webp)}
+#installBtn::before,#tourDl::before{background-image:url(assets/crystal/ci-install.webp)}
+#heroTour::before,#tourOpen::before{background-image:url(assets/crystal/ci-tour.webp)}
+.exp-alert-link::before{background-image:url(assets/crystal/ci-bell.webp)}
+.tr-copy::before{background-image:url(assets/crystal/ci-link.webp)}
+.dc-hang::before{background-image:url(assets/crystal/ci-camera.webp);margin-right:6px}
+.lang-clock b .ci{width:20px;height:20px}
+.jb-lang .ci{width:22px;height:22px}
 .btn-ghost{background:transparent;border-color:var(--border-soft);color:var(--text-dim)}
 .btn:focus-visible,.card:focus-visible,.key:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 
@@ -137,7 +147,7 @@ img{max-width:100%}
 .hero-sub{margin:0;max-width:46ch;font-size:1.25rem;color:rgba(234,246,255,.85);text-shadow:0 2px 12px rgba(0,0,0,.8)}
 .hero-ctas{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:12px;width:min(900px,100%);margin:6px auto 0}
 .hero-ctas .btn{padding:14px 10px;font-size:.74rem;letter-spacing:1.5px;justify-content:center;text-align:center;min-width:0}
-.hero-ctas .btn-replay{background:rgba(0,0,0,.4);border-color:rgba(0,229,255,.4);backdrop-filter:blur(6px)}
+.hero-ctas .btn-replay{background:rgba(0,0,0,.4);border-color:rgba(0,229,255,.4)}
 .hero-ctas .btn-herotour{border-color:rgba(240,165,0,.55);color:var(--gold)}
 .hud-read{position:absolute;bottom:56px;z-index:3;font-family:var(--f-mono);font-size:.76rem;letter-spacing:3px;color:var(--text-dim);line-height:1.8}
 .hud-read.l{left:70px}.hud-read.r{right:70px;text-align:right}
@@ -176,8 +186,31 @@ img{max-width:100%}
 .nodes .stars{position:absolute;inset:0;background:url('assets/bg-stars.webp') center/cover;opacity:.35;pointer-events:none}
 .nodes .glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 15% 20%,rgba(0,229,255,.14),transparent 70%),radial-gradient(ellipse 45% 40% at 85% 75%,rgba(240,165,0,.1),transparent 70%);pointer-events:none}
 .nodes-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:36px}
+.nodes-head .h2{text-wrap:balance;display:table;text-align:center}
 .nodes-head p{margin:0;max-width:40ch;color:var(--text-dim)}
-.grid-nodes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.node-rows{display:grid;gap:14px}
+.nrow{position:relative;overflow:hidden;display:block;min-height:190px;border:1px solid rgba(0,229,255,.28);background:#02060b;text-decoration:none;color:inherit;transition:border-color .25s}
+.nrow:hover{border-color:var(--cyan);color:inherit}
+.nrow .img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.85) brightness(.7)}
+.nrow .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,11,.92) 0%,rgba(2,6,11,.7) 55%,rgba(2,6,11,.3) 100%)}
+.nrow .body{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px 22px;max-width:62ch;align-items:flex-start}
+.nrow .tags{display:flex;gap:8px;align-items:center;font-family:var(--f-mono);font-size:.74rem;letter-spacing:3px;margin-bottom:2px}
+.nrow .name{font-family:var(--f-display);font-size:1.7rem;font-weight:900;letter-spacing:1.5px;color:var(--white);line-height:1.1}
+.nrow .desc{font-size:1rem;color:rgba(234,246,255,.8)}
+.nrow .go{font-family:var(--f-display);font-size:.78rem;font-weight:700;letter-spacing:2px;color:var(--cyan);margin-top:4px}
+.nrow.red{border-color:rgba(255,51,34,.4)}.nrow.red:hover{border-color:var(--red)}.nrow.red .tag,.nrow.red .go{color:var(--red);border-color:rgba(255,51,34,.5)}
+.nrow.gold{border-color:rgba(240,165,0,.4)}.nrow.gold:hover{border-color:var(--gold)}.nrow.gold .tag,.nrow.gold .go{color:var(--gold);border-color:rgba(240,165,0,.5)}
+.nrow .tag,.nlist .tag{padding:4px 9px;border:1px solid rgba(0,229,255,.45);color:var(--cyan);background:rgba(0,0,0,.45);font-family:var(--f-mono);font-size:.74rem;letter-spacing:3px}
+.nrow .live,.nlist .live{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:3px;color:var(--green)}
+.nrow .live i,.nlist .live i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.nrow .live.checking,.nlist .live.checking{color:var(--text-dim)}.nrow .live.checking i,.nlist .live.checking i{background:var(--text-dim);animation:blinkC 1s steps(1) infinite}
+.nrow .live.off,.nlist .live.off{color:var(--red)}.nrow .live.off i,.nlist .live.off i{background:var(--red)}
+.nlist-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.nlist{display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:64px;border:1px solid rgba(0,229,255,.22);background:rgba(2,6,11,.85);text-decoration:none;color:inherit}
+.nlist:hover{border-color:var(--cyan);color:inherit}
+.nlist .nl-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.nlist .name{font-family:var(--f-display);font-size:1rem;font-weight:700;letter-spacing:1px;color:var(--white)}
+.nlist .desc{font-size:.9rem;color:var(--text-dim);line-height:1.3}
 .card{position:relative;overflow:hidden;border-radius:18px;border:1px solid rgba(0,229,255,.18);background:#02060b;display:block;text-decoration:none;color:inherit;height:400px;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
 .card.wide{grid-column:span 2;height:440px}.card.tall{height:440px}.card.full{grid-column:span 3;height:300px}
 .card .img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s;filter:saturate(.85) brightness(.75)}
@@ -367,10 +400,10 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
 @media (max-width:760px){
   .hide-sm{display:none!important}
   .topbar{left:28px;right:28px;top:32px}
-  .grid-nodes{grid-template-columns:minmax(0,1fr)}
-  .card.wide,.card.full{grid-column:auto}
-  .card.wide .name,.card.full .name{font-size:1.7rem}
-  .card,.card.wide,.card.tall,.card.full{height:380px}
+  .nlist-wrap{grid-template-columns:minmax(0,1fr)}
+  .nrow{min-height:210px}.nrow .name{font-size:1.45rem}
+  .nrow .shade{background:linear-gradient(180deg,rgba(2,6,11,.55),rgba(2,6,11,.92))}
+  .nlist .live b,.nlist .tag{display:none}
   .hud-frame{inset:16px}
   .brand{gap:10px;font-size:.66rem;letter-spacing:2px}
   .brand .mark{width:34px;height:34px}
@@ -395,8 +428,8 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
 <link rel="stylesheet" href="traveller.css">
 <link rel="stylesheet" href="ticker.css?v=20261110b">
 <link rel="stylesheet" href="feedback.css?v=20261104">
-<link rel="stylesheet" href="discoveries.css?v=20261106">
-<link rel="stylesheet" href="trending.css">
+<link rel="stylesheet" href="discoveries.css?v=20261111">
+<link rel="stylesheet" href="trending.css?v=20261111">
 <link rel="stylesheet" href="mobile.css?v=20261110">
 </head>
 <body>
@@ -426,7 +459,7 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
     <a class="brand" href="#top" aria-label="No Man's Sky Hub. Back to top"><span class="mark"><img src="assets/hub-mark.png" alt="No Man's Sky Hub Atlas emblem"></span><span class="brand-name" translate="no">NO MAN'S SKY HUB</span></a>
     <div class="tb-live" id="tbLive">◆ ATLAS UPLINK ESTABLISHED</div>
     <div class="clocks">
-      <button class="clock lang-clock" id="langBtn" type="button" data-lang-btn aria-label="Language" title="Language"><small><span class="lc-lbl">LANGUAGE</span><span class="lc-code" data-lang-code translate="no">EN</span></small><b><span aria-hidden="true">🌐</span><span class="lc-code2" translate="no"> <span data-lang-code>EN</span></span></b></button>
+      <button class="clock lang-clock" id="langBtn" type="button" data-lang-btn aria-label="Language" title="Language"><small><span class="lc-lbl">LANGUAGE</span><span class="lc-code" data-lang-code translate="no">EN</span></small><b><img class="ci" src="assets/crystal/ci-globe.webp" alt="" aria-hidden="true"><span class="lc-code2" translate="no"> <span data-lang-code>EN</span></span></b></button>
       <div class="clock-sep"></div>
       <div class="clock"><small>UTC</small><b id="utcClock" style="color:var(--orange)">--:--:--</b></div>
       <div class="clock-sep"></div>
@@ -442,9 +475,9 @@ HUB</h1>
     <p class="hero-sub">Six free tools for travellers of No Man's Sky. One network, no account, installs as an app.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#nodes">CHOOSE A NODE ↓</a>
-      <button id="replayIntro" class="btn btn-replay" type="button">↻ REPLAY THE ANOMALY</button>
-      <button id="installBtn" class="btn btn-replay" type="button" hidden>⬇ INSTALL APP</button>
-      <button id="heroTour" class="btn btn-replay btn-herotour" type="button" title="Take a quick tour of the Hub">▶ TAKE A TOUR</button>
+      <button id="replayIntro" class="btn btn-replay" type="button">REPLAY THE ANOMALY</button>
+      <button id="installBtn" class="btn btn-replay" type="button" hidden>INSTALL APP</button>
+      <button id="heroTour" class="btn btn-replay btn-herotour" type="button" title="Take a quick tour of the Hub">TAKE A TOUR</button>
     </div>
     <div class="tick" id="chartedTicker" role="region" hidden></div>
   </div>
@@ -467,7 +500,7 @@ HUB</h1>
 
 <!-- ═══ PHONE JUMP BAR (sticky; hidden on desktop — mobile.css/mobile.js) ═══ -->
 <nav class="jumpbar" id="jumpbar" aria-label="Jump to a section">
-  <button class="jb-lang" type="button" data-lang-btn aria-label="Language">🌐</button><a href="#nodes">TOOLS</a><a href="#dialer">DIALER</a><a href="#translator">TRANSLATE</a><a href="#alliances">ALLIANCES</a><a href="#discoveries"><i class="nmsfl" aria-hidden="true"></i>TRENDING</a><a href="#traveller">MY ID</a>
+  <button class="jb-lang" type="button" data-lang-btn aria-label="Language"><img class="ci" src="assets/crystal/ci-globe.webp" alt="" aria-hidden="true"></button><a href="#nodes">TOOLS</a><a href="#dialer">DIALER</a><a href="#translator">TRANSLATE</a><a href="#alliances">ALLIANCES</a><a href="#discoveries"><i class="nmsfl" aria-hidden="true"></i>TRENDING</a><a href="#traveller">MY ID</a>
 </nav>
 
 <!-- ═══ NODES ═══ -->
@@ -478,37 +511,33 @@ HUB</h1>
       <div><div class="kicker" translate="no">ELEGRA1965 SYSTEMS</div><h2 class="h2">Six nodes. One network.</h2></div>
       <p>Every tool is free, works on phone and desktop, and installs like an app.</p>
     </div>
-    <div class="grid-nodes">
-      <a class="card wide red" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Atlas AI">
-        <span class="img" style="background-image:url('assets/atlas29.jpg')"></span><span class="shade"></span><span class="holo"></span><span class="sheen"></span>
-        <span class="tags"><span class="tag">NODE 01</span><span class="live checking"><i></i><b>CHECKING</b></span></span>
-        <span class="body"><span class="name">Atlas AI</span><span class="desc">A voice-first AI guide to No Man's Sky. Ask how to craft or refine anything, where to find it, today's expedition milestones, or the lore. And hear the Atlas answer.</span><span class="go">TALK TO THE ATLAS <span>→</span></span></span>
+    <div class="node-rows">
+      <a class="nrow red" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Atlas AI">
+        <span class="img" style="background-image:url('assets/atlas29.jpg')"></span><span class="shade"></span>
+        <span class="body"><span class="tags"><span class="tag">NODE 01</span><span class="live checking"><i></i><b>CHECKING</b></span></span><span class="name">Atlas AI</span><span class="desc">A voice-first AI guide to No Man's Sky. Ask how to craft or refine anything, where to find it, today's expedition milestones, or the lore. And hear the Atlas answer.</span><span class="go">TALK TO THE ATLAS <span>→</span></span></span>
       </a>
-      <a class="card tall" href="https://weather.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Weather Station">
-        <span class="img" style="background-image:url('assets/wx14.jpg')"></span><span class="shade"></span><span class="holo"></span><span class="sheen"></span>
-        <span class="tags"><span class="tag">NODE 02</span><span class="live checking"><i></i><b>CHECKING</b></span></span>
-        <span class="body"><span class="name">Weather Station</span><span class="desc">Your real local weather, restyled as an NMS planetary scan. Temperature, wind, storm warnings and rain alerts.</span><span class="go">CHECK THE WEATHER <span>→</span></span></span>
+      <a class="nrow" href="https://map.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Galactic Map">
+        <span class="img" style="background-image:url('assets/bg-stars.webp')"></span><span class="shade"></span>
+        <span class="body"><span class="tags"><span class="tag">NODE 04</span><span class="live checking"><i></i><b>CHECKING</b></span></span><span class="name">Galactic Map</span><span class="desc">Turn any 12-glyph portal address into a real spot in a 3D galaxy. Fly between stars and log your own finds.</span><span class="go">OPEN THE MAP <span>→</span></span></span>
       </a>
-      <a class="card gold" href="https://theme.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Theme Pack">
-        <span class="img" style="background-image:url('assets/neon11.jpg')"></span><span class="shade"></span><span class="holo"></span><span class="sheen"></span>
-        <span class="tags"><span class="tag">NODE 03</span><span class="live checking"><i></i><b>CHECKING</b></span></span>
-        <span class="body"><span class="name">Theme Pack</span><span class="desc">79 icons, 17 wallpapers and 5 charging animations for Android, iPhone, Windows, Mac &amp; Linux.</span><span class="go">GET THE PACK <span>→</span></span></span>
+      <a class="nrow gold" href="#dialer">
+        <span class="img" style="background-image:url('assets/neon11.jpg')"></span><span class="shade"></span>
+        <span class="body"><span class="tags"><span class="tag">TOOL</span></span><span class="name">Portal Dialer</span><span class="desc">Dial a portal address on the glyph ring. See it light up, then open it on the Galactic Map.</span><span class="go">OPEN THE DIALER <span>→</span></span></span>
       </a>
-      <a class="card" href="https://map.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Galactic Map">
-        <span class="img" style="background-image:url('assets/bg-stars.webp')"></span><span class="shade"></span><span class="holo"></span><span class="sheen"></span>
-        <span class="tags"><span class="tag">NODE 04</span><span class="live checking"><i></i><b>CHECKING</b></span></span>
-        <span class="body"><span class="name">Galactic Map</span><span class="desc">Turn any 12-glyph portal address into a real spot in a 3D galaxy. Fly between stars and log your own finds.</span><span class="go">OPEN THE MAP <span>→</span></span></span>
+      <div class="nlist-wrap">
+      <a class="nlist" href="https://weather.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Weather Station">
+        <span class="tag">NODE 02</span><span class="nl-t"><span class="name">Weather Station</span><span class="desc">Real local weather as an NMS planetary scan, with storm and rain alerts.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
-      <a class="card" href="https://translator.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Alphabet Translator">
-        <span class="alpha-bg" id="cardAlpha" aria-hidden="true" translate="no"></span><span class="shade"></span><span class="holo"></span><span class="sheen"></span>
-        <span class="tags"><span class="tag">NODE 05</span><span class="live checking"><i></i><b>CHECKING</b></span></span>
-        <span class="body"><span class="name">Alphabet Translator</span><span class="desc">Convert English to NMS text, or decode text you've spotted in-game back to English.</span><span class="go">OPEN TRANSLATOR <span>→</span></span></span>
+      <a class="nlist" href="https://theme.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Theme Pack">
+        <span class="tag">NODE 03</span><span class="nl-t"><span class="name">Theme Pack</span><span class="desc">79 icons, 17 wallpapers and 5 charging animations for phone and PC.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
-      <a class="card full gold" href="https://github.com/elegra1965-source/obsidian-nms-atlas" target="_blank" rel="noopener" data-node="Atlas Obsidian Theme">
-        <span class="img" style="background-image:url('assets/obsidian-card.jpg')"></span><span class="shade"></span><span class="holo"></span><span class="sheen"></span>
-        <span class="tags"><span class="tag">NODE 06</span><span class="live checking"><i></i><b>CHECKING</b></span></span>
-        <span class="body"><span class="name">Atlas Obsidian Theme</span><span class="desc">A deep-space theme for the Obsidian notes app: galaxy backgrounds, glyph headings that translate on hover and a cyan-gold HUD. Free on GitHub now. Community listing pending.</span><span class="go">VIEW ON GITHUB <span>→</span></span></span>
+      <a class="nlist" href="https://translator.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Alphabet Translator">
+        <span class="tag">NODE 05</span><span class="nl-t"><span class="name">Alphabet Translator</span><span class="desc">English to NMS text, and in-game text back to English.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
+      <a class="nlist" href="https://github.com/elegra1965-source/obsidian-nms-atlas" target="_blank" rel="noopener" data-node="Atlas Obsidian Theme">
+        <span class="tag">NODE 06</span><span class="nl-t"><span class="name">Atlas Obsidian Theme</span><span class="desc">A deep-space theme for the Obsidian notes app. Free on GitHub.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
+      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -596,7 +625,7 @@ HUB</h1>
       <button class="btn" type="button" data-share="reddit">REDDIT</button>
       <button class="btn" type="button" data-share="discord">DISCORD</button>
       <button class="btn btn-fb" type="button" id="fbOpen" aria-haspopup="dialog" title="Send a review, report a bug or ask for something new"><span class="fb-l">★ REVIEWS &amp; FEEDBACK</span><span class="fb-s">★ REVIEWS</span></button>
-      <button class="btn btn-tour" type="button" id="tourOpen" aria-haspopup="dialog" title="Take a quick tour of the Hub">▶ TAKE A TOUR</button>
+      <button class="btn btn-tour" type="button" id="tourOpen" aria-haspopup="dialog" title="Take a quick tour of the Hub">TAKE A TOUR</button>
     </div>
     <div class="mono" style="font-size:.8rem;letter-spacing:2px;color:var(--text-dim)" translate="no">BUILT BY ELEGRA1965 · TRAVELLER T672B774 · FRIEND CODE MGD8-C6PP-XKFGT</div>
     <div class="mono" style="font-size:.8rem;letter-spacing:2px;color:var(--text-dim)"><span>LIVE DATA:</span> <span translate="no"><a href="https://nmsalmanac.com" target="_blank" rel="noopener" style="color:var(--cyan)">NMS ALMANAC</a> · <a href="https://havenmap.online" target="_blank" rel="noopener" style="color:var(--cyan)">VOYAGER'S HAVEN</a> · <a href="https://galacticatlas.nomanssky.com" target="_blank" rel="noopener" style="color:var(--cyan)">GALACTIC ATLAS</a></span></div>
@@ -615,7 +644,7 @@ HUB</h1>
       <button type="button" role="tab" aria-selected="false" data-v="assets/nms-hub-tour.mp4">FULL TOUR</button>
     </div>
     <video id="tourVid" controls playsinline preload="none" poster="assets/anomaly-poster.jpg"></video>
-    <div class="tour-dl"><span>FREE FOR CREATORS:</span><a id="tourDl" href="assets/nms-hub-teaser-30s.mp4" download>⬇ THIS VIDEO</a><a href="assets/nms-hub-creator-pack.zip" download title="Creator pack: 19 clean 16:9 clips of every tool (1920x1080, 5-10 s, no text, no audio), free to use (60 MB)">⬇ CREATOR PACK</a><a href="assets/nms-hub-tour-shotlist.txt" target="_blank" rel="noopener" title="Timestamps for every scene in the full tour, so you can find the clip you need">☰ SHOT LIST</a></div>
+    <div class="tour-dl"><span>FREE FOR CREATORS:</span><a id="tourDl" href="assets/nms-hub-teaser-30s.mp4" download>THIS VIDEO</a><a href="assets/nms-hub-creator-pack.zip" download title="Creator pack: 19 clean 16:9 clips of every tool (1920x1080, 5-10 s, no text, no audio), free to use (60 MB)">⬇ CREATOR PACK</a><a href="assets/nms-hub-tour-shotlist.txt" target="_blank" rel="noopener" title="Timestamps for every scene in the full tour, so you can find the clip you need">☰ SHOT LIST</a></div>
   </div>
 </div>
 <script>
@@ -822,7 +851,7 @@ HUB</h1>
 
   /* ── NODE STATUS: real reachability check of each tool (no-cors fetch, 8s timeout, rechecked every 5 min) ── */
   (function(){
-    var cards=[].slice.call(document.querySelectorAll('.card[data-node]'));
+    var cards=[].slice.call(document.querySelectorAll('[data-node]'));
     function probe(url){
       return new Promise(function(res){
         var ac=('AbortController' in window)?new AbortController():null,t=setTimeout(function(){if(ac)ac.abort();res(false);},8000);
@@ -850,14 +879,6 @@ HUB</h1>
     }
     check();setInterval(check,5*60000);
     document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')check();});
-  })();
-
-  /* ── TRANSLATOR NODE CARD: static alphabet pattern ── */
-  (function(){
-    var r=seeded(23),el=$('cardAlpha'),html='';
-    for(var i=0;i<6;i++){var t='';for(var q=0;q<24;q++)t+=(q%6===5)?' ':CH.charAt(Math.floor(r()*CH.length));
-      html+='<span style="font-size:'+(i%2?1.5:2.4)+'rem;margin-left:'+(-(i*37%90))+'px;color:rgba(0,229,255,'+(i%2?.22:.34)+')">'+t+'</span>';}
-    el.innerHTML=html;
   })();
 
   /* ── TRANSLATOR ── */
@@ -1169,7 +1190,7 @@ HUB</h1>
     var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';
     s.setAttribute('data-goatcounter','https://'+GC_CODE+'.goatcounter.com/count');document.head.appendChild(s);
     function ev(path,title){try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:path,title:title,event:true});}catch(e){}}
-    document.querySelectorAll('.card[data-node]').forEach(function(c){c.addEventListener('click',function(){ev('node/'+c.getAttribute('data-node').toLowerCase().replace(/\s+/g,'-'),'Opened '+c.getAttribute('data-node'));});});
+    document.querySelectorAll('[data-node]').forEach(function(c){c.addEventListener('click',function(){ev('node/'+c.getAttribute('data-node').toLowerCase().replace(/\s+/g,'-'),'Opened '+c.getAttribute('data-node'));});});
     ['dialRandom','dialCopy','dialShare','dialMap','dialSave'].forEach(function(id){var b=$(id);if(b)b.addEventListener('click',function(){ev('dialer/'+id.slice(4).toLowerCase(),'Dialer '+id.slice(4));});});
   })();
 
@@ -1195,7 +1216,7 @@ HUB</h1>
 <script src="alliances.js"></script>
 <script src="codex.js"></script>
 <script src="nms-push.js"></script>
-<script src="expguide.js"></script>
+<script src="expguide.js?v=20261111"></script>
 <script src="research.js"></script>
 <script src="traveller.js"></script>
 <script src="feedback.js?v=20261104"></script>
@@ -1203,16 +1224,16 @@ HUB</h1>
 <script>/* medals + streaks (nms-medals.js, same file as the Galactic Map) */window.NMSMedals_CONFIG={glyph:function(ch){return "assets/glyph-mask-"+ch+".png";},mapUrl:"https://map.nomansskyhub.app",
   panelExtra:function(c){var a=document.createElement("a");a.className="nmsm-btn";a.style.cssText="display:flex;align-items:center;justify-content:center;margin:12px auto 0;max-width:320px;text-decoration:none";a.href="https://map.nomansskyhub.app/";a.target="_blank";a.rel="noopener";a.textContent="Chart a system on the Galactic Map ›";c.appendChild(a);}};</script>
 <script src="nms-medals.js?v=20261110"></script>
-<script src="discoveries.js?v=20261110"></script>
-<script src="trending.js?v=20261110"></script>
+<script src="discoveries.js?v=20261111"></script>
+<script src="trending.js?v=20261111"></script>
 <script src="mobile.js"></script>
 <script src="/nms-tour.js?v=3"></script>
 <script>NMSTour.init({id:'hub',launchers:['#tourOpen','#heroTour'],
   steps:[
-    {sel:'.grid-nodes',title:'Six free tools',body:'Tap a card to open that tool. Each one works on phone and PC and installs like an app.'},
+    {sel:'.node-rows',title:'Six free tools',body:'Tap a row to open that tool. Each one works on phone and PC and installs like an app.'},
     {sel:'.ring-wrap',title:'Portal dialer',body:'Tap the glyphs round the ring or type the hex code, then copy, share or open it on the Galactic Map.'},
     {sel:'.tr-box',title:'Translator',body:'Type English and see it written in the NMS font.'},
-    {sel:'#discoveries .dc-col',title:'Top surveyors',body:'Who charted the most on the Galactic Map this week. The top 3 get a medal. Follow the 3 steps to get your name here, and chart a new system every day for streak medals.'},
+    {sel:['#discoveries .dc-col','.tr-tabs'],title:'Top surveyors',body:'Who charted the most on the Galactic Map this week. The top 3 get a medal. Follow the 3 steps to get your name here, and chart a new system every day for streak medals.'},
     {sel:'#trending',title:'Trending',body:'The systems travellers opened most this week. Tap one to fly there.'},
     {sel:'#traveller',title:'My Traveller ID',body:'Save your name, platform and home galaxy once. ATLAS greets you by name and the Galactic Map opens in your home galaxy.'},
     {sel:'#fbOpen',title:'Reviews & feedback',body:'Tell us what you think, report a bug or ask for something new. Reviews you OK to share scroll past in the live strip at the top.'},

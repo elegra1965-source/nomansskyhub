@@ -11,9 +11,9 @@
     // the two buttons sit side by side under the expedition card; the guide opens below them
     var row = document.createElement('div'); row.className = 'exp-actions';
     // 2026-10-23: alerts now come from the Hub itself (nms-push.js), under the Hub's own name and icon
-    var al = document.createElement('div'); al.innerHTML = '<button type="button" class="exp-alert-link" title="Notifications when an expedition starts and 24 hours before it ends">🔔 EXPEDITION ALERTS</button>';
+    var al = document.createElement('div'); al.innerHTML = '<button type="button" class="exp-alert-link" title="Notifications when an expedition starts and 24 hours before it ends">EXPEDITION ALERTS</button>';
     row.appendChild(btn); row.appendChild(al.firstChild);
-    if (window.NMS_PUSH) NMS_PUSH.wire(row.lastChild, 'hub', { label: '🔔 EXPEDITION ALERTS', onLabel: '🔔 EXPEDITION ALERTS ON', okMsg: 'Expedition alerts on. You’ll hear when one starts and 24 hours before it ends.', fallbackHref: 'https://weather.nomansskyhub.app/?alerts=exp' });
+    if (window.NMS_PUSH) NMS_PUSH.wire(row.lastChild, 'hub', { label: 'EXPEDITION ALERTS', onLabel: 'EXPEDITION ALERTS ON', okMsg: 'Expedition alerts on. You’ll hear when one starts and 24 hours before it ends.', fallbackHref: 'https://weather.nomansskyhub.app/?alerts=exp' });
     bar.parentNode.insertBefore(row, bar.nextSibling); row.parentNode.insertBefore(box, row.nextSibling);
     var loaded = false, guide = null, cur = 1;
     function draw() {

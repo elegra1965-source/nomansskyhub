@@ -88,10 +88,13 @@
     head.appendChild(el('p', 'al-sub', 'Real systems other players have documented on the Galactic Map this week, with their screenshots and portal glyphs. Tap one to fly there.'));
     s.appendChild(head);
 
-    var stats = el('div', 'dc-stats');
-    [[nSys, nSys === 1 ? 'system charted' : 'systems charted'], [Object.keys(people).length, Object.keys(people).length === 1 ? 'traveller' : 'travellers'], [photos, photos === 1 ? 'photo' : 'photos']].forEach(function (x) {
-      var d = el('div', 'dc-stat'); d.appendChild(el('b', null, String(x[0]))); var l = el('span', null, x[1]); l.appendChild(el('span', 'dc-per', '7 days')); d.appendChild(l); stats.appendChild(d);
+    var stats = el('div', 'dc-statline');
+    var nTr = Object.keys(people).length;
+    [[nSys, nSys === 1 ? 'system charted' : 'systems charted'], [nTr, nTr === 1 ? 'traveller' : 'travellers'], [photos, photos === 1 ? 'photo' : 'photos']].forEach(function (x, i) {
+      if (i) stats.appendChild(el('i', null, '·'));
+      var d = el('span', 'dc-sl'); d.appendChild(el('b', null, String(x[0]))); d.appendChild(el('span', null, x[1])); stats.appendChild(d);
     });
+    stats.appendChild(el('small', 'dc-per', '7 days'));
     s.appendChild(stats);
 
     var live = el('div', 'al-live dc-live');
@@ -123,7 +126,7 @@
     var join = el('div', 'al-live dc-join');
     var jh = el('div', 'al-live-h'); jh.appendChild(el('span', 'al-dot')); var jt = el('span', 'dc-htxt', 'GET ON THE BOARD'); jt.appendChild(el('small', 'dc-hsub', 'Your name here in 3 steps')); jh.appendChild(jt); join.appendChild(jh);
     var ol = el('ol', 'dc-steps');
-    ['Open any system on the Galactic Map', 'Tap Edit system, add your name', '📷 Add a station photo: it replaces the station on the map and may show on the cards below'].forEach(function (t, i) {
+    ['Open any system on the Galactic Map', 'Tap Edit system, add your name', 'Add a station photo: it replaces the station on the map and may show on the cards below'].forEach(function (t, i) {
       // 2026-10-31 (Tony): step 3 starts with the camera; its wrapped line lines up with the text, not under the camera.
       var li = el('li'); li.appendChild(el('span', i === 2 ? 'dc-hang' : null, t)); ol.appendChild(li);
     });
