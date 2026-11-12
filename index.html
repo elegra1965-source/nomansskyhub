@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>No Man's Sky Hub | Free Tools: Atlas AI, Map &amp; Portal Dialer</title>
 <script src="/calm.js?v=3"></script>
-<script src="/lang.js?v=6"></script>
+<script src="/lang.js?v=7"></script>
 <script src="/nms-update.js?v=5" defer></script>
 <meta name="robots" content="max-image-preview:large">
 <meta name="description" content="Six free No Man's Sky tools in one place: a voice AI guide, 3D galactic map, portal glyph dialer, glyph translator, NMS weather and a theme pack. No account.">
@@ -26,6 +26,7 @@
 <meta name="twitter:image" content="https://nomansskyhub.app/assets/og-card.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"No Man's Sky Hub","alternateName":"NMS Hub","url":"https://nomansskyhub.app/","description":"Six free fan-made tools for No Man's Sky travellers.","author":{"@type":"Person","name":"elegra1965"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Free No Man's Sky tools", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas AI: No Man's Sky voice companion", "url": "https://atlas.nomansskyhub.app/"}, {"@type": "ListItem", "position": 2, "name": "NMS Galactic Map: 3D galaxy map & portal address decoder", "url": "https://map.nomansskyhub.app/"}, {"@type": "ListItem", "position": 3, "name": "NMS Alphabet Translator & Portal Glyph Reader", "url": "https://translator.nomansskyhub.app/"}, {"@type": "ListItem", "position": 4, "name": "Atlas Weather Station: weather as a No Man's Sky planet scan", "url": "https://weather.nomansskyhub.app/"}, {"@type": "ListItem", "position": 5, "name": "No Man's Sky Theme Pack: icons, wallpapers, widgets & NMS font", "url": "https://theme.nomansskyhub.app/"}, {"@type": "ListItem", "position": 6, "name": "Traveller Discoveries: systems charted this week", "url": "https://map.nomansskyhub.app/community"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the No Man's Sky Hub?", "acceptedAnswer": {"@type": "Answer", "text": "A free, fan-made home for six No Man's Sky tools: the Atlas AI voice companion, the Galactic Map, the Alphabet Translator, the Weather Station, the Theme Pack and Traveller Discoveries. It is not affiliated with Hello Games."}}, {"@type": "Question", "name": "Is it free, and do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, every tool is free, and there is no account or sign-up. Each one also installs as an app on your phone or computer."}}, {"@type": "Question", "name": "Is my data saved anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "Your favourites, recent addresses and settings are kept only on your own device. Visit counts come from a cookie-free counter, and anything you send through Reviews & feedback goes only to elegra1965."}}, {"@type": "Question", "name": "How do I dial a portal address?", "acceptedAnswer": {"@type": "Answer", "text": "In the portal dialer, tap the 12 glyphs in order or type the hex address. The ring turns to each glyph like the game's portal, and Show on map opens the address on the Galactic Map."}}, {"@type": "Question", "name": "Which languages does it speak?", "acceptedAnswer": {"@type": "Answer", "text": "English, Español, Deutsch, Nederlands, Polski, Français, Português (Brasil) and Italiano. Pick one from the language button and the other sites follow your choice."}}, {"@type": "Question", "name": "Can I install it as an app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use Install app on this page, or your browser's Add to Home Screen option, and it opens like any other app."}}]}</script>
 <script>try{if(localStorage.getItem('nmsHubIntroSeen')==='1'&&!/[?&]intro=1/.test(location.search))document.documentElement.className+=' intro-seen';}catch(e){}</script>
 <link rel="preload" as="image" href="assets/bg-neon.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -359,6 +360,23 @@ img{max-width:100%}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ── TRANSLATOR ── */
+/* FAQ fold (2026-11-12): closed by default, flat panel in the Hub's own colours; the text is in the page so search engines read it */
+.faq{padding:0 22px 40px}
+.faq-box{border:1px solid var(--border);border-radius:12px;background:var(--hud-bg)}
+.faq-box>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 20px;min-height:44px}
+.faq-box>summary::-webkit-details-marker{display:none}
+.faq-t{flex:1;font-family:var(--f-display);font-size:.9rem;letter-spacing:1.5px;color:var(--white)}
+.faq-box .arr{color:var(--cyan);transition:transform .25s}
+.faq-box[open]{border-color:rgba(0,229,255,.4)}.faq-box[open]>summary .arr{transform:rotate(180deg)}
+.faq-box>summary:focus-visible,.faq-q summary:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.faq-body{padding:0 20px 8px}
+.faq-q{border-top:1px solid var(--border-soft)}
+.faq-q summary{cursor:pointer;list-style:none;display:flex;gap:10px;padding:12px 0;min-height:44px;box-sizing:border-box;align-items:center;color:var(--white);font-size:1rem}
+.faq-q summary::-webkit-details-marker{display:none}
+.faq-q summary::before{content:"\25B8";color:var(--cyan);flex:none;width:12px;transition:transform .25s}
+.faq-q[open] summary::before{transform:rotate(90deg)}
+.faq-q p{margin:0 0 14px 22px;color:var(--text-dim);font-size:.95rem;line-height:1.5}
+@media (prefers-reduced-motion:reduce){.faq-box .arr,.faq-q summary::before{transition:none}}
 .tr{padding:48px 22px 56px}
 .tr-box{position:relative;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));border:1px solid rgba(0,229,255,.25);border-radius:18px;background:var(--hud-bg);box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .tr-rows{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:flex;flex-direction:column;justify-content:space-around;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.35),#000 50%,rgba(0,0,0,.35));mask-image:linear-gradient(90deg,rgba(0,0,0,.35),#000 50%,rgba(0,0,0,.35))}
@@ -628,6 +646,14 @@ HUB</h1>
       </div>
     </div>
   </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq wrap" id="faq" aria-label="Frequently asked questions">
+  <details class="faq-box">
+    <summary><span class="kicker">HELP</span><span class="faq-t">Quick answers · FAQ</span><span class="arr" aria-hidden="true">▾</span></summary>
+    <div class="faq-body"><details class="faq-q"><summary>What is the No Man's Sky Hub?</summary><p>A free, fan-made home for six No Man's Sky tools: the Atlas AI voice companion, the Galactic Map, the Alphabet Translator, the Weather Station, the Theme Pack and Traveller Discoveries. It is not affiliated with Hello Games.</p></details><details class="faq-q"><summary>Is it free, and do I need an account?</summary><p>Yes, every tool is free, and there is no account or sign-up. Each one also installs as an app on your phone or computer.</p></details><details class="faq-q"><summary>Is my data saved anywhere?</summary><p>Your favourites, recent addresses and settings are kept only on your own device. Visit counts come from a cookie-free counter, and anything you send through Reviews &amp; feedback goes only to elegra1965.</p></details><details class="faq-q"><summary>How do I dial a portal address?</summary><p>In the portal dialer, tap the 12 glyphs in order or type the hex address. The ring turns to each glyph like the game's portal, and Show on map opens the address on the Galactic Map.</p></details><details class="faq-q"><summary>Which languages does it speak?</summary><p>English, Español, Deutsch, Nederlands, Polski, Français, Português (Brasil) and Italiano. Pick one from the language button and the other sites follow your choice.</p></details><details class="faq-q"><summary>Can I install it as an app?</summary><p>Yes. Use Install app on this page, or your browser's Add to Home Screen option, and it opens like any other app.</p></details></div>
+  </details>
 </section>
 
 <!-- ═══ FOOTER ═══ -->
