@@ -84,6 +84,10 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 
 ![Portal wallpaper, planet of the day and the expedition countdown](screenshots/05-make-it-yours.jpg)
 
+- **New crystal icons.** Every icon on the Hub has been redrawn in one faceted crystal style, so all six sites match, and every picture has a text description for screen readers. The icons are toned down a little so they don't shout over the content.
+
+  <img src="screenshots/icons-crystal.jpg" alt="The new crystal icons on the Hub: buttons and menus drawn as faceted cyan crystals with amber accents" width="300">
+
 </details>
 
 ## Take a tour
