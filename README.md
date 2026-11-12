@@ -84,6 +84,10 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 
 ![Portal wallpaper, planet of the day and the expedition countdown](screenshots/05-make-it-yours.jpg)
 
+- **Portal dialer like the game.** The ring turns so each glyph you pick moves to the top, and once all 12 are in the portal opens with a swirling centre, haze and lightning. **Recent addresses** and **Favourites** sit under the dialer: tap one to put it back on the ring. They are kept on your own device only.
+- **The Atlas is listening.** A one-tap question asks whether you would like a Players' wallpaper section, so the next build follows what people actually want.
+- **How it works · FAQ.** A folded box above the footer (closed until you tap it) answers the common questions in all eight languages, and the same questions are in the page's search data so Google can show them as answers.
+
 - **New crystal icons.** Every icon on the Hub has been redrawn in one faceted crystal style, so all six sites match, and every picture has a text description for screen readers. The icons are toned down a little so they don't shout over the content.
 
   <img src="screenshots/icons-crystal.jpg" alt="The new crystal icons on the Hub: buttons and menus drawn as faceted cyan crystals with amber accents" width="300">
