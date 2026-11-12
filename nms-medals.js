@@ -336,6 +336,8 @@
       '.nmsm-next b{color:#e8f4f8;font-family:Orbitron,sans-serif;letter-spacing:.08em;font-size:12px}',
       '.nmsm-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}',
       '.nmsm-btn{font-family:Orbitron,sans-serif;font-size:10.5px;letter-spacing:.12em;min-height:44px;padding:4px 6px;border-radius:2px;cursor:pointer;background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.45);color:#00e5ff;text-transform:uppercase}',
+      '.nmsm-btn.ic-install::before,.nmsm-btn.ic-share::before,.nmsm-btn.ic-route::before,.nmsm-btn.ic-menu::before{content:"";display:inline-block;width:18px;height:18px;margin-right:6px;vertical-align:-4px;background:center/contain no-repeat}',
+      '.nmsm-btn.ic-install::before{background-image:url(/nms-ci/ci-install.webp?v=20261111)}.nmsm-btn.ic-share::before{background-image:url(/nms-ci/ci-share.webp?v=20261111)}.nmsm-btn.ic-route::before{background-image:url(/nms-ci/ci-route.webp?v=20261111)}.nmsm-btn.ic-menu::before{background-image:url(/nms-ci/ci-menu.webp?v=20261111)}',
       '.nmsm-btn:hover,.nmsm-btn:focus-visible{background:rgba(0,229,255,.16);outline:none}',
       '.nmsm-btn.prim{background:linear-gradient(180deg,#f2b84b,#c98a1e);color:#1a1205;border-color:#f2b84b;font-weight:700}',
       '.nmsm-btn.wide{grid-column:1/-1;background:none;border:1px dashed rgba(0,229,255,.6);color:#e8f4f8}',
@@ -437,10 +439,10 @@
     }
     if(o.next){ var nx = hel('p', 'nmsm-next'); nx.textContent = o.next; c.appendChild(nx); }
     var bt = hel('div', 'nmsm-btns');
-    var dl = hel('button', 'nmsm-btn prim', '⬇ ' + T('Download')); dl.type = 'button';
-    var sh = hel('button', 'nmsm-btn', '⇪ ' + T('Share')); sh.type = 'button';
+    var dl = hel('button', 'nmsm-btn prim ic-install', T('Download')); dl.type = 'button';
+    var sh = hel('button', 'nmsm-btn ic-share', T('Share')); sh.type = 'button';
     bt.appendChild(dl); bt.appendChild(sh);
-    if(o.wide){ var w = hel('button', 'nmsm-btn wide', o.wide.label); w.type = 'button'; w.addEventListener('click', function(){ o.wide.run(); }); bt.appendChild(w); }
+    if(o.wide){ var wl = String(o.wide.label), wic = wl.indexOf('✈') === 0 ? 'route' : (wl.indexOf('▤') === 0 ? 'menu' : ''); if(wic) wl = wl.replace(/^\S+\s*/, ''); var w = hel('button', 'nmsm-btn wide' + (wic ? ' ic-' + wic : ''), wl); w.type = 'button'; if(o.wide.flame){ var wf = document.createElement('i'); wf.className = 'nmsfl'; wf.setAttribute('aria-hidden', 'true'); w.insertBefore(wf, w.firstChild); } w.addEventListener('click', function(){ o.wide.run(); }); bt.appendChild(w); }
     c.appendChild(bt);
     var msg = hel('p', 'nmsm-msg'); msg.setAttribute('aria-live', 'polite'); c.appendChild(msg);
     var file = (o.file || 'nms-medal') + '.png';
@@ -705,7 +707,7 @@
   function nextQueued(){ var q = queue.shift(); if(q) earnedCard(q[0], q[1]); }
   function retryPending(){ pend('').forEach(function(x){ charted(x, true); }); }
   function streakLine(st){
-    var t = '🔥 ' + T(st.cur === 1 ? 'Streak: {n} day' : 'Streak: {n} days', { n: st.cur });
+    var t = T(st.cur === 1 ? 'Streak: {n} day' : 'Streak: {n} days', { n: st.cur });
     if(st.next) t += ' · ' + T('next medal at {n} days', { n: st.next });
     return t;
   }
@@ -716,7 +718,7 @@
   function earnedCard(m, st, demo){
     st = st || stats();
     var o = { metal:m.metal, reveal:true, kick:'◈ ' + T('Milestone reached'), lab:T('System that kept it going'), file:'nms-streak-medal',
-              shareUrl: cfg.mapUrl, wide:{ label:'🔥 ' + T('View streak'), run: panel } };
+              shareUrl: cfg.mapUrl, wide:{ label:T('View streak'), flame:true, run: panel } };
     var ls = lastSys(st); o.sys = ls.sys; o.hex = ls.hex; o.meta = ls.meta;
     if(m.kind === 'day'){
       o.title = T('Daily discovery'); o.label = T('{n} DAYS', { n:m.n }); o.big = T('{n} DAYS', { n:m.n }); o.sub = T('In a row');

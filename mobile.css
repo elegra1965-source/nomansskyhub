@@ -1,7 +1,7 @@
 /* No Man's Sky Hub — phone layout (2026-10-09, from REVIEW-2026-10-09.md).
    Desktop is untouched: everything here is inside the 760px breakpoint, and the extra
    elements mobile.js adds (jump bar, dots, toggles, back-to-top) are hidden above it. */
-.jumpbar,.node-dots,.dial-how,.saved-toggle,.to-top,.tr-hint{display:none}
+.node-swipe,.jumpbar,.node-dots,.dial-how,.saved-toggle,.to-top,.tr-hint{display:none}
 
 @media (max-width:760px){
   /* 1. sticky jump bar */
@@ -23,6 +23,10 @@
     scrollbar-width:none;margin:0 -16px;padding:4px 16px 8px;scroll-padding:0 16px}
   .grid-nodes::-webkit-scrollbar{display:none}
   .grid-nodes>.card,.grid-nodes>.card.wide,.grid-nodes>.card.tall,.grid-nodes>.card.full{flex:0 0 84%;height:360px;scroll-snap-align:center}
+  .grid-nodes>.nrow,.grid-nodes>.nlist{flex:0 0 84%;min-height:0;scroll-snap-align:center}
+  .grid-nodes>.nrow{min-height:290px}
+  .grid-nodes>.nlist{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:10px;padding:18px;min-height:290px}
+  .grid-nodes>.nlist .nl-t{flex:none}.grid-nodes>.nlist .name{font-size:1.3rem}.grid-nodes>.nlist .desc{font-size:1rem}
   .node-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:14px}
   .node-dots{gap:0!important}
   .node-dots button{width:auto;height:auto;padding:9px 5px;border:0;background:none;cursor:pointer} /* ~26px tap area around an 8px dot */
@@ -76,3 +80,13 @@
   html body #alliances .al-head,html body #discoveries .al-head,html body #trending .al-head{margin-bottom:14px}
 }
 @media (max-width:760px) and (prefers-reduced-motion:reduce){.node-dots button::before,.to-top,.jumpbar a{transition:none}}
+
+/* Phone readability + tap targets (2026-11-10 review): nothing under 11px, buttons at least 40px tall */
+@media (max-width:760px){
+  html body .brand-name,html body .lc-code,html body small,html body .btn-replay,html body .chev,html body .exp-alert-link,html body .node-swipe,html body #hexLegend,html body #recCnt,html body .tr-hint,html body .fb-l,html body .btn-tour,html body .btn,html body footer a,html body footer span,html body .hero-ctas .btn-replay,html body .jumpbar a,html body .dial-how,html body .saved-toggle,html body .exp-guide-btn span,html body .tour-dl,html body .tour-dl *,html body .fb-lbl,html body .fb-count,html body .scroll-hint{font-size:11px!important}
+  html body .btn-replay,html body .exp-guide-btn,html body .exp-alert-link,html body .tid-clear,html body .btn-tour{min-height:40px}
+  html body #langBtn.lang-clock{min-width:40px}
+  html body #dialHex{min-height:40px}
+}
+@media (max-width:340px){html body .clocks{gap:8px}html body .clocks>.clock:last-child{display:none}}
+@media (max-width:340px){html body section.exp{overflow-x:clip}}

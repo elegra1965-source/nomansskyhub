@@ -41,10 +41,10 @@
       '<div class="fb-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-t="send">SEND FEEDBACK</button><button type="button" role="tab" aria-selected="false" data-t="say">WHAT TRAVELLERS SAY</button></div>' +
       '<form class="fb-form" id="fbForm" novalidate>' +
         '<div><p class="fb-lbl">WHAT\'S IT ABOUT, TRAVELLER?</p><div class="fb-chips fb-type" role="radiogroup">' +
-          '<label><input type="radio" name="fbType" value="review" checked><span><img class="fb-ico" src="assets/fb-ico-review.webp" srcset="assets/fb-ico-review@2x.webp 2x" alt="" width="24" height="24">Review</span></label>' +
-          '<label><input type="radio" name="fbType" value="bug"><span><img class="fb-ico" src="assets/fb-ico-bug.webp" srcset="assets/fb-ico-bug@2x.webp 2x" alt="" width="24" height="24">Bug</span></label>' +
-          '<label><input type="radio" name="fbType" value="idea"><span><img class="fb-ico" src="assets/fb-ico-idea.webp" srcset="assets/fb-ico-idea@2x.webp 2x" alt="" width="24" height="24">Idea / request</span></label>' +
-          '<label><input type="radio" name="fbType" value="other"><span><img class="fb-ico" src="assets/fb-ico-ask.webp" srcset="assets/fb-ico-ask@2x.webp 2x" alt="" width="24" height="24">Other</span></label></div></div>' +
+          '<label><input type="radio" name="fbType" value="review" checked><span><img class="fb-ico" src="assets/fb-ico-review.webp?v=20261111" srcset="assets/fb-ico-review@2x.webp?v=20261111 2x" alt="" width="24" height="24">Review</span></label>' +
+          '<label><input type="radio" name="fbType" value="bug"><span><img class="fb-ico" src="assets/fb-ico-bug.webp?v=20261111" srcset="assets/fb-ico-bug@2x.webp?v=20261111 2x" alt="" width="24" height="24">Bug</span></label>' +
+          '<label><input type="radio" name="fbType" value="idea"><span><img class="fb-ico" src="assets/fb-ico-idea.webp?v=20261111" srcset="assets/fb-ico-idea@2x.webp?v=20261111 2x" alt="" width="24" height="24">Idea / request</span></label>' +
+          '<label><input type="radio" name="fbType" value="other"><span><img class="fb-ico" src="assets/fb-ico-ask.webp?v=20261111" srcset="assets/fb-ico-ask@2x.webp?v=20261111 2x" alt="" width="24" height="24">Other</span></label></div></div>' +
         '<div><p class="fb-lbl"><span id="fbToolsLbl">WHICH TOOLS HAVE YOU USED?</span> <small>(TAP ALL THAT APPLY)</small></p><div class="fb-chips" id="fbTools" translate="no"></div></div>' +
         '<div id="fbRateWrap"><p class="fb-lbl">RATING <small>(OPTIONAL)</small></p><div class="fb-stars" id="fbStars" role="radiogroup" aria-label="Rating"></div></div>' +
         '<div><p class="fb-lbl" id="fbTextLbl">WHAT DO YOU LIKE, OR WHAT COULD BE BETTER?</p>' +

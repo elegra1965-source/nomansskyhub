@@ -11,6 +11,7 @@
   // 2026-11-08 (Tony): the drawn medal instead of the emoji (emoji only if the medal script has not loaded)
   function medalIcon(r) { return window.NMSMedals ? NMSMedals.mini(r) : document.createTextNode(MEDAL[r - 1] + ' '); }
   var GAL = ['Euclid','Hilbert Dimension','Calypso','Hesperius Dimension','Hyades','Ickjamatew','Budullangr','Kikolgallr','Eltiensleen','Eissentam','Elkupalos','Aptarkaba','Ontiniangp','Odiwagiri','Ogtialabi','Muhacksonto','Hitonskyer','Rerasmutul','Isdoraijung','Doctinawyra','Loychazinq','Zukasizawa','Ekwathore','Yeberhahne','Twerbetek','Sivarates','Eajerandal','Aldukesci','Wotyarogii','Sudzerbal','Maupenzhay','Sugueziume','Brogoweldian','Ehbogdenbu','Ijsenufryos','Nipikulha','Autsurabin','Lusontrygiamh','Rewmanawa','Ethiophodhe','Urastrykle','Xobeurindj','Oniijialdu','Wucetosucc','Ebyeloof','Odyavanta','Milekistri','Waferganh','Agnusopwit','Teyaypilny','Zalienkosm','Ladgudiraf','Mushonponte','Amsentisz','Fladiselm','Laanawemb','Ilkerloor','Davanossi','Ploehrliou','Corpinyaya','Leckandmeram','Quulngais','Nokokipsechl','Rinblodesa','Loydporpen','Ibtrevskip','Elkowaldb','Heholhofsko','Yebrilowisod','Husalvangewi',"Ovna'uesed",'Bahibusey','Nuybeliaure','Doshawchuc','Ruckinarkh','Thorettac','Nuponoparau','Moglaschil','Uiweupose','Nasmilete','Ekdaluskin','Hakapanasy','Dimonimba','Cajaccari','Olonerovo','Umlanswick','Henayliszm','Utzenmate','Umirpaiya','Paholiang','Iaereznika','Yudukagath','Boealalosnj','Yaevarcko','Coellosipp','Wayndohalou','Smoduraykl','Apmaneessu','Hicanpaav','Akvasanta','Tuychelisaor','Rivskimbe','Daksanquix','Kissonlin','Aediabiel','Ulosaginyik','Roclaytonycar','Kichiaroa','Irceauffey','Nudquathsenfe','Getaizakaal','Hansolmien','Bloytisagra','Ladsenlay','Luyugoslasr','Ubredhatk','Cidoniana','Jasinessa','Torweierf','Saffneckm','Thnistner','Dotusingg','Luleukous','Jelmandan','Otimanaso','Enjaxusanto','Sezviktorew','Zikehpm','Bephembah','Broomerrai','Meximicka','Venessika','Gaiteseling','Zosakasiro','Drajayanes','Ooibekuar','Urckiansi','Dozivadido','Emiekereks','Meykinunukur','Kimycuristh','Roansfien','Isgarmeso','Daitibeli','Gucuttarik','Enlaythie','Drewweste','Akbulkabi','Homskiw','Zavainlani','Jewijkmas','Itlhotagra','Podalicess','Hiviusauer','Halsebenk','Puikitoac','Gaybakuaria','Grbodubhe','Rycempler','Indjalala','Fontenikk','Pasycihelwhee','Ikbaksmit','Telicianses','Oyleyzhan','Uagerosat','Impoxectin','Twoodmand','Hilfsesorbs','Ezdaranit','Wiensanshe','Ewheelonc','Litzmantufa','Emarmatosi','Mufimbomacvi','Wongquarum','Hapirajua','Igbinduina','Wepaitvas','Sthatigudi','Yekathsebehn','Ebedeagurst','Nolisonia','Ulexovitab','Iodhinxois','Irroswitzs','Bifredait','Beiraghedwe','Yeonatlak','Cugnatachh','Nozoryenki','Ebralduri','Evcickcandj','Ziybosswin','Heperclait','Sugiuniam','Aaseertush','Uglyestemaa','Horeroedsh','Drundemiso','Ityanianat','Purneyrine','Dokiessmat','Nupiacheh','Dihewsonj','Rudrailhik','Tweretnort','Snatreetze','Iwundaracos','Digarlewena','Erquagsta','Logovoloin','Boyaghosganh','Kuolungau','Pehneldept','Yevettiiqidcon','Sahliacabru','Noggalterpor','Chmageaki','Veticueca','Vittesbursul','Nootanore','Innebdjerah','Kisvarcini','Cuzcogipper','Pamanhermonsu','Brotoghek','Mibittara','Huruahili','Raldwicarn','Ezdartlic','Badesclema','Isenkeyan','Iadoitesu','Yagrovoisi','Ewcomechio','Inunnunnoda','Dischiutun','Yuwarugha','Ialmendra','Reponudrle','Rinjanagrbo','Zeziceloh','Oeileutasc','Zicniijinis','Dugnowarilda','Neuxoisan','Ilmenhorn','Rukwatsuku','Nepitzaspru','Chcehoemig','Haffneyrin','Uliciawai','Tuhgrespod','Iousongola','Odyalutai'];
+  function flameIcon() { var i = el('i', 'nmsfl'); i.setAttribute('aria-hidden', 'true'); return i; }
   function gal(g) { return GAL[g] || ('Galaxy ' + (g + 1)); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function plain(s) { var t = document.createElement('textarea'); t.innerHTML = String(s || ''); return t.value; }
@@ -83,14 +84,14 @@
     var s = el('section', 'al-sec tr-sec'); s.id = 'trending';
     var head = el('div', 'al-head');
     head.appendChild(el('div', 'al-kicker', '◆ Galactic Map · Leaderboard'));
-    head.appendChild(el('h2', 'al-title', last ? '🔥 Last week’s final standings' : '🔥 Trending this week'));
+    var h2 = el('h2', 'al-title'); h2.appendChild(flameIcon()); h2.appendChild(document.createTextNode(last ? 'Last week’s final standings' : 'Trending this week')); head.appendChild(h2);
     head.appendChild(el('p', 'al-sub', last
       ? 'A new week has started on the Galactic Map. These were last week’s most-viewed systems until this week’s list fills up.'
       : 'The charted systems travellers opened most on the Galactic Map this week. Resets every Monday at midnight (UK). Chart yours and it could be next.'));
     s.appendChild(head);
 
     var live = el('div', 'al-live tr-live');
-    var lh = el('div', 'al-live-h tr-h'); lh.appendChild(el('span', 'al-dot')); var lt = el('span', 'dc-htxt', '🔥 TRENDING');
+    var lh = el('div', 'al-live-h tr-h'); lh.appendChild(el('span', 'al-dot')); var lt = el('span', 'dc-htxt'), ht = el('span'); ht.appendChild(flameIcon()); ht.appendChild(document.createTextNode('TRENDING')); lt.appendChild(ht);
     lt.appendChild(el('small', 'dc-hsub', last ? 'Last week’s final top ' + top.length : 'Most viewed this week'));
     lh.appendChild(lt);
     var lb = el('a', 'tr-link', 'Leaderboard ›'); lb.href = MAP + '/?trending=1'; lb.target = '_blank'; lb.rel = 'noopener';
@@ -148,7 +149,7 @@
       box.appendChild(r);
       // 2026-10-19 (Tony): one-tap link to this system's picture (medal for the top 3),
       // for pasting where pictures can't be attached -- Reddit messages etc.
-      var cp = el('button', 'tr-copy', x.rank <= 3 ? '🔗 Copy medal picture link' : '🔗 Copy picture link');
+      var cp = el('button', 'tr-copy', x.rank <= 3 ? 'Copy medal picture link' : 'Copy picture link');
       cp.type = 'button';
       cp.setAttribute('data-link', MAP + '/?rankcard=' + x.address + '&galaxy=' + gal(x.galaxy).replace(/[^A-Za-z0-9]/g, ''));
       cp.addEventListener('click', copyLink);
@@ -188,8 +189,17 @@
     if (sv && s.trLive) {
       var pair = el('div', 'tr-pair');
       sv.parentNode.insertBefore(pair, sv);
+      // phones: one box with two tabs (Trending | Top surveyors); desktop keeps them side by side
+      var tabs = el('div', 'tr-tabs'); tabs.setAttribute('role', 'tablist');
+      var bt = el('button', 'on', 'TRENDING'), bs = el('button', null, 'TOP SURVEYORS');
+      [bt, bs].forEach(function (b) { b.type = 'button'; b.setAttribute('role', 'tab'); });
+      function pick(w) { pair.setAttribute('data-tab', w); bt.className = w === 'tr' ? 'on' : ''; bs.className = w === 'sv' ? 'on' : ''; bt.setAttribute('aria-selected', w === 'tr'); bs.setAttribute('aria-selected', w === 'sv'); }
+      bt.addEventListener('click', function () { pick('tr'); }); bs.addEventListener('click', function () { pick('sv'); });
+      pair.appendChild(tabs); tabs.appendChild(bt); tabs.appendChild(bs);
       pair.appendChild(sv); pair.appendChild(s.trLive);
       s.trLive.id = 'trending';
+      pick('tr');
+      window.addEventListener('hashchange', function () { if (location.hash === '#trending') pick('tr'); });
       return;
     }
     var after = d || al;
