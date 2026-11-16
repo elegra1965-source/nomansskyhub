@@ -208,6 +208,7 @@ img{max-width:100%}
 .node-rows{grid-template-columns:repeat(2,minmax(0,1fr))}.node-rows>.nrow{grid-column:1/-1}
 .nlist{display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:64px;border:1px solid rgba(0,229,255,.22);background:rgba(2,6,11,.85);text-decoration:none;color:inherit}
 .nlist:hover{border-color:var(--cyan);color:inherit}
+.nlist .img,.nlist .shade{display:none}
 .nlist .nl-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .nlist .name{font-family:var(--f-display);font-size:1rem;font-weight:700;letter-spacing:1px;color:var(--white)}
 .nlist .desc{font-size:.9rem;color:var(--text-dim);line-height:1.3}
@@ -414,6 +415,8 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
 .lang-clock{background:none;border:0;padding:4px 6px;margin:-4px -6px;border-radius:6px;color:var(--white);font:inherit;letter-spacing:inherit;cursor:pointer}.lang-clock b{display:block;letter-spacing:2px;line-height:inherit;font-weight:400}.lang-clock .lc-code{display:none}.lang-clock:hover,.lang-clock[aria-expanded="true"]{background:rgba(0,229,255,.1);box-shadow:inset 0 0 0 1px rgba(0,229,255,.45)}.lang-clock:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
 @media (max-width:480px){.lang-clock .lc-lbl,.lang-clock .lc-code2{display:none}.lang-clock .lc-code{display:inline}}
 @media (max-width:480px){.dial-btns{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-name{max-width:92px;font-size:.6rem}.topbar{left:22px;right:22px;gap:10px}.clocks{gap:10px}.clock b{font-size:.86rem;letter-spacing:1px}.clock small{font-size:.58rem}.uplink{font-size:.68rem;letter-spacing:3px}.up-gal{display:none}}
+/* 2026-11-16 header fix: EN sits beside the globe so the language and installed-app refresh buttons share one row and the bar never overflows */
+@media (max-width:480px){.clocks{gap:6px}.lang-clock{display:flex;align-items:center;gap:3px;padding:4px 4px;margin:-4px -4px}.clock.lang-clock small{display:block;font-size:.62rem;letter-spacing:1px}.lang-clock b{display:block}#nmsRefresh{padding:4px 4px;margin:-4px -4px;min-width:0}#nmsRefresh img{width:20px;height:20px}.clock b{letter-spacing:0}.brand{gap:8px}.brand .mark{width:34px;height:34px}.brand-name{max-width:74px;font-size:.56rem;letter-spacing:2px}.tb-live{display:none}}
 @media (prefers-reduced-motion:reduce){
   .brand .mark img,.brand .mark::before{animation:none!important}
   .slide,.glitch::before,.glitch::after,.hero-scan,.hero-scan::before,.scroll-hint,.keyring.done,.drift-l,.drift-r,.portal .rim,.portal.open .spark,.portal.open .wave,#introEnter,.cursor{animation:none!important}
@@ -428,7 +431,7 @@ footer .share .btn-tour{border-color:var(--gold);color:var(--gold)}
 <link rel="stylesheet" href="feedback.css?v=20261104">
 <link rel="stylesheet" href="discoveries.css?v=20261111">
 <link rel="stylesheet" href="trending.css?v=20261111">
-<link rel="stylesheet" href="mobile.css?v=20261111">
+<link rel="stylesheet" href="mobile.css?v=20261116">
 </head>
 <body>
 
@@ -511,27 +514,31 @@ HUB</h1>
     </div>
     <div class="node-rows grid-nodes">
       <a class="nrow red" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Atlas AI">
-        <span class="img" style="background-image:url('assets/atlas29.jpg')"></span><span class="shade"></span>
+        <span class="img" role="img" aria-label="Atlas AI: the red Atlas orb, online" style="background-image:url('assets/tile-atlas.webp')"></span><span class="shade"></span>
         <span class="body"><span class="tags"><span class="tag">NODE 01</span><span class="live checking"><i></i><b>CHECKING</b></span></span><span class="name">Atlas AI</span><span class="desc">A voice-first AI guide to No Man's Sky. Ask how to craft or refine anything, where to find it, today's expedition milestones, or the lore. And hear the Atlas answer.</span><span class="go">TALK TO THE ATLAS <span>→</span></span></span>
       </a>
       <a class="nrow" href="https://map.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Galactic Map">
-        <span class="img" style="background-image:url('assets/bg-stars.webp')"></span><span class="shade"></span>
+        <span class="img" role="img" aria-label="Galactic Map: the galaxy view with the core glowing" style="background-image:url('assets/tile-map.webp')"></span><span class="shade"></span>
         <span class="body"><span class="tags"><span class="tag">NODE 04</span><span class="live checking"><i></i><b>CHECKING</b></span></span><span class="name">Galactic Map</span><span class="desc">Turn any 12-glyph portal address into a real spot in a 3D galaxy. Fly between stars and log your own finds.</span><span class="go">OPEN THE MAP <span>→</span></span></span>
       </a>
       <a class="nrow gold" href="#dialer">
-        <span class="img" style="background-image:url('assets/neon11.jpg')"></span><span class="shade"></span>
+        <span class="img" role="img" aria-label="Portal Dialer: the portal glyph title" style="background-image:url('assets/tile-dialer.webp')"></span><span class="shade"></span>
         <span class="body"><span class="tags"><span class="tag">TOOL</span></span><span class="name">Portal Dialer</span><span class="desc">Dial a portal address on the glyph ring. See it light up, then open it on the Galactic Map.</span><span class="go">OPEN THE DIALER <span>→</span></span></span>
       </a>
       <a class="nlist" href="https://weather.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Weather Station">
+        <span class="img" role="img" aria-label="Weather Station: the planet day-cycle dial with sunrise and sunset arc" style="background-image:url('assets/tile-weather.webp')"></span><span class="shade"></span>
         <span class="tag">NODE 02</span><span class="nl-t"><span class="name">Weather Station</span><span class="desc">Real local weather as an NMS planetary scan, with storm and rain alerts.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
       <a class="nlist" href="https://theme.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Theme Pack">
+        <span class="img" role="img" aria-label="Theme Pack: a phone home screen with No Man's Sky icons" style="background-image:url('assets/tile-theme.webp')"></span><span class="shade"></span>
         <span class="tag">NODE 03</span><span class="nl-t"><span class="name">Theme Pack</span><span class="desc">79 icons, 17 wallpapers and 5 charging animations for phone and PC.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
       <a class="nlist" href="https://translator.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Alphabet Translator">
+        <span class="img" role="img" aria-label="Alphabet Translator: the live translator box in the NMS alphabet" style="background-image:url('assets/tile-translator.webp')"></span><span class="shade"></span>
         <span class="tag">NODE 05</span><span class="nl-t"><span class="name">Alphabet Translator</span><span class="desc">English to NMS text, and in-game text back to English.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
       <a class="nlist" href="https://github.com/elegra1965-source/obsidian-nms-atlas" target="_blank" rel="noopener" data-node="Atlas Obsidian Theme">
+        <span class="img" role="img" aria-label="Atlas Obsidian Theme: a deep-space theme for the Obsidian notes app" style="background-image:url('assets/obsidian-card.jpg')"></span><span class="shade"></span>
         <span class="tag">NODE 06</span><span class="nl-t"><span class="name">Atlas Obsidian Theme</span><span class="desc">A deep-space theme for the Obsidian notes app. Free on GitHub.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
     </div>

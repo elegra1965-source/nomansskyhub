@@ -26,6 +26,10 @@
   .grid-nodes>.nrow,.grid-nodes>.nlist{flex:0 0 84%;min-height:0;scroll-snap-align:center}
   .grid-nodes>.nrow{min-height:290px}
   .grid-nodes>.nlist{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:10px;padding:18px;min-height:290px}
+  .grid-nodes>.nlist{position:relative;overflow:hidden;background:#02060b}
+  .grid-nodes>.nlist .img{display:block;position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.85) brightness(.7)}
+  .grid-nodes>.nlist .shade{display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,11,.35),rgba(2,6,11,.93) 78%)}
+  .grid-nodes>.nlist .tag,.grid-nodes>.nlist .nl-t,.grid-nodes>.nlist .live{position:relative}
   .grid-nodes>.nlist .nl-t{flex:none}.grid-nodes>.nlist .name{font-size:1.3rem}.grid-nodes>.nlist .desc{font-size:1rem}
   .node-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:14px}
   .node-dots{gap:0!important}
