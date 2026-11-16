@@ -39,7 +39,7 @@
       b.addEventListener('click', function () { grid.scrollTo({ left: c.offsetLeft - (grid.clientWidth - c.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' }); });
       dots.appendChild(b);
     });
-    var hint = document.createElement('span'); hint.className = 'node-swipe'; hint.textContent = '‹ SWIPE FOR ALL SIX NODES ›';
+    var hint = document.createElement('span'); hint.className = 'node-swipe'; hint.textContent = '‹ SWIPE FOR ALL SEVEN NODES ›';
     grid.parentNode.insertBefore(dots, grid.nextSibling);
     dots.parentNode.insertBefore(hint, dots.nextSibling);
     var t;
