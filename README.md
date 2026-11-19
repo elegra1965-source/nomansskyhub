@@ -28,7 +28,7 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 
 - **Anomaly intro and cinematic hero** with a live clock and a status bar showing the current expedition (name and time left).
 - **Community Research.** Inside the expedition card, a live strip shows the Space Anomaly's Community Research: the tier (e.g. *Tier 2 of 2*) and how far through it Travellers are, with a bar, exactly as on Hello Games' [Galactic Atlas](https://galacticatlas.nomanssky.com/poi/community-research) sidebar. As more universal data is submitted, the Quicksilver Synthesis Companion unlocks more collectables. Tap it to open the official page. It also appears in the top-bar ticker, rechecks every 10 minutes, and stays hidden if the Atlas isn't answering, so it never shows a wrong number.
-- **Six nodes, one network.** Image cards for every tool in the family (see below).
+- **Seven nodes, one network.** Image cards for every tool in the family (see below).
 - **Portal dialer.** Enter or tap a 12-glyph portal address, pick any of the 256 galaxies, and jump straight to that system on the Galactic Map. You can also type or paste the hex address straight into the **Hex code** box: each digit fills the next glyph.
 - **Speak like the Atlas.** A built-in NMS alphabet translator.
 - **Expedition milestones & tips.** Under the live expedition card, every milestone of the current expedition by phase — what to do, hints and rewards — read live from the No Man's Sky Wiki.
@@ -59,12 +59,12 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 - **🏅 Medals and streaks.** One medal set shared with the Galactic Map: a metal disc with laurels and an NMS ship flying in (gold Exotic #1, silver Fighter #2, bronze Shuttle #3). The top 3 in **Top surveyors** and **🔥 Trending** get a real medal instead of a number; tap it for the medal card (system, glyphs + hex, **Download** a 1080x1350 picture, **Share**). If your Traveller ID name is in the Top surveyors top 3, your medal card pops up once a week with a colour reveal (tap skips it; reduced motion shows it at once). **Get on the board** now ends with your **streak**: chart a *new* system on the Galactic Map every day (the NMS Almanac has to confirm it's real) for medals at 3 / 7 / 14 / 30 days in a row, plus weekly (3 new systems) and monthly (10) medals, 1 grace day a week. The map saves the streak on your device in a small cookie on .nomansskyhub.app, so the Hub shows the same numbers; **View streak** opens the panel. Cards and the panel show *Unlocked by N travellers so far* (an anonymous total per medal kept by the map; only which medal was earned is ever sent, never a name or the streak). All in `nms-medals.js` (the same file as the map) with the ship pictures in `medals/`.
 
   ![The Trending medal card that pops up once a week for a system you charted: gold medal, views, system, glyphs + hex, Download / Share (example data)](screenshots/17-trending-medal-popup.jpg)
-- **Built for phones too.** On a phone the page is about 40% shorter: a sticky jump bar (Tools · Dialer · Translate · Alliances · 🔥 Trending · My ID), the six tool cards in one swipeable row, the dialer's explainer and saved addresses folded behind toggles, the translator opening its NMS-text panel when you tap in, the expedition card tucked into the hero, and a back-to-top button. Desktop is unchanged.
+- **Built for phones too.** On a phone the page is about 40% shorter: a sticky jump bar (Tools · Dialer · Translate · Alliances · 🔥 Trending · My ID), the seven tool cards in one swipeable row, the dialer's explainer and saved addresses folded behind toggles, the translator opening its NMS-text panel when you tap in, the expedition card tucked into the hero, and a back-to-top button. Desktop is unchanged.
 - **Short links.** `nomansskyhub.app/atlas`, `/weather`, `/theme`, `/translator` and `/map` jump to each tool.
 
 ![Recently charted ticker under the hero buttons: Live from the Galactic Map, 4 systems charted by travellers today, 12 this week, OldSaltySak charted Jura-Tempest Federation](screenshots/06-charted-ticker.jpg)
 
-![Six nodes, one network: image cards for every tool](screenshots/02-nodes.jpg)
+![Seven nodes, one network: image cards for every tool](screenshots/02-nodes.jpg)
 
 ![Galactic Alliances guide from the Cosmos update](screenshots/03-alliances.jpg)
 
@@ -96,7 +96,7 @@ The front door to a family of free, fan-made *No Man's Sky* tools. One cinematic
 
 ## Take a tour
 
-One gold **▶ TAKE A TOUR** button in the footer starts a 7-step tour of the page itself (the same spotlight tour as Atlas, Weather, Translator and Theme): the six tool cards, the portal dialer, the translator, Top surveyors + Get on the board, 🔥 Trending, My Traveller ID and the 🌐 language button. Skip, Back and Next on every step; Esc or the phone's Back button closes it. The last step has **▶ Watch the tools in action**, which opens the video pop-up with the teaser, the portal-dialer clip and the full tour (videos only load when tapped). Creator downloads (this video, creator pack, shot list) live inside it. First-time visitors are offered the tour once by a small **New here?** box after the intro. The tour lives in `nms-tour.js` (shared by every site).
+One gold **▶ TAKE A TOUR** button in the footer starts a 7-step tour of the page itself (the same spotlight tour as Atlas, Weather, Translator and Theme): the seven tool cards, the portal dialer, the translator, Top surveyors + Get on the board, 🔥 Trending, My Traveller ID and the 🌐 language button. Skip, Back and Next on every step; Esc or the phone's Back button closes it. The last step has **▶ Watch the tools in action**, which opens the video pop-up with the teaser, the portal-dialer clip and the full tour (videos only load when tapped). Creator downloads (this video, creator pack, shot list) live inside it. First-time visitors are offered the tour once by a small **New here?** box after the intro. The tour lives in `nms-tour.js` (shared by every site).
 
 There's also a **▶ TAKE A TOUR** button in the hero, beside Install App. The hero buttons are now all the same size and line up with the Live from the Galactic Map strip underneath. On phones they sit under the main button as small links.
 
