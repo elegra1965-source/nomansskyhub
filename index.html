@@ -9,7 +9,7 @@
 <script src="/lang.js?v=7"></script>
 <script src="/nms-update.js?v=5" defer></script>
 <meta name="robots" content="max-image-preview:large">
-<meta name="description" content="Six free No Man's Sky tools in one place: a voice AI guide, 3D galactic map, portal glyph dialer, glyph translator, NMS weather and a theme pack. No account.">
+<meta name="description" content="Seven free No Man's Sky tools in one place: voice AI guide, 3D galactic map, portal dialer, glyph translator, weather, theme pack and Obsidian theme.">
 <link rel="canonical" href="https://nomansskyhub.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="No Man's Sky Hub">
@@ -19,12 +19,12 @@
 <meta property="og:image" content="https://nomansskyhub.app/assets/og-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="No Man's Sky Hub. Six free NMS tools">
+<meta property="og:image:alt" content="No Man's Sky Hub. Seven free NMS tools">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="No Man's Sky Hub | Free NMS Tools">
 <meta name="twitter:description" content="Atlas AI, a 3D galactic map, a portal glyph dialer, a glyph translator, NMS-style weather and a theme pack. Free, no account.">
 <meta name="twitter:image" content="https://nomansskyhub.app/assets/og-card.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"No Man's Sky Hub","alternateName":"NMS Hub","url":"https://nomansskyhub.app/","description":"Six free fan-made tools for No Man's Sky travellers.","author":{"@type":"Person","name":"elegra1965"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"No Man's Sky Hub","alternateName":"NMS Hub","url":"https://nomansskyhub.app/","description":"Seven free fan-made tools for No Man's Sky travellers.","author":{"@type":"Person","name":"elegra1965"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Free No Man's Sky tools", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas AI: No Man's Sky voice companion", "url": "https://atlas.nomansskyhub.app/"}, {"@type": "ListItem", "position": 2, "name": "NMS Galactic Map: 3D galaxy map & portal address decoder", "url": "https://map.nomansskyhub.app/"}, {"@type": "ListItem", "position": 3, "name": "NMS Alphabet Translator & Portal Glyph Reader", "url": "https://translator.nomansskyhub.app/"}, {"@type": "ListItem", "position": 4, "name": "Atlas Weather Station: weather as a No Man's Sky planet scan", "url": "https://weather.nomansskyhub.app/"}, {"@type": "ListItem", "position": 5, "name": "No Man's Sky Theme Pack: icons, wallpapers, widgets & NMS font", "url": "https://theme.nomansskyhub.app/"}, {"@type": "ListItem", "position": 6, "name": "Traveller Discoveries: systems charted this week", "url": "https://map.nomansskyhub.app/community"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the No Man's Sky Hub?", "acceptedAnswer": {"@type": "Answer", "text": "A free, fan-made home for six No Man's Sky tools: the Atlas AI voice companion, the Galactic Map, the Alphabet Translator, the Weather Station, the Theme Pack and Traveller Discoveries. It is not affiliated with Hello Games."}}, {"@type": "Question", "name": "Is it free, and do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, every tool is free, and there is no account or sign-up. Each one also installs as an app on your phone or computer."}}, {"@type": "Question", "name": "Is my data saved anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "Your favourites, recent addresses and settings are kept only on your own device. Visit counts come from a cookie-free counter, and anything you send through Reviews & feedback goes only to elegra1965."}}, {"@type": "Question", "name": "How do I dial a portal address?", "acceptedAnswer": {"@type": "Answer", "text": "In the portal dialer, tap the 12 glyphs in order or type the hex address. The ring turns to each glyph like the game's portal, and Show on map opens the address on the Galactic Map."}}, {"@type": "Question", "name": "Is it available in my language?", "acceptedAnswer": {"@type": "Answer", "text": "English, Español, Deutsch, Nederlands, Polski, Français, Português (Brasil) and Italiano. Pick one from the language button and the other sites follow your choice."}}, {"@type": "Question", "name": "Can I install it as an app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use Install app on this page, or your browser's Add to Home Screen option, and it opens like any other app."}}]}</script>
 <script>try{if(localStorage.getItem('nmsHubIntroSeen')==='1'&&!/[?&]intro=1/.test(location.search))document.documentElement.className+=' intro-seen';}catch(e){}</script>
@@ -194,7 +194,7 @@ img{max-width:100%}
 .node-rows{display:grid;gap:14px 10px}
 .nrow{position:relative;overflow:hidden;display:block;min-height:190px;border:1px solid rgba(0,229,255,.28);background:#02060b;text-decoration:none;color:inherit;transition:border-color .25s}
 .nrow:hover{border-color:var(--cyan);color:inherit}
-.nrow .img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.85) brightness(.7)}
+.nrow .img{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.95) brightness(.92)}
 .nrow .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,11,.92) 0%,rgba(2,6,11,.7) 55%,rgba(2,6,11,.3) 100%)}
 .nrow .body{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px 22px;max-width:62ch;align-items:flex-start}
 .nrow .tags{display:flex;gap:8px;align-items:center;font-family:var(--f-mono);font-size:.74rem;letter-spacing:3px;margin-bottom:2px}
@@ -211,6 +211,7 @@ img{max-width:100%}
 .node-rows{grid-template-columns:repeat(2,minmax(0,1fr))}.node-rows>.nrow{grid-column:1/-1}
 .nlist{display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:64px;border:1px solid rgba(0,229,255,.22);background:rgba(2,6,11,.85);text-decoration:none;color:inherit}
 .nlist:hover{border-color:var(--cyan);color:inherit}
+.nlist .img,.nlist .shade{display:none}
 .nlist .nl-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .nlist .name{font-family:var(--f-display);font-size:1rem;font-weight:700;letter-spacing:1px;color:var(--white)}
 .nlist .desc{font-size:.9rem;color:var(--text-dim);line-height:1.3}
@@ -437,7 +438,7 @@ footer .atlas-poll .ap-btns .btn{padding:9px 14px;font-size:.62rem;font-weight:4
   .hide-sm{display:none!important}
   .topbar{left:28px;right:28px;top:32px}
   .nrow .name{font-size:1.45rem}
-  .nrow .shade{background:linear-gradient(180deg,rgba(2,6,11,.55),rgba(2,6,11,.92))}
+  .nrow .shade{background:linear-gradient(180deg,rgba(2,6,11,.08) 0%,rgba(2,6,11,.5) 42%,rgba(2,6,11,.9) 100%)}
   .hud-frame{inset:16px}
   .brand{gap:10px;font-size:.66rem;letter-spacing:2px}
   .brand .mark{width:34px;height:34px}
@@ -450,6 +451,8 @@ footer .atlas-poll .ap-btns .btn{padding:9px 14px;font-size:.62rem;font-weight:4
 .lang-clock{background:none;border:0;padding:4px 6px;margin:-4px -6px;border-radius:6px;color:var(--white);font:inherit;letter-spacing:inherit;cursor:pointer}.lang-clock b{display:block;letter-spacing:2px;line-height:inherit;font-weight:400}.lang-clock .lc-code{display:none}.lang-clock:hover,.lang-clock[aria-expanded="true"]{background:rgba(0,229,255,.1);box-shadow:inset 0 0 0 1px rgba(0,229,255,.45)}.lang-clock:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
 @media (max-width:480px){.lang-clock .lc-lbl,.lang-clock .lc-code2{display:none}.lang-clock .lc-code{display:inline}}
 @media (max-width:480px){.dial-btns{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-name{max-width:92px;font-size:.6rem}.topbar{left:22px;right:22px;gap:10px}.clocks{gap:10px}.clock b{font-size:.86rem;letter-spacing:1px}.clock small{font-size:.58rem}.uplink{font-size:.68rem;letter-spacing:3px}.up-gal{display:none}}
+/* 2026-11-16 header fix: EN sits beside the globe so the language and installed-app refresh buttons share one row and the bar never overflows */
+@media (max-width:480px){.clocks{gap:6px}.lang-clock{display:flex;align-items:center;gap:3px;padding:4px 4px;margin:-4px -4px}.clock.lang-clock small{display:block;font-size:.62rem;letter-spacing:1px}.lang-clock b{display:block}#nmsRefresh{padding:4px 4px;margin:-4px -4px;min-width:0}#nmsRefresh img{width:20px;height:20px}.clock b{letter-spacing:0}.brand{gap:8px}.brand .mark{width:34px;height:34px}.brand-name{max-width:74px;font-size:.56rem;letter-spacing:2px}.tb-live{display:none}}
 @media (prefers-reduced-motion:reduce){
   .brand .mark img,.brand .mark::before{animation:none!important}
   .slide,.glitch::before,.glitch::after,.hero-scan,.hero-scan::before,.scroll-hint,.keyring.done,.drift-l,.drift-r,.portal .rim,.portal.open .spark,.portal.open .wave,#introEnter,.cursor{animation:none!important}
@@ -464,7 +467,7 @@ footer .atlas-poll .ap-btns .btn{padding:9px 14px;font-size:.62rem;font-weight:4
 <link rel="stylesheet" href="feedback.css?v=20261104">
 <link rel="stylesheet" href="discoveries.css?v=20261112">
 <link rel="stylesheet" href="trending.css?v=20261112">
-<link rel="stylesheet" href="mobile.css?v=20261112">
+<link rel="stylesheet" href="mobile.css?v=20261119">
 </head>
 <body>
 
@@ -506,7 +509,7 @@ footer .atlas-poll .ap-btns .btn{padding:9px 14px;font-size:.62rem;font-weight:4
     <h1 id="heroTitle" translate="no" class="title glitch" data-text="NO MAN'S SKY&#10;HUB" aria-label="No Man's Sky Hub">NO MAN'S SKY
 HUB</h1>
     <button id="titleToggle" class="toggle" type="button" aria-pressed="false">▸ SHOW IN ENGLISH</button>
-    <p class="hero-sub">Six free tools for travellers of No Man's Sky. One network, no account, installs as an app.</p>
+    <p class="hero-sub">Seven free tools for travellers of No Man's Sky. One network, no account, installs as an app.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#nodes">CHOOSE A NODE ↓</a>
       <button id="replayIntro" class="btn btn-replay" type="button">REPLAY THE ANOMALY</button>
@@ -542,32 +545,36 @@ HUB</h1>
   <div class="stars"></div><div class="glow"></div>
   <div class="wrap" style="position:relative;padding:0">
     <div class="nodes-head">
-      <div><div class="kicker" translate="no">ELEGRA1965 SYSTEMS</div><h2 class="h2">Six nodes. One network.</h2></div>
+      <div><div class="kicker" translate="no">ELEGRA1965 SYSTEMS</div><h2 class="h2">Seven nodes. One network.</h2></div>
       <p>Every tool is free, works on phone and desktop, and installs like an app.</p>
     </div>
     <div class="node-rows grid-nodes">
       <a class="nrow red" href="https://atlas.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Atlas AI">
-        <span class="img" style="background-image:url('assets/atlas29.jpg')"></span><span class="shade"></span>
+        <span class="img" role="img" aria-label="Atlas AI: the red Atlas orb, online" style="background-image:url('assets/tile-atlas.webp')"></span><span class="shade"></span>
         <span class="body"><span class="tags"><span class="tag">NODE 01</span><span class="live checking"><i></i><b>CHECKING</b></span></span><span class="name">Atlas AI</span><span class="desc">A voice-first AI guide to No Man's Sky. Ask how to craft or refine anything, where to find it, today's expedition milestones, or the lore. And hear the Atlas answer.</span><span class="go">TALK TO THE ATLAS <span>→</span></span></span>
       </a>
       <a class="nrow" href="https://map.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Galactic Map">
-        <span class="img" style="background-image:url('assets/bg-stars.webp')"></span><span class="shade"></span>
+        <span class="img" role="img" aria-label="Galactic Map: the galaxy view with the core glowing" style="background-image:url('assets/tile-map.webp')"></span><span class="shade"></span>
         <span class="body"><span class="tags"><span class="tag">NODE 04</span><span class="live checking"><i></i><b>CHECKING</b></span></span><span class="name">Galactic Map</span><span class="desc">Turn any 12-glyph portal address into a real spot in a 3D galaxy. Fly between stars and log your own finds.</span><span class="go">OPEN THE MAP <span>→</span></span></span>
       </a>
       <a class="nrow gold" href="#dialer">
-        <span class="img" style="background-image:url('assets/neon11.jpg')"></span><span class="shade"></span>
-        <span class="body"><span class="tags"><span class="tag">TOOL</span></span><span class="name">Portal Dialer</span><span class="desc">Dial a portal address on the glyph ring. See it light up, then open it on the Galactic Map.</span><span class="go">OPEN THE DIALER <span>→</span></span></span>
+        <span class="img" role="img" aria-label="Portal Dialer: the portal glyph title" style="background-image:url('assets/tile-dialer.webp')"></span><span class="shade"></span>
+        <span class="body"><span class="tags"><span class="tag">NODE 07</span></span><span class="name">Portal Dialer</span><span class="desc">Dial a portal address on the glyph ring. See it light up, then open it on the Galactic Map.</span><span class="go">OPEN THE DIALER <span>→</span></span></span>
       </a>
       <a class="nlist" href="https://weather.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Weather Station">
+        <span class="img" role="img" aria-label="Weather Station: the planet day-cycle dial with sunrise and sunset arc" style="background-image:url('assets/tile-weather.webp')"></span><span class="shade"></span>
         <span class="tag">NODE 02</span><span class="nl-t"><span class="name">Weather Station</span><span class="desc">Real local weather as an NMS planetary scan, with storm and rain alerts.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
       <a class="nlist" href="https://theme.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Theme Pack">
+        <span class="img" role="img" aria-label="Theme Pack: a phone home screen with No Man's Sky icons" style="background-image:url('assets/tile-theme.webp')"></span><span class="shade"></span>
         <span class="tag">NODE 03</span><span class="nl-t"><span class="name">Theme Pack</span><span class="desc">79 icons, 17 wallpapers and 5 charging animations for phone and PC.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
       <a class="nlist" href="https://translator.nomansskyhub.app/" target="_blank" rel="noopener" data-node="Alphabet Translator">
+        <span class="img" role="img" aria-label="Alphabet Translator: the live translator box in the NMS alphabet" style="background-image:url('assets/tile-translator.webp')"></span><span class="shade"></span>
         <span class="tag">NODE 05</span><span class="nl-t"><span class="name">Alphabet Translator</span><span class="desc">English to NMS text, and in-game text back to English.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
       <a class="nlist" href="https://github.com/elegra1965-source/obsidian-nms-atlas" target="_blank" rel="noopener" data-node="Atlas Obsidian Theme">
+        <span class="img" role="img" aria-label="Atlas Obsidian Theme: a deep-space theme for the Obsidian notes app" style="background-image:url('assets/obsidian-card.jpg')"></span><span class="shade"></span>
         <span class="tag">NODE 06</span><span class="nl-t"><span class="name">Atlas Obsidian Theme</span><span class="desc">A deep-space theme for the Obsidian notes app. Free on GitHub.</span></span><span class="live checking"><i></i><b>CHECKING</b></span>
       </a>
     </div>
@@ -1288,7 +1295,7 @@ HUB</h1>
 <script src="/nms-tour.js?v=3"></script>
 <script>NMSTour.init({id:'hub',launchers:['#tourOpen','#heroTour'],
   steps:[
-    {sel:'.node-rows',title:'Six free tools',body:'Tap a row to open that tool. Each one works on phone and PC and installs like an app.'},
+    {sel:'.node-rows',title:'Seven free tools',body:'Tap a row to open that tool. Each one works on phone and PC and installs like an app.'},
     {sel:'.ring-wrap',title:'Portal dialer',body:'Tap the glyphs round the ring or type the hex code, then copy, share or open it on the Galactic Map.'},
     {sel:'.tr-box',title:'Translator',body:'Type English and see it written in the NMS font.'},
     {sel:['#discoveries .dc-col','.tr-tabs'],title:'Top surveyors',body:'Who charted the most on the Galactic Map this week. The top 3 get a medal. Follow the 3 steps to get your name here, and chart a new system every day for streak medals.'},
