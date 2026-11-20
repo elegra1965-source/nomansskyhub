@@ -917,14 +917,14 @@ HUB</h1>
     function setCls(el,c){el.className=el.className.replace(/\bst-\w+/g,'').trim()+' '+c;}
     function check(){
       Promise.all(cards.map(function(c){return probe(c.getAttribute('href'));})).then(function(ok){
-        var up=0,down=[];
+        var up=1,down=[];/* the Portal Dialer (node 07) lives on this page, so it is always up */
         ok.forEach(function(v,i){
           var pill=cards[i].querySelector('.live');
           pill.classList.remove('checking');pill.classList.toggle('off',!v);
           pill.querySelector('b').textContent=v?'ONLINE':'OFFLINE';
           if(v)up++;else down.push(cards[i].getAttribute('data-node').toUpperCase());
         });
-        var n=cards.length,pad=function(x){return(x<10?'0':'')+x;};
+        var n=cards.length+1,pad=function(x){return(x<10?'0':'')+x;};
         var cls=up===n?'st-ok':(up>=n-2?'st-mid':'st-bad');
         $('nodeCount').textContent=pad(up)+' / '+pad(n)+' ONLINE';setCls($('nodeCount'),cls);
         var sig=up===n?'STRONG':(up===0?'LOST':(up>=n-2?'STABLE':'WEAK'));LIVE.nodes={up:up,n:n,signal:sig};
