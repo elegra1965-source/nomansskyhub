@@ -51,7 +51,8 @@
 .tr-more-btn:hover,.tr-more-btn:focus-visible{background:rgba(0,229,255,.12);border-color:var(--cyan);outline:none}
 .tr-more-btn[hidden]{display:none}
 
-.tr-badge .nmsm-mini,.tr-last .nmsm-mini{width:20px;height:20px;flex-basis:20px;margin-right:3px}.tr-badge .nmsm-svg,.tr-last .nmsm-svg{width:20px;height:20px}
+.tr-badge .nmsm-mini,.tr-last .nmsm-mini{width:20px;height:20px;flex-basis:20px;margin-right:3px}.tr-badge .nmsm-svg,.tr-last .nmsm-svg{width:20px;height:20px;overflow:hidden}
+.tr-badge{display:inline-flex;align-items:center;gap:5px;line-height:1;padding:5px 10px 5px 5px}
 
 .tr-tabs{display:none}
 @media (max-width:760px){
