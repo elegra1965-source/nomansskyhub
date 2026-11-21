@@ -24,7 +24,14 @@
   .grid-nodes::-webkit-scrollbar{display:none}
   .grid-nodes>.card,.grid-nodes>.card.wide,.grid-nodes>.card.tall,.grid-nodes>.card.full{flex:0 0 84%;height:360px;scroll-snap-align:center}
   .grid-nodes>.nrow,.grid-nodes>.nlist{flex:0 0 84%;min-height:0;scroll-snap-align:center}
-  .grid-nodes>.nrow{min-height:290px}
+  .grid-nodes>.nrow{min-height:290px;display:flex;flex-direction:column;justify-content:flex-end}
+  /* 2026-11-21 (Tony): text and ONLINE sit at the bottom of every tile, same as the Weather tile */
+  .grid-nodes>.nrow .shade{background:linear-gradient(180deg,rgba(2,6,11,.08) 0%,rgba(2,6,11,.5) 42%,rgba(2,6,11,.9) 100%)}
+  .grid-nodes>.nrow .body{width:100%;max-width:none;padding:18px;gap:8px}
+  .grid-nodes>.nrow .tags{display:contents}
+  .grid-nodes>.nrow .tag{order:0;align-self:flex-start}
+  .grid-nodes>.nrow .name{order:1}.grid-nodes>.nrow .desc{order:2}.grid-nodes>.nrow .go{order:3}
+  .grid-nodes>.nrow .live{order:4}
   .grid-nodes>.nlist{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:10px;padding:18px;min-height:290px}
   .grid-nodes>.nlist{position:relative;overflow:hidden;background:#02060b}
   .grid-nodes>.nlist .img{display:block;position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.95) brightness(.92)}
