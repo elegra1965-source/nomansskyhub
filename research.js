@@ -4,8 +4,8 @@
 (function () {
   /* The Atlas 'Community Research' point of interest is mission 116 (missionTiers 2) on the same API the
      expedition bar uses: {currentTier, totalTiers, tierPercentage, percentage}. Checked 2026-10-20. */
-  var MISSION = 116;
-  var SRC = '/nms-api/mission/' + MISSION + '?platform=merged';
+  /* which mission is being played now comes from the shared expedition source (nms-expedition.js): it is
+     only shown while a Galactic Atlas community mission is really moving; otherwise the strip stays hidden */
   var LINK = 'https://galacticatlas.nomanssky.com/poi/community-research';
   var bar = document.querySelector('.exp-bar');
   if (!bar) return;
@@ -42,10 +42,14 @@
   function update() {
     var ac = ('AbortController' in window) ? new AbortController() : null,
         tm = setTimeout(function () { if (ac) ac.abort(); }, 6000);
-    var p = window.NMS_RESEARCH_MOCK ? Promise.resolve(window.NMS_RESEARCH_MOCK)
-      : fetch(SRC, ac ? { signal: ac.signal } : undefined).then(function (r) { if (!r.ok) throw 0; return r.json(); });
-    p.then(function (j) { clearTimeout(tm); var d = read(j); if (d) show(d); })
-     .catch(function () { clearTimeout(tm); });
+    var pick = window.NMS_RESEARCH_MOCK ? Promise.resolve('mock')
+      : (window.NMSExp ? NMSExp.get().then(function (v) { return v && v.research && v.research.mission ? v.research.mission : null; }) : Promise.resolve(null));
+    pick.then(function (id) {
+      if (!id) { clearTimeout(tm); row.hidden = true; if (window.NMS_LIVE) window.NMS_LIVE.research = null; return null; }
+      var p = window.NMS_RESEARCH_MOCK ? Promise.resolve(window.NMS_RESEARCH_MOCK)
+        : fetch('/nms-api/mission/' + id + '?platform=merged', ac ? { signal: ac.signal } : undefined).then(function (r) { if (!r.ok) throw 0; return r.json(); });
+      return p.then(function (j) { clearTimeout(tm); var d = read(j); if (d) show(d); });
+    }).catch(function () { clearTimeout(tm); });
   }
   update(); setInterval(update, 10 * 60000);
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') update(); });

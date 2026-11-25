@@ -9,6 +9,7 @@
 <script src="/lang.js?v=7"></script>
 <script src="/nms-update.js?v=5" defer></script>
 <script src="/nms-events.js?v=20261123" defer></script>
+<script src="/nms-expedition.js?v=20261125"></script>
 <meta name="robots" content="max-image-preview:large">
 <meta name="description" content="Seven free No Man's Sky tools in one place: voice AI guide, 3D galactic map, portal dialer, glyph translator, weather, theme pack and Obsidian theme.">
 <link rel="canonical" href="https://nomansskyhub.app/">
@@ -873,8 +874,8 @@ HUB</h1>
     var gotLive=false,lastMeta=null;
     /* the countdown line is built here (dates, plurals), so it is redrawn when the language changes */
     function drawMeta(){
-      if(lastMeta.complete){$('expMeta').textContent='EXPEDITION COMPLETE · STANDBY, AWAITING NEXT TRANSMISSION';return;}
-      var meta=[];var tl=timeLeft();if(tl)meta.push(tl);if(lastMeta.leader)meta.push(window.NMS_T?NMS_T('{f} LEADING THE CHARGE',{f:lastMeta.leader}):lastMeta.leader+' LEADING THE CHARGE');
+      if(lastMeta.complete){var nx=lastMeta.next;$('expMeta').textContent=nx?(window.NMS_T?NMS_T('EXPEDITION COMPLETE'):'EXPEDITION COMPLETE')+' · '+(window.NMS_T?NMS_T('NEXT: {x}',{x:nx.name}):'NEXT: '+nx.name)+' · '+(window.NMS_T?NMS_T('STARTS {d}',{d:NMS_DATE(new Date(nx.start),{day:'numeric',month:'short',timeZone:'UTC'}).toUpperCase()}):'STARTS'):'EXPEDITION COMPLETE · STANDBY, AWAITING NEXT TRANSMISSION';return;}
+      var meta=[];var tl=timeLeft();if(tl)meta.push(tl);if(lastMeta.redux)meta.push(window.NMS_T?NMS_T('HOLIDAY REDUX'):'HOLIDAY REDUX');if(lastMeta.leader)meta.push(window.NMS_T?NMS_T('{f} LEADING THE CHARGE',{f:lastMeta.leader}):lastMeta.leader+' LEADING THE CHARGE');
       $('expMeta').textContent=meta.join(' · ');
       if(LIVE.exp)LIVE.exp.time=timeLeft(); /* top-bar ticker too */
     }
@@ -886,7 +887,27 @@ HUB</h1>
     }
     /* never leave the bar stuck on CONNECTING: show the fallback if nothing has arrived after 7s */
     setTimeout(function(){if(!gotLive&&/CONNECTING/.test($('expName').textContent))unavailable();},7000);
+    /* the schedule comes from map.nomansskyhub.app (built from Hello Games' own news, checked every 3 hours, every 10 minutes on Wednesdays) */
+    function viaShared(v){
+      var r=v&&(v.live||v.last);if(!r)return false;
+      EXP.name=r.name;EXP.end=r.end?new Date(r.end).toISOString():null;gotLive=true;
+      var complete=!v.live,nx=complete?v.next:null,red=!!(v.live&&v.live.redux);
+      $('expName').textContent=EXP.name;
+      LIVE.exp={name:EXP.name,complete:complete,time:timeLeft()};
+      lastMeta={complete:complete,leader:null,next:nx,redux:red};drawMeta();
+      var rs=v.research;
+      if(rs&&rs.mission&&!complete)fetchMission(rs.mission).then(function(d){
+        if(!d||!d.teamTotals||!d.teamTotals.length||!lastMeta||lastMeta.complete)return;
+        var nm={blue:'KORVAX',green:'GEK',red:"VY'KEEN"},mx=-1,l=null;
+        d.teamTotals.forEach(function(t){if((t.total||0)>mx){mx=t.total||0;l=nm[t.team]||String(t.team||'').toUpperCase();}});
+        lastMeta.leader=l;LIVE.exp.leader=l;drawMeta();
+      });
+      return true;
+    }
     function update(){
+      if(window.NMSExp){NMSExp.get().then(function(v){if(!viaShared(v))legacy();});}else legacy();
+    }
+    function legacy(){
       var base=EXP.mission;
       Promise.all([base,base+1,base+2].map(fetchMission)).then(function(res){
         var bestId=base,data=null;
